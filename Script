@@ -3,25 +3,25 @@ local Window = Library.CreateLib("Alice Hub", "Synapse")
 local Tab = Window:NewTab("Main")
 local Section = Tab:NewSection("Characters FE")
 Section:NewButton("Saitama To Gojo", "", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/frosty-601/AIice-Hub/main/Saitama%20to%20gojo"))()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Lolosor/Alice/main/Saitama%20to%20gojo"))()
 end)
 Section:NewButton("Saitama To M1 Master", "", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/frosty-601/AIice-Hub/main/M1%20Master"))()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Lolosor/Alice/main/M1%20Master"))()
 end)
 Section:NewButton("Garou To Combat", "", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/frosty-601/AIice-Hub/main/Combat"))()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Lolosor/Alice/main/Combat"))()
 end)
 Section:NewButton("Garou To Sukuna", "", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/frosty-601/AIice-Hub/main/Sukuna"))()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Lolosor/Alice/main/Sukuna"))()
 end)
 Section:NewButton("Garou To Cosmic Garou", "", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/frosty-601/AIice-Hub/main/Cosmic%20Garou%20Glitcher"))()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Lolosor/Alice/main/Cosmic%20Garou%20Glitcher"))()
 end)
 Section:NewButton("Garou To Goku", "", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/frosty-601/AIice-Hub/main/Goku"))()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Lolosor/Alice/main/Goku"))()
 end)
 Section:NewButton("Saitama To KJ", "", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/frosty-601/AIice-Hub/main/KJ"))()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Lolosor/Alice/main/KJ"))()
 end)
 local Tab = Window:NewTab("Other Hubs")
 local Section = Tab:NewSection("Hubs")
@@ -468,7 +468,7 @@ Section:NewButton("Dex Explorer V3", "See what's inside the game", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Babyhamsta/RBLX_Scripts/main/Universal/BypassedDarkDexV3.lua", true))()
 end)
 Section:NewButton("Animation Logger", "Detects current played animation", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/frosty-601/AIice-Hub/main/Animation%20Logger"))()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Lolosor/Alice/main/Animation%20Logger"))()
 end)
 Section:NewButton("Aimbot", "Locks at the nearest player's head", function()
     loadstring(game:HttpGet("https://pastebin.com/raw/1Gp9c57U"))()
@@ -476,11 +476,37 @@ end)
 Section:NewButton("Keyboard", "", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/advxzivhsjjdhxhsidifvsh/mobkeyboard/main/main.txt", true))()
 end)
-Section:NewSlider("WalkSpeed", "Changes your current speed", 500, 0, function(s) -- 500 (MaxValue) | 0 (MinValue)
-    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+Section:NewTextBox("WalkSpeed", "Enter the speed you want", function(value)
+    local player = game.Players.LocalPlayer
+    local character = player.Character or player.CharacterAdded:Wait()
+    local humanoid = character:WaitForChild("Humanoid")
+
+    -- Convert the value from string to number
+    local speed = tonumber(value)
+    
+    -- If the input is a valid number, change the walk speed
+    if speed then
+        humanoid.WalkSpeed = speed
+    else
+        -- Optionally, notify the player if the input is invalid
+        print("Please enter a valid number")
+    end
 end)
-Section:NewSlider("JumpPower", "Changes your current jump power", 500, 0, function(s) -- 500 (MaxValue) | 0 (MinValue)
-    game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
+Section:NewTextBox("JumpPower", "Enter the jump power you want", function(value)
+    local player = game.Players.LocalPlayer
+    local character = player.Character or player.CharacterAdded:Wait()
+    local humanoid = character:WaitForChild("Humanoid")
+
+    -- Convert the value from string to number
+    local jumpPower = tonumber(value)
+    
+    -- If the input is a valid number, change the jump power
+    if jumpPower then
+        humanoid.JumpPower = jumpPower
+    else
+        -- Optionally, notify the player if the input is invalid
+        print("Please enter a valid number")
+    end
 end)
 local Tab = Window:NewTab("Credits")
 local Section = Tab:NewSection("Alice, Allah_isthebest, NetlessKJ")
