@@ -57,7 +57,7 @@ local character = player.Character or player.CharacterAdded:Wait()
 local UserInputService = game:GetService("UserInputService")
 
 local anim2 = Instance.new("Animation")
-anim2.AnimationId = "rbxassetid://"
+anim2.AnimationId = "rbxassetid://15957376722"
 
 local playAnim2 = humanoid:LoadAnimation(anim2)
 playAnim2:Play()
@@ -70,7 +70,7 @@ local character = player.Character or player.CharacterAdded:Wait()
 local UserInputService = game:GetService("UserInputService")
 
 local anim2 = Instance.new("Animation")
-anim2.AnimationId = "rbxassetid://"
+anim2.AnimationId = "rbxassetid://15957374019"
 
 local playAnim2 = humanoid:LoadAnimation(anim2)
 playAnim2:Play()
@@ -83,7 +83,7 @@ local character = player.Character or player.CharacterAdded:Wait()
 local UserInputService = game:GetService("UserInputService")
 
 local anim2 = Instance.new("Animation")
-anim2.AnimationId = "rbxassetid://"
+anim2.AnimationId = "rbxassetid://15957361339"
 
 local playAnim2 = humanoid:LoadAnimation(anim2)
 playAnim2:Play()
@@ -96,7 +96,7 @@ local character = player.Character or player.CharacterAdded:Wait()
 local UserInputService = game:GetService("UserInputService")
 
 local anim2 = Instance.new("Animation")
-anim2.AnimationId = "rbxassetid://"
+anim2.AnimationId = "rbxassetid://15957371124"
 
 local playAnim2 = humanoid:LoadAnimation(anim2)
 playAnim2:Play()
@@ -109,7 +109,7 @@ local character = player.Character or player.CharacterAdded:Wait()
 local UserInputService = game:GetService("UserInputService")
 
 local anim2 = Instance.new("Animation")
-anim2.AnimationId = "rbxassetid://"
+anim2.AnimationId = "rbxassetid://15983615423"
 
 local playAnim2 = humanoid:LoadAnimation(anim2)
 playAnim2:Play()
@@ -122,7 +122,7 @@ local character = player.Character or player.CharacterAdded:Wait()
 local UserInputService = game:GetService("UserInputService")
 
 local anim2 = Instance.new("Animation")
-anim2.AnimationId = "rbxassetid://"
+anim2.AnimationId = "rbxassetid://16136144568"
 
 local playAnim2 = humanoid:LoadAnimation(anim2)
 playAnim2:Play()
@@ -135,7 +135,7 @@ local character = player.Character or player.CharacterAdded:Wait()
 local UserInputService = game:GetService("UserInputService")
 
 local anim2 = Instance.new("Animation")
-anim2.AnimationId = "rbxassetid://"
+anim2.AnimationId = "rbxassetid://18435303746"
 
 local playAnim2 = humanoid:LoadAnimation(anim2)
 playAnim2:Play()
