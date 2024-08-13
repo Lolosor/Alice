@@ -49,6 +49,23 @@ Section:NewTextBox("JumpPower", "Enter the jump power you want", function(value)
         print("Please enter a valid number")
     end
 end)
+Section:NewTextBox("TP WalkSpeed", "Enter the TP walk speed", function(value)
+    local player = game.Players.LocalPlayer
+    local character = player.Character or player.CharacterAdded:Wait()
+    local humanoid = character:WaitForChild("Humanoid")
+    
+    -- Convert the value from string to number
+    local tpWalkSpeed = tonumber(value)
+    
+    -- If the input is a valid number, change the walk speed
+    if tpWalkSpeed then
+        -- This assumes TP walk speed is just a high walk speed
+        humanoid.WalkSpeed = tpWalkSpeed
+    else
+        -- Optionally, notify the player if the input is invalid
+        print("Please enter a valid number")
+    end
+end)
 local Tab = Window:NewTab("Credits")
 local Section = Tab:NewSection("Alice, Allah_isthebest, NetlessKJ")
 Section:NewKeybind("Toggle UI", "", Enum.KeyCode.E, function()
