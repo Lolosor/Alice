@@ -341,9 +341,9 @@ end
 humanoid.AnimationPlayed:Connect(onAnimationPlayed)
 
 
-loadstring(game:HttpGet("https://raw.githubusercontent.com/frosty-601/AIice-Hub/main/Gojo%20combo"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Lolosor/AIice/main/Gojo%20combo"))()
 
-loadstring(game:HttpGet("https://raw.githubusercontent.com/frosty-601/AIice-Hub/main/infinity"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Lolosor/Alice/main/infinity"))()
 
 local Players = game:GetService("Players")
 
