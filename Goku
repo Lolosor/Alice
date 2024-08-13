@@ -1,4 +1,4 @@
-loadstring(game:HttpGet("https://raw.githubusercontent.com/frosty-601/AIice-Hub/main/Goku2"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Lolosor/Alice/main/Goku2"))()
 
 loadstring(game:HttpGet("https://pastebin.com/raw/NDjRmTKv"))()
 
