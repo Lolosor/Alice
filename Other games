@@ -1,0 +1,56 @@
+local Library = loadstring(game:HttpGet("https://pastebin.com/raw/vff1bQ9F"))()
+local Window = Library.CreateLib("Alice Hub", "Synapse")
+local Tab = Window:NewTab("Main")
+local Section = Tab:NewSection("You're using a different game, it wouldn't work")
+Section:NewButton("Infinite Yield", "OP FE admin commands", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
+end)
+Section:NewButton("Dex Explorer V3", "See what's inside the game", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Babyhamsta/RBLX_Scripts/main/Universal/BypassedDarkDexV3.lua", true))()
+end)
+Section:NewButton("Animation Logger", "Detects current played animation", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/frosty-601/AIice-Hub/main/Animation%20Logger"))()
+end)
+Section:NewButton("Aimbot", "Locks at the nearest player's head", function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/1Gp9c57U"))()
+end)
+Section:NewButton("Keyboard", "", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/advxzivhsjjdhxhsidifvsh/mobkeyboard/main/main.txt", true))()
+end)
+Section:NewTextBox("WalkSpeed", "Enter the speed you want", function(value)
+    local player = game.Players.LocalPlayer
+    local character = player.Character or player.CharacterAdded:Wait()
+    local humanoid = character:WaitForChild("Humanoid")
+
+    -- Convert the value from string to number
+    local speed = tonumber(value)
+    
+    -- If the input is a valid number, change the walk speed
+    if speed then
+        humanoid.WalkSpeed = speed
+    else
+        -- Optionally, notify the player if the input is invalid
+        print("Please enter a valid number")
+    end
+end)
+Section:NewTextBox("JumpPower", "Enter the jump power you want", function(value)
+    local player = game.Players.LocalPlayer
+    local character = player.Character or player.CharacterAdded:Wait()
+    local humanoid = character:WaitForChild("Humanoid")
+
+    -- Convert the value from string to number
+    local jumpPower = tonumber(value)
+    
+    -- If the input is a valid number, change the jump power
+    if jumpPower then
+        humanoid.JumpPower = jumpPower
+    else
+        -- Optionally, notify the player if the input is invalid
+        print("Please enter a valid number")
+    end
+end)
+local Tab = Window:NewTab("Credits")
+local Section = Tab:NewSection("Alice, Allah_isthebest, NetlessKJ")
+Section:NewKeybind("Toggle UI", "", Enum.KeyCode.E, function()
+	Library:ToggleUI()
+end)

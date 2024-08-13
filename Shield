@@ -1,0 +1,46 @@
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local torso = character:WaitForChild("Torso")
+
+-- Create an invisible part as the anchor
+local shieldBlock = Instance.new("Part")
+shieldBlock.Size = Vector3.new(5, 5, 5) -- Adjust size as needed
+shieldBlock.Transparency = 1
+shieldBlock.Anchored = false
+shieldBlock.CanCollide = false
+shieldBlock.Massless = true -- Make sure it has no physical impact
+shieldBlock.Parent = character
+
+-- Weld the block to the torso
+local weld = Instance.new("Weld")
+weld.Part0 = torso
+weld.Part1 = shieldBlock
+weld.C0 = CFrame.new(0, 0, 0)
+weld.Parent = torso
+
+-- Create the invisible shield aura with a very faint effect
+local shieldAura = Instance.new("Part")
+shieldAura.Shape = Enum.PartType.Ball
+shieldAura.Size = Vector3.new(10, 10, 10) -- Adjust size as needed
+shieldAura.Transparency = 0.95 -- Almost completely invisible
+shieldAura.Material = Enum.Material.Neon -- Or any other material
+shieldAura.Anchored = false
+shieldAura.CanCollide = false
+shieldAura.Massless = true -- Ensure it has no physical impact
+shieldAura.Color = Color3.fromRGB(135, 206, 250) -- Light blue color, but nearly invisible
+shieldAura.Parent = character
+
+-- Attach the shield aura to the invisible block
+local auraWeld = Instance.new("Weld")
+auraWeld.Part0 = shieldBlock
+auraWeld.Part1 = shieldAura
+auraWeld.C0 = CFrame.new(0, 0, 0)
+auraWeld.Parent = shieldBlock
+
+-- Add rotation effect
+spawn(function()
+    while true do
+        shieldAura.CFrame = shieldAura.CFrame * CFrame.Angles(0, math.rad(1), 0) -- Adjust rotation speed
+        wait(0.01)
+    end
+end)

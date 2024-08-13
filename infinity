@@ -1,0 +1,131 @@
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local humanoid = character:WaitForChild("Humanoid")
+local torso = character:WaitForChild("Torso")
+
+local animationId = 10470389827
+local walkingAnimationId = 7807831448
+local shieldAura, auraWeld, shieldBlock
+
+local function createShield()
+    -- Create an invisible part as the anchor
+    shieldBlock = Instance.new("Part")
+    shieldBlock.Size = Vector3.new(5, 5, 5)
+    shieldBlock.Transparency = 1
+    shieldBlock.Anchored = false
+    shieldBlock.CanCollide = false
+    shieldBlock.Massless = true
+    shieldBlock.Parent = character
+
+    -- Weld the block to the torso
+    local weld = Instance.new("Weld")
+    weld.Part0 = torso
+    weld.Part1 = shieldBlock
+    weld.C0 = CFrame.new(0, 0, 0)
+    weld.Parent = torso
+
+    -- Create the invisible shield aura
+    shieldAura = Instance.new("Part")
+    shieldAura.Shape = Enum.PartType.Ball
+    shieldAura.Size = Vector3.new(10, 10, 10)
+    shieldAura.Transparency = 0.95
+    shieldAura.Material = Enum.Material.Neon
+    shieldAura.Anchored = false
+    shieldAura.CanCollide = false
+    shieldAura.Massless = true
+    shieldAura.Color = Color3.fromRGB(135, 206, 250)
+    shieldAura.Parent = character
+
+    -- Attach the shield aura to the invisible block
+    auraWeld = Instance.new("Weld")
+    auraWeld.Part0 = shieldBlock
+    auraWeld.Part1 = shieldAura
+    auraWeld.C0 = CFrame.new(0, 0, 0)
+    auraWeld.Parent = shieldBlock
+
+    -- Add rotation effect
+    spawn(function()
+        while shieldAura and shieldAura.Parent do
+            shieldAura.CFrame = shieldAura.CFrame * CFrame.Angles(0, math.rad(1), 0)
+            wait(0.01)
+        end
+    end)
+end
+
+local function removeShield()
+    if shieldAura then
+        shieldAura:Destroy()
+        shieldAura = nil
+    end
+    if auraWeld then
+        auraWeld:Destroy()
+        auraWeld = nil
+    end
+    if shieldBlock then
+        shieldBlock:Destroy()
+        shieldBlock = nil
+    end
+end
+
+local walkingAnimTrack
+
+local function playAnimation(animId)
+    local anim = Instance.new("Animation")
+    anim.AnimationId = "rbxassetid://" .. animId
+    local animTrack = humanoid:LoadAnimation(anim)
+    animTrack:Play()
+    return animTrack
+end
+
+local function onAnimationPlayed(animationTrack)
+    if animationTrack.Animation.AnimationId == "rbxassetid://" .. animationId then
+        createShield()
+
+        for _, animTrack in pairs(humanoid:GetPlayingAnimationTracks()) do
+            animTrack:Stop()
+        end
+
+        local AnimAnim = Instance.new("Animation")
+        AnimAnim.AnimationId = "rbxassetid://1631034317"
+        local Anim = humanoid:LoadAnimation(AnimAnim)
+
+        local startTime = 0.9
+        Anim:Play()
+        Anim:AdjustSpeed(1)
+        Anim.TimePosition = startTime
+        Anim:AdjustSpeed(0.8)
+
+        delay(0.9, function()
+            Anim:Stop()
+            removeShield()
+        end)
+
+        -- Handle walking animation
+        if walkingAnimTrack then
+            walkingAnimTrack:Stop()
+        end
+        
+        walkingAnimTrack = playAnimation(walkingAnimationId)
+        local function onRunning(speed)
+            if speed > 0 then
+                if not walkingAnimTrack.IsPlaying then
+                    walkingAnimTrack:Play()
+                end
+            else
+                if walkingAnimTrack.IsPlaying then
+                    walkingAnimTrack:Stop()
+                end
+            end
+        end
+
+        humanoid.Running:Connect(onRunning)
+    else
+        if walkingAnimTrack and walkingAnimTrack.IsPlaying then
+            walkingAnimTrack:Stop()
+        end
+
+        removeShield()  -- Remove shield when the animation stops
+    end
+end
+
+humanoid.AnimationPlayed:Connect(onAnimationPlayed)
