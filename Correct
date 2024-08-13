@@ -7,11 +7,4 @@ if game.PlaceId == targetGameId then
 else
     -- Any other game
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Lolosor/Alice/main/Other%20games"))()
-local StarterGui = game:GetService("StarterGui")
-
-StarterGui:SetCore("SendNotification", {
-    Title = "Successfully Loaded",   -- Title of the notification
-    Text = "Enjoy!",    -- Text to display
-    Duration = 5                   -- Duration in seconds
-})
 end
