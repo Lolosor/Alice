@@ -1,0 +1,40 @@
+-- Function to handle animation detection and replacement
+local function handleAnimationDetection(animIdsToStop, replacementAnimId)
+    local humanoid = game.Players.LocalPlayer.Character.Humanoid
+    
+    local function onAnimPlayed(animationTrack)
+        local animId = tonumber(string.match(animationTrack.Animation.AnimationId, "%d+"))
+        
+        for _, stopId in ipairs(animIdsToStop) do
+            if animId == stopId then
+                animationTrack:Stop()
+                local replacementAnimation = Instance.new("Animation")
+                replacementAnimation.AnimationId = "rbxassetid://" .. replacementAnimId
+                humanoid:LoadAnimation(replacementAnimation):Play()
+                break
+            end
+        end
+    end
+    
+    humanoid.AnimationPlayed:Connect(onAnimPlayed)
+end
+
+-- First set of animations
+local firstAnimIdsToStop = {10469493270, 13532562418, 13491635433, 13370310513}
+local firstReplacementAnimId = 17325510002
+handleAnimationDetection(firstAnimIdsToStop, firstReplacementAnimId)
+
+-- Second set of animations
+local secondAnimIdsToStop = {10469630950, 13532600125, 13296577783, 13390230973}
+local secondReplacementAnimId = 17325513870
+handleAnimationDetection(secondAnimIdsToStop, secondReplacementAnimId)
+
+-- Third set of animations
+local thirdAnimIdsToStop = {10469639222, 13532604085, 13295919399, 13378751717}
+local thirdReplacementAnimId = 17325522388
+handleAnimationDetection(thirdAnimIdsToStop, thirdReplacementAnimId)
+
+-- Fourth set of animations
+local fourthAnimIdsToStop = {10469643643, 13294471966, 13295936866, 13378708199}
+local fourthReplacementAnimId = 17325537719
+handleAnimationDetection(fourthAnimIdsToStop, fourthReplacementAnimId)
