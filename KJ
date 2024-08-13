@@ -385,7 +385,7 @@ Anim.TimePosition = startTime
 
 Anim:AdjustSpeed(0.3)
 
-loadstring(game:HttpGet("https://raw.githubusercontent.com/frosty-601/AIice-Hub/main/VFX"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Lolosor/Alice/main/VFX"))()
     end
 
 end
@@ -393,7 +393,7 @@ end
 
 humanoid.AnimationPlayed:Connect(onAnimationPlayed)
 
-loadstring(game:HttpGet("https://raw.githubusercontent.com/frosty-601/AIice-Hub/main/KJ%20Ult"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Lolosor/Alice/main/KJ%20Ult"))()
 
 local function stopSpecificAnimations()
 
@@ -488,4 +488,4 @@ end)
 
 loadstring(game:HttpGet("https://pastebin.com/raw/aRLH0vt4"))()
 
-loadstring(game:HttpGet("https://raw.githubusercontent.com/frosty-601/AIice-Hub/main/Stealth%20Combat"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Lolosor/Alice/main/Stealth%20Combat"))()
