@@ -697,7 +697,8 @@ local playAnim2 = humanoid:LoadAnimation(anim2)
 playAnim2:Play()
 end)
 Section:NewButton("Prey's Peril (Full)", "", function()
-    
+
+end)
 local Tab = Window:NewTab("Misc")
 local Section = Tab:NewSection("Misc")
 Section:NewButton("Infinite Yield", "OP FE admin commands", function()
