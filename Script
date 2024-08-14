@@ -567,6 +567,141 @@ anim2.AnimationId = "rbxassetid://17889290569"
 local playAnim2 = humanoid:LoadAnimation(anim2)
 playAnim2:Play()
 end)
+local Tab = Window:NewTab("Movesets")
+local Section = Tab:NewSection("The Strongest Hero")
+Section:NewButton("Normal Punch", "", function()
+    local player = game.Players.LocalPlayer
+repeat wait() until player.Character.Humanoid
+local humanoid = player.Character.Humanoid
+local character = player.Character or player.CharacterAdded:Wait()
+local UserInputService = game:GetService("UserInputService")
+
+local anim2 = Instance.new("Animation")
+anim2.AnimationId = "rbxassetid://10468665991"
+
+local playAnim2 = humanoid:LoadAnimation(anim2)
+playAnim2:Play()
+end)
+Section:NewButton("Consecutive Punches", "", function()
+    local player = game.Players.LocalPlayer
+repeat wait() until player.Character.Humanoid
+local humanoid = player.Character.Humanoid
+local character = player.Character or player.CharacterAdded:Wait()
+local UserInputService = game:GetService("UserInputService")
+
+local anim2 = Instance.new("Animation")
+anim2.AnimationId = "rbxassetid://10466974800"
+
+local playAnim2 = humanoid:LoadAnimation(anim2)
+playAnim2:Play()
+end)
+Section:NewButton("Shove", "", function()
+    local player = game.Players.LocalPlayer
+repeat wait() until player.Character.Humanoid
+local humanoid = player.Character.Humanoid
+local character = player.Character or player.CharacterAdded:Wait()
+local UserInputService = game:GetService("UserInputService")
+
+local anim2 = Instance.new("Animation")
+anim2.AnimationId = "rbxassetid://10471336737"
+
+local playAnim2 = humanoid:LoadAnimation(anim2)
+playAnim2:Play()
+end)
+Section:NewButton("Uppercut", "", function()
+    local player = game.Players.LocalPlayer
+repeat wait() until player.Character.Humanoid
+local humanoid = player.Character.Humanoid
+local character = player.Character or player.CharacterAdded:Wait()
+local UserInputService = game:GetService("UserInputService")
+
+local anim2 = Instance.new("Animation")
+anim2.AnimationId = "rbxassetid://12510170988"
+
+local playAnim2 = humanoid:LoadAnimation(anim2)
+playAnim2:Play()
+end)
+local Section = Tab:NewSection("Hero Hunter")
+Section:NewButton("Flowing Water (Miss)", "", function()
+    local player = game.Players.LocalPlayer
+repeat wait() until player.Character.Humanoid
+local humanoid = player.Character.Humanoid
+local character = player.Character or player.CharacterAdded:Wait()
+local UserInputService = game:GetService("UserInputService")
+
+local anim2 = Instance.new("Animation")
+anim2.AnimationId = "rbxassetid://12272894215"
+
+local playAnim2 = humanoid:LoadAnimation(anim2)
+playAnim2:Play()
+end)
+Section:NewButton("Flowing Water (Full)", "", function()
+    local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local humanoid = character:WaitForChild("Humanoid")
+
+-- First animation
+local Anim1 = Instance.new("Animation")
+Anim1.AnimationId = "rbxassetid://12272894215"  -- Replace with your first animation ID
+local AnimTrack1 = humanoid:LoadAnimation(Anim1)
+
+-- Second animation
+local Anim2 = Instance.new("Animation")
+Anim2.AnimationId = "rbxassetid://12273188754"  -- Replace with your second animation ID
+local AnimTrack2 = humanoid:LoadAnimation(Anim2)
+
+-- Play the first animation
+AnimTrack1:Play()
+
+-- Wait for 0.7 seconds, then play the second animation
+delay(0.6, function()
+    AnimTrack1:Stop()  -- Stop the first animation if needed
+    AnimTrack2:Play()
+end)
+Section:NewButton("Lethal Whirlwind Stream (Miss)")
+    local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local humanoid = character:WaitForChild("Humanoid")
+
+-- Play the animation when the script is executed
+local AnimAnim = Instance.new("Animation")
+AnimAnim.AnimationId = "rbxassetid://12296882427"
+local Anim = humanoid:LoadAnimation(AnimAnim)
+
+local startTime = 0
+Anim:Play()
+Anim.TimePosition = startTime
+Anim:AdjustSpeed(1)
+
+-- Stop the animation after 0.6 seconds
+dela(0.6, function()
+    Anim:Stop()
+end)
+Section:NewButton("Lethal Whirlwind Stream (Full)")
+    local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local humanoid = character:WaitForChild("Humanoid")
+
+-- First animation
+local Anim1 = Instance.new("Animation")
+Anim1.AnimationId = "rbxassetid://12296882427"  -- Replace with your first animation ID
+local AnimTrack1 = humanoid:LoadAnimation(Anim1)
+
+-- Second animation
+local Anim2 = Instance.new("Animation")
+Anim2.AnimationId = "rbxassetid://12296113986"  -- Replace with your second animation ID
+local AnimTrack2 = humanoid:LoadAnimation(Anim2)
+
+-- Play the first animation
+AnimTrack1:Play()
+
+-- Wait for 0.7 seconds, then play the second animation
+delay(0.48, function()
+    AnimTrack1:Stop()  -- Stop the first animation if needed
+    AnimTrack2:Play()
+end)
+Section:NewButton("Hunter's Grasp (Miss)")
+    
 local Tab = Window:NewTab("Misc")
 local Section = Tab:NewSection("Misc")
 Section:NewButton("Infinite Yield", "OP FE admin commands", function()
