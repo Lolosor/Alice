@@ -1,0 +1,377 @@
+local Library = loadstring(game:HttpGet("https://pastebin.com/raw/vff1bQ9F"))()
+local Window = Library.CreateLib("Alice Hub", "Synapse")
+
+-- Characters FE Tab
+local CharactersTab = Window:NewTab("Main")
+local CharactersSection = CharactersTab:NewSection("Characters FE")
+
+local characters = {
+    {name = "Saitama To Gojo", url = "https://raw.githubusercontent.com/Lolosor/Alice/main/Saitama%20to%20gojo"},
+    {name = "Saitama To M1 Master", url = "https://raw.githubusercontent.com/Lolosor/Alice/main/M1%20Master"},
+    {name = "Garou To Combat", url = "https://raw.githubusercontent.com/Lolosor/Alice/main/Combat"},
+    {name = "Garou To Sukuna", url = "https://raw.githubusercontent.com/Lolosor/Alice/main/Sukuna"},
+    {name = "Garou To Cosmic Garou", url = "https://raw.githubusercontent.com/Lolosor/Alice/main/Cosmic%20Garou%20Glitcher"},
+    {name = "Garou To Goku", url = "https://raw.githubusercontent.com/Lolosor/Alice/main/Goku"},
+    {name = "Saitama To KJ", url = "https://raw.githubusercontent.com/Lolosor/Alice/main/KJ"},
+}
+
+for _, char in ipairs(characters) do
+    CharactersSection:NewButton(char.name, "", function()
+        loadstring(game:HttpGet(char.url))()
+    end)
+end
+
+local Tab = Window:NewTab("Other Hubs")
+local Section = Tab:NewSection("Hubs")
+
+Section:NewButton("Epic Hub", "By allah_isthebest", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/frosty-601/Epic-Hub/main/Script"))()
+end)
+
+Section:NewButton("Burner Hub", "By xVicity", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/xVicity/BURNED/main/LATEST.lua'))()
+end)
+
+Section:NewButton("Animations", "By xVicity", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/Mautiku/ehh/main/strong%20guest.lua.txt'))()
+end)
+
+-- Spawn Animations Tab
+local AnimationsTab = Window:NewTab("Spawn Animations")
+local SpawnAnimationsSection = AnimationsTab:NewSection("Spawn Animations")
+
+local spawnAnimations = {
+    {name = "The Strongest Hero", id = "15957366251"},
+    {name = "Hero Hunter", id = "15957376722"},
+    {name = "Destructive Cyborg", id = "15957374019"},
+    {name = "Deadly Ninja", id = "15957361339"},
+    {name = "Brutal Demon", id = "15957371124"},
+    {name = "Bladd Master", id = "15983615423"},
+    {name = "Wild psychic", id = "16136144568"},
+    {name = "Martial Artist", id = "18435303746"},
+    {name = "KJ", id = "17325160621"},
+}
+
+local function playAnimation(animationId)
+    local player = game.Players.LocalPlayer
+    local character = player.Character or player.CharacterAdded:Wait()
+    repeat wait() until character:FindFirstChildOfClass("Humanoid")
+    local humanoid = character:FindFirstChildOfClass("Humanoid")
+
+    local anim = Instance.new("Animation")
+    anim.AnimationId = "rbxassetid://" .. animationId
+
+    local playAnim = humanoid:LoadAnimation(anim)
+    playAnim:Play()
+end
+
+for _, anim in ipairs(spawnAnimations) do
+    SpawnAnimationsSection:NewButton(anim.name, "", function()
+        playAnimation(anim.id)
+    end)
+end
+
+-- M1 Animations Tab
+local M1Tab = Window:NewTab("M1 Animations")
+local StrongestHeroSection = M1Tab:NewSection("The Strongest Hero")
+
+local m1Animations = {
+    {name = "M1 / 1", id = "10469493270"},
+    {name = "M1 / 2", id = "10469630950"},
+    {name = "M1 / 3", id = "10469639222"},
+    {name = "M1 / 4", id = "10469643643"},
+}
+
+for _, anim in ipairs(m1Animations) do
+    StrongestHeroSection:NewButton(anim.name, "", function()
+        playAnimation(anim.id)
+    end)
+end
+
+local HeroHunterSection = M1Tab:NewSection("Hero Hunter")
+
+local heroHunterAnimations = {
+    {name = "M1 / 1", id = "13532562418"},
+    {name = "M1 / 2", id = "13532600125"},
+    {name = "M1 / 3", id = "13532604085"},
+    {name = "M1 / 4", id = "13294471966"},
+}
+
+for _, anim in ipairs(heroHunterAnimations) do
+    HeroHunterSection:NewButton(anim.name, "", function()
+        playAnimation(anim.id)
+    end)
+end
+
+local DestructiveCyborgSection = M1Tab:NewSection("Destructive Cyborg")
+
+local destructiveCyborgAnimations = {
+    {name = "M1 / 1", id = "13491635433"},
+    {name = "M1 / 2", id = "13296577783"},
+    {name = "M1 / 3", id = "13295919399"},
+    {name = "M1 / 4", id = "13295936866"},
+}
+
+for _, anim in ipairs(destructiveCyborgAnimations) do
+    DestructiveCyborgSection:NewButton(anim.name, "", function()
+        playAnimation(anim.id)
+    end)
+end
+
+local DeadlyNinjaSection = M1Tab:NewSection("Deadly Ninja")
+
+local deadlyNinjaAnimations = {
+    {name = "M1 / 1", id = "13370310513"},
+    {name = "M1 / 2", id = "13390230973"},
+    {name = "M1 / 3", id = "13378751717"},
+    {name = "M1 / 4", id = "13378708199"},
+}
+
+for _, anim in ipairs(deadlyNinjaAnimations) do
+    DeadlyNinjaSection:NewButton(anim.name, "", function()
+        playAnimation(anim.id)
+    end)
+end
+
+local BrutalDemonSection = M1Tab:NewSection("Brutal Demon")
+
+local brutalDemonAnimations = {
+    {name = "M1 / 1", id = "14004222985"},
+    {name = "M1 / 2", id = "13997092940"},
+    {name = "M1 / 3", id = "13295919399"},
+    {name = "M1 / 4", id = "15162694192"}
+}    
+
+for _, anim in ipairs(brutalDemonAnimations) do
+    BrutalDemonSection:NewButton(anim.name, "", function()
+        playAnimation(anim.id)
+    end)
+end
+
+local Blade = M1Tab:NewSection("Blade Master")
+
+local BladeMaster = {
+    {name = "M1 / 1", id = "15259161390"},
+    {name = "M1 / 2", id = "15240216931"},
+    {name = "M1 / 3", id = "15240176873"},
+    {name = "M1 / 4", id = "15162694192"}
+}
+
+for _, anim in ipairs(BladeMaster) do
+    Blade:NewButton(anim.name, "", function()
+        playAnimation(anim.id)
+    end)
+end
+
+local wild = M1Tab:NewSection("Wild Psychic")
+
+local bruh = {
+    {name = "M1 / 1", id = "16515503507"},
+    {name = "M1 / 2", id = "16515520431"},
+    {name = "M1 / 3", id = "16515448089"},
+    {name = "M1 / 4", id = "16552234590"}
+}
+
+for _, anim in ipairs(bruh) do
+    wild:NewButton(anim.name, "", function()
+        playAnimation(anim.id)
+    end)
+end
+
+local purple = M1Tab:NewSection("Martial Artist")
+
+local puranim = {
+    {name = "M1 / 1", id = ""},
+    {name = "M1 / 2", id = ""},
+    {name = "M1 / 3", id = ""},
+    {name = "M1 / 4", id = ""}
+}
+
+for _, anim in ipairs(puranim) do
+    purple:NewButton(anim.name, "", function()
+        playAnimation(anim.id)
+    end)
+end
+
+local Tab = Window:NewTab("Movesets")
+local Section = Tab:NewSection("The Strongest Hero")
+
+Section:NewButton("Normal Punch", "", function()
+    playAnimation("15957366251")
+end)
+
+Section:NewButton("Consecutive Punches", "", function()
+    playAnimation("10466974800")
+end)
+
+Section:NewButton("Shove", "", function()
+    playAnimation("10471336737")
+end)
+
+Section:NewButton("Uppercut", "", function()
+    playAnimation("12510170988")
+end)
+
+-- Hero Hunter Section
+local Section = Tab:NewSection("Hero Hunter")
+
+Section:NewButton("Flowing Water (Miss)", "", function()
+    playAnimation("12272894215")
+end)
+
+Section:NewButton("Flowing Water (Full)", "", function()
+    local player = game.Players.LocalPlayer
+    local character = player.Character or player.CharacterAdded:Wait()
+    local humanoid = character:WaitForChild("Humanoid")
+
+    -- First animation
+    local Anim1 = Instance.new("Animation")
+    Anim1.AnimationId = "rbxassetid://12272894215"
+    local AnimTrack1 = humanoid:LoadAnimation(Anim1)
+
+    -- Second animation
+    local Anim2 = Instance.new("Animation")
+    Anim2.AnimationId = "rbxassetid://12273188754"
+    local AnimTrack2 = humanoid:LoadAnimation(Anim2)
+
+    -- Play the first animation
+    AnimTrack1:Play()
+
+    -- Wait for 0.7 seconds, then play the second animation
+    delay(0.6, function()
+        AnimTrack1:Stop()
+        AnimTrack2:Play()
+    end)
+end)
+
+Section:NewButton("Lethal Whirlwind Stream (Miss)", "", function()
+    playAnimation("12296882427")
+end)
+
+Section:NewButton("Lethal Whirlwind Stream (Full)", "", function()
+    local player = game.Players.LocalPlayer
+    local character = player.Character or player.CharacterAdded:Wait()
+    local humanoid = character:WaitForChild("Humanoid")
+
+    -- First animation
+    local Anim1 = Instance.new("Animation")
+    Anim1.AnimationId = "rbxassetid://12296882427"
+    local AnimTrack1 = humanoid:LoadAnimation(Anim1)
+
+    -- Second animation
+    local Anim2 = Instance.new("Animation")
+    Anim2.AnimationId = "rbxassetid://12296113986"
+    local AnimTrack2 = humanoid:LoadAnimation(Anim2)
+
+    -- Play the first animation
+    AnimTrack1:Play()
+
+    -- Wait for 0.48 seconds, then play the second animation
+    delay(0.48, function()
+        AnimTrack1:Stop()
+        AnimTrack2:Play()
+    end)
+end)
+
+Section:NewButton("Hunter's Grasp (Miss)", "", function()
+    playAnimation("12307656616")
+end)
+
+Section:NewButton("Hunter's Grasp (Full)", "", function()
+    local player = game.Players.LocalPlayer
+    local character = player.Character or player.CharacterAdded:Wait()
+    local humanoid = character:WaitForChild("Humanoid")
+
+    -- First animation
+    local Anim1 = Instance.new("Animation")
+    Anim1.AnimationId = "rbxassetid://12307656616"
+    local AnimTrack1 = humanoid:LoadAnimation(Anim1)
+
+    -- Second animation
+    local Anim2 = Instance.new("Animation")
+    Anim2.AnimationId = "rbxassetid://12309835105"
+    local AnimTrack2 = humanoid:LoadAnimation(Anim2)
+
+    -- Play the first animation
+    AnimTrack1:Play()
+
+    -- Wait for 0.3 seconds, then play the second animation
+    delay(0.3, function()
+        AnimTrack1:Stop()
+        AnimTrack2:Play()
+    end)
+end)
+
+Section:NewButton("Prey's Peril (Miss)", "", function()
+    playAnimation("12351854556")
+end)
+
+Section:NewButton("Prey's Peril (Full)", "", function()
+    playAnimation("12352467652")
+end)
+
+-- Misc Section
+local Tab = Window:NewTab("Misc")
+local Section = Tab:NewSection("Misc")
+
+Section:NewButton("Infinite Yield", "OP FE admin commands", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
+end)
+
+Section:NewButton("Dex Explorer V3", "See what's inside the game", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Babyhamsta/RBLX_Scripts/main/Universal/BypassedDarkDexV3.lua", true))()
+end)
+
+Section:NewButton("Animation Logger", "Detects current played animation", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Lolosor/Alice/main/Animation%20Logger"))()
+end)
+
+Section:NewButton("Aimbot", "Locks at the nearest player's head", function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/1Gp9c57U"))()
+end)
+
+Section:NewButton("Keyboard", "", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/advxzivhsjjdhxhsidifvsh/mobkeyboard/main/main.txt", true))()
+end)
+
+Section:NewTextBox("WalkSpeed", "Enter the speed you want", function(value)
+    local player = game.Players.LocalPlayer
+    local character = player.Character or player.CharacterAdded:Wait()
+    local humanoid = character:WaitForChild("Humanoid")
+
+    -- Convert the value from string to number
+    local speed = tonumber(value)
+    
+    -- If the input is a valid number, change the walk speed
+    if speed then
+        humanoid.WalkSpeed = speed
+    else
+        -- Optionally, notify the player if the input is invalid
+        print("Please enter a valid number")
+    end
+end)
+
+Section:NewTextBox("JumpPower", "Enter the jump power you want", function(value)
+    local newJumpPower = tonumber(value)
+    
+    if newJumpPower then
+        local player = game.Players.LocalPlayer
+        local character = player.Character or player.CharacterAdded:Wait()
+        local humanoid = character:WaitForChild("Humanoid")
+        
+        -- Set the JumpPower directly to the new value
+        humanoid.JumpPower = newJumpPower
+        humanoid.UseJumpPower = true
+        print("Jump Power set to", newJumpPower)
+    else
+        -- Notify the player if the input is invalid
+        print("Please enter a valid number for Jump Power")
+    end
+end)
+
+local Tab = Window:NewTab("Credits")
+local Section = Tab:NewSection("Alice, Allah_isthebest, NetlessKJ")
+
+Section:NewKeybind("Toggle UI", "", Enum.KeyCode.E, function()
+    Library:ToggleUI
+end)    
