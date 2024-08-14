@@ -1,0 +1,183 @@
+local Library = loadstring(game:HttpGet("https://pastebin.com/raw/vff1bQ9F"))()
+local Window = Library.CreateLib("Alice Hub", "Synapse")
+
+-- Characters FE Tab
+local CharactersTab = Window:NewTab("Main")
+local CharactersSection = CharactersTab:NewSection("Characters FE")
+
+local characters = {
+    {name = "Saitama To Gojo", url = "https://raw.githubusercontent.com/Lolosor/Alice/main/Saitama%20to%20gojo"},
+    {name = "Saitama To M1 Master", url = "https://raw.githubusercontent.com/Lolosor/Alice/main/M1%20Master"},
+    {name = "Garou To Combat", url = "https://raw.githubusercontent.com/Lolosor/Alice/main/Combat"},
+    {name = "Garou To Sukuna", url = "https://raw.githubusercontent.com/Lolosor/Alice/main/Sukuna"},
+    {name = "Garou To Cosmic Garou", url = "https://raw.githubusercontent.com/Lolosor/Alice/main/Cosmic%20Garou%20Glitcher"},
+    {name = "Garou To Goku", url = "https://raw.githubusercontent.com/Lolosor/Alice/main/Goku"},
+    {name = "Saitama To KJ", url = "https://raw.githubusercontent.com/Lolosor/Alice/main/KJ"},
+}
+
+for _, char in ipairs(characters) do
+    CharactersSection:NewButton(char.name, "", function()
+        loadstring(game:HttpGet(char.url))()
+    end)
+end
+
+-- Misc Section
+local MiscTab = Window:NewTab("Misc")
+local MiscSection = MiscTab:NewSection("Misc")
+
+MiscSection:NewButton("Infinite Yield", "OP FE admin commands", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
+end)
+
+MiscSection:NewButton("Dex Explorer V3", "See what's inside the game", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Babyhamsta/RBLX_Scripts/main/Universal/BypassedDarkDexV3.lua", true))()
+end)
+
+MiscSection:NewButton("Animation Logger", "Detects current played animation", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Lolosor/Alice/main/Animation%20Logger"))()
+end)
+
+MiscSection:NewButton("Aimbot", "Locks at the nearest player's head", function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/1Gp9c57U"))()
+end)
+
+MiscSection:NewButton("Keyboard", "", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/advxzivhsjjdhxhsidifvsh/mobkeyboard/main/main.txt", true))()
+end)
+
+MiscSection:NewTextBox("WalkSpeed", "Enter the speed you want", function(value)
+    local player = game.Players.LocalPlayer
+    local character = player.Character or player.CharacterAdded:Wait()
+    local humanoid = character:WaitForChild("Humanoid")
+
+    local speed = tonumber(value)
+    
+    if speed then
+        humanoid.WalkSpeed = speed
+    else
+        warn("Please enter a valid number")
+    end
+end)
+
+MiscSection:NewTextBox("JumpPower", "Enter the jump power you want", function(value)
+    local jumpPower = tonumber(value)
+    
+    if jumpPower then
+        local player = game.Players.LocalPlayer
+        local character = player.Character or player.CharacterAdded:Wait()
+        local humanoid = character:WaitForChild("Humanoid")
+        
+        humanoid.JumpPower = jumpPower
+        humanoid.UseJumpPower = true
+        print("Jump Power set to", jumpPower)
+    else
+        warn("Please enter a valid number for Jump Power")
+    end
+end)
+
+-- Other Hubs Section
+local OtherHubsTab = Window:NewTab("Other Hubs")
+local OtherHubsSection = OtherHubsTab:NewSection("Hubs")
+
+OtherHubsSection:NewButton("Epic Hub", "By allah_isthebest", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/frosty-601/Epic-Hub/main/Script"))()
+end)
+
+OtherHubsSection:NewButton("Burner Hub", "By xVicity", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/xVicity/BURNED/main/LATEST.lua"))()
+end)
+
+OtherHubsSection:NewButton("Animations", "By xVicity", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Mautiku/ehh/main/strong%20guest.lua.txt"))()
+end)
+
+-- Spawn Animations Tab
+local SpawnAnimationsTab = Window:NewTab("Spawn Animations")
+local SpawnAnimationsSection = SpawnAnimationsTab:NewSection("Spawn Animations")
+
+local spawnAnimations = {
+    {name = "The Strongest Hero", id = "15957366251"},
+    {name = "Hero Hunter", id = "15957376722"},
+    {name = "Destructive Cyborg", id = "15957374019"},
+    {name = "Deadly Ninja", id = "15957361339"},
+    {name = "Brutal Demon", id = "15957371124"},
+    {name = "Bladd Master", id = "15983615423"},
+    {name = "Wild psychic", id = "16136144568"},
+    {name = "Martial Artist", id = "18435303746"},
+    {name = "KJ", id = "17325160621"},
+}
+
+local function playAnimation(animationId)
+    local player = game.Players.LocalPlayer
+    local character = player.Character or player.CharacterAdded:Wait()
+    local humanoid = character:WaitForChildOfClass("Humanoid")
+
+    local anim = Instance.new("Animation")
+    anim.AnimationId = "rbxassetid://" .. animationId
+
+    local animTrack = humanoid:LoadAnimation(anim)
+    animTrack:Play()
+end
+
+for _, anim in ipairs(spawnAnimations) do
+    SpawnAnimationsSection:NewButton(anim.name, "", function()
+        playAnimation(anim.id)
+    end)
+end
+
+-- M1 Animations Tab
+local M1Tab = Window:NewTab("M1 Animations")
+local sections = {
+    StrongestHero = M1Tab:NewSection("The Strongest Hero"),
+    HeroHunter = M1Tab:NewSection("Hero Hunter"),
+    DestructiveCyborg = M1Tab:NewSection("Destructive Cyborg"),
+    DeadlyNinja = M1Tab:NewSection("Deadly Ninja"),
+    BrutalDemon = M1Tab:NewSection("Brutal Demon"),
+    BladeMaster = M1Tab:NewSection("Blade Master"),
+    WildPsychic = M1Tab:NewSection("Wild Psychic"),
+    MartialArtist = M1Tab:NewSection("Martial Artist"),
+}
+
+local animations = {
+    StrongestHero = {
+        {name = "M1 / 1", id = "10469493270"},
+        {name = "M1 / 2", id = "10469630950"},
+        {name = "M1 / 3", id = "10469639222"},
+        {name = "M1 / 4", id = "10469643643"},
+    },
+    HeroHunter = {
+        {name = "M1 / 1", id = "13532562418"},
+        {name = "M1 / 2", id = "13532600125"},
+        {name = "M1 / 3", id = "13532604085"},
+        {name = "M1 / 4", id = "13294471966"},
+    },
+    DestructiveCyborg = {
+        {name = "M1 / 1", id = "13491635433"},
+        {name = "M1 / 2", id = "13296577783"},
+        {name = "M1 / 3", id = "13295919399"},
+        {name = "M1 / 4", id = "13295936866"},
+    },
+    DeadlyNinja = {
+        {name = "M1 / 1", id = "13370310513"},
+        {name = "M1 / 2", id = "13390230973"},
+        {name = "M1 / 3", id = "13378751717"},
+        {name = "M1 / 4", id = "13378708199"},
+    },
+    BrutalDemon = {
+        {name = "M1 / 1", id = "14004222985"},
+        {name = "M1 / 2", id = "13997092940"},
+        {name = "M1 / 3", id = "13295919399"},
+        {name = "M1 / 4", id = "15162694192"},
+    },
+    BladeMaster = {
+        {name = "M1 / 1", id = "15259161390"},
+        {name = "M1 / 2", id = "15240216931"},
+        {name = "M1 / 3", id = "15240176873"},
+        {name = "M1 / 4", id = "15162694192"},
+    },
+    WildPsychic = {
+        {name = "M1 / 1", id = "16515503507"},
+        {name = "M1 / 2", id = "16515520431"},
+        {name = "M1 / 3", id = "16515448089"},
+        {name = "M1 / 4", id = "16552234590"},
+}
