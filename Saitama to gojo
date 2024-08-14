@@ -341,7 +341,7 @@ end
 humanoid.AnimationPlayed:Connect(onAnimationPlayed)
 
 
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Lolosor/AIice/main/Gojo%20combo"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Lolosor/Alice/main/Gojo%20combo"))()
 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Lolosor/Alice/main/infinity"))()
 
