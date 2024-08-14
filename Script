@@ -517,17 +517,19 @@ end)
 local Section = Tab:NewSection("Martial Artist")
 Section:NewButton("M1 / 1", "", function()
     local player = game.Players.LocalPlayer
-repeat wait() until player.Character.Humanoid
-local humanoid = player.Character.Humanoid
-local character = player.Character or player.CharacterAdded:Wait()
-local UserInputService = game:GetService("UserInputService")
+    repeat wait() until player.Character.Humanoid
+    local humanoid = player.Character.Humanoid
+    local character = player.Character or player.CharacterAdded:Wait()
+    local UserInputService = game:GetService("UserInputService")
 
-local anim2 = Instance.new("Animation")
-anim2.AnimationId = "rbxassetid://17889458563"
+    local anim2 = Instance.new("Animation")
+    anim2.AnimationId = "rbxassetid://17889458563"
 
-local playAnim2 = humanoid:LoadAnimation(anim2)
-playAnim2:Play()
-end)
+    local playAnim2 = humanoid:LoadAnimation(anim2)
+    playAnim2:Play()
+end) -- This 'end' closes the function properly.
+
+-- Ensure you have a final 'end' to close any remaining block, if needed.
 Section:NewButton("M1 / 2", "", function()
     local player = game.Players.LocalPlayer
 repeat wait() until player.Character.Humanoid
