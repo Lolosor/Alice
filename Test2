@@ -1,18 +1,18 @@
 local Library = loadstring(game:HttpGet("https://pastebin.com/raw/vff1bQ9F"))()
-local Window = Library.CreateLib("Alice Hub", "Synapse")
+local Window = Library.CreateLib("Nuh uh", "Synapse")
 
 -- Characters FE Tab
 local CharactersTab = Window:NewTab("Main")
 local CharactersSection = CharactersTab:NewSection("Characters FE")
 
 local characters = {
-    {name = "Saitama To Gojo", url = "https://raw.githubusercontent.com/Lolosor/Alice/main/Saitama%20to%20gojo"},
-    {name = "Saitama To M1 Master", url = "https://raw.githubusercontent.com/Lolosor/Alice/main/M1%20Master"},
-    {name = "Garou To Combat", url = "https://raw.githubusercontent.com/Lolosor/Alice/main/Combat"},
-    {name = "Garou To Sukuna", url = "https://raw.githubusercontent.com/Lolosor/Alice/main/Sukuna"},
-    {name = "Garou To Cosmic Garou", url = "https://raw.githubusercontent.com/Lolosor/Alice/main/Cosmic%20Garou%20Glitcher"},
-    {name = "Garou To Goku", url = "https://raw.githubusercontent.com/Lolosor/Alice/main/Goku"},
-    {name = "Saitama To KJ", url = "https://raw.githubusercontent.com/Lolosor/Alice/main/KJ"},
+    {name = "Saitama To Gojo", url = "private"},
+    {name = "Saitama To M1 Master", url = "private"},
+    {name = "Garou To Combat", url = "private"},
+    {name = "Garou To Sukuna", url = "private"},
+    {name = "Garou To Cosmic Garou", url = "private"},
+    {name = "Garou To Goku", url = "private"},
+    {name = "Saitama To KJ", url = "private"},
 }
 
 for _, char in ipairs(characters) do
@@ -80,7 +80,7 @@ local OtherHubsTab = Window:NewTab("Other Hubs")
 local OtherHubsSection = OtherHubsTab:NewSection("Hubs")
 
 OtherHubsSection:NewButton("Epic Hub", "By allah_isthebest", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/frosty-601/Epic-Hub/main/Script"))()
+    loadstring(game:HttpGet("private"))()
 end)
 
 OtherHubsSection:NewButton("Burner Hub", "By xVicity", function()
