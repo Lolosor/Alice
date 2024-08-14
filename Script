@@ -527,8 +527,7 @@ Section:NewButton("M1 / 1", "", function()
 
     local playAnim2 = humanoid:LoadAnimation(anim2)
     playAnim2:Play()
-   end
-end)
+end) -- This 'end' closes the function for the button
 Section:NewButton("M1 / 2", "", function()
     local player = game.Players.LocalPlayer
 repeat wait() until player.Character.Humanoid
