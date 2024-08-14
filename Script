@@ -525,8 +525,7 @@ local function playAnimation(animationId)
         local playAnim = humanoid:LoadAnimation(anim)
         playAnim:Play()
     end
-end
-
+end)
 Section:NewButton("Normal Punch", "", function()
     playAnimation("15957366251")
 end)
