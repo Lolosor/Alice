@@ -658,7 +658,7 @@ delay(0.6, function()
     AnimTrack1:Stop()  -- Stop the first animation if needed
     AnimTrack2:Play()
 end)
-Section:NewButton("Lethal Whirlwind Stream (Miss)")
+Section:NewButton("Lethal Whirlwind Stream (Miss)", "", function()
     local player = game.Players.LocalPlayer
 local character = player.Character or player.CharacterAdded:Wait()
 local humanoid = character:WaitForChild("Humanoid")
@@ -677,7 +677,7 @@ Anim:AdjustSpeed(1)
 dela(0.6, function()
     Anim:Stop()
 end)
-Section:NewButton("Lethal Whirlwind Stream (Full)")
+Section:NewButton("Lethal Whirlwind Stream (Full)", "", function()
     local player = game.Players.LocalPlayer
 local character = player.Character or player.CharacterAdded:Wait()
 local humanoid = character:WaitForChild("Humanoid")
@@ -700,7 +700,56 @@ delay(0.48, function()
     AnimTrack1:Stop()  -- Stop the first animation if needed
     AnimTrack2:Play()
 end)
-Section:NewButton("Hunter's Grasp (Miss)")
+Section:NewButton("Hunter's Grasp (Miss)", "", function()
+    local player = game.Players.LocalPlayer
+repeat wait() until player.Character.Humanoid
+local humanoid = player.Character.Humanoid
+local character = player.Character or player.CharacterAdded:Wait()
+local UserInputService = game:GetService("UserInputService")
+
+local anim2 = Instance.new("Animation")
+anim2.AnimationId = "rbxassetid://12307656616"
+
+local playAnim2 = humanoid:LoadAnimation(anim2)
+playAnim2:Play()
+end)
+Section:NewButton("Hunter's Grasp (Full)", "", function()
+    local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local humanoid = character:WaitForChild("Humanoid")
+
+-- First animation
+local Anim1 = Instance.new("Animation")
+Anim1.AnimationId = "rbxassetid://12307656616"  -- Replace with your first animation ID
+local AnimTrack1 = humanoid:LoadAnimation(Anim1)
+
+-- Second animation
+local Anim2 = Instance.new("Animation")
+Anim2.AnimationId = "rbxassetid://12309835105"  -- Replace with your second animation ID
+local AnimTrack2 = humanoid:LoadAnimation(Anim2)
+
+-- Play the first animation
+AnimTrack1:Play()
+
+-- Wait for 0.7 seconds, then play the second animation
+delay(0.3, function()
+    AnimTrack1:Stop()  -- Stop the first animation if needed
+    AnimTrack2:Play()
+end)
+Section:NewButton("Prey's Peril (Miss)", "", function()
+    local player = game.Players.LocalPlayer
+repeat wait() until player.Character.Humanoid
+local humanoid = player.Character.Humanoid
+local character = player.Character or player.CharacterAdded:Wait()
+local UserInputService = game:GetService("UserInputService")
+
+local anim2 = Instance.new("Animation")
+anim2.AnimationId = "rbxassetid://12351854556"
+
+local playAnim2 = humanoid:LoadAnimation(anim2)
+playAnim2:Play()
+end)
+Section:NewButton("Prey's Peril (Full)", "", function()
     
 local Tab = Window:NewTab("Misc")
 local Section = Tab:NewSection("Misc")
