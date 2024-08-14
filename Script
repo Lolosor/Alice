@@ -516,18 +516,21 @@ playAnim2:Play()
 end)
 local Tab = Window:NewTab("Movesets")
 local Section = Tab:NewSection("The Strongest Hero")
-Section:NewButton("Normal Punch", "", function()
+local function playAnimation(animationId)
     local player = game.Players.LocalPlayer
-repeat wait() until player.Character.Humanoid
-local humanoid = player.Character.Humanoid
-local character = player.Character or player.CharacterAdded:Wait()
-local UserInputService = game:GetService("UserInputService")
+    local humanoid = player.Character and player.Character:FindFirstChildOfClass("Humanoid")
+    if humanoid then
+        local anim = Instance.new("Animation")
+        anim.AnimationId = "rbxassetid://"..animationId
+        local playAnim = humanoid:LoadAnimation(anim)
+        playAnim:Play()
+    else
+        warn("Humanoid not found!")
+    end
+end
 
-local anim2 = Instance.new("Animation")
-anim2.AnimationId = "rbxassetid://10468665991"
-
-local playAnim2 = humanoid:LoadAnimation(anim2)
-playAnim2:Play()
+Section:NewButton("Normal Punch", "", function()
+    playAnimation("15957366251")
 end)
 Section:NewButton("Consecutive Punches", "", function()
     local player = game.Players.LocalPlayer
