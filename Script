@@ -524,8 +524,6 @@ local function playAnimation(animationId)
         anim.AnimationId = "rbxassetid://"..animationId
         local playAnim = humanoid:LoadAnimation(anim)
         playAnim:Play()
-    else
-        warn("Humanoid not found!")
     end
 end
 
