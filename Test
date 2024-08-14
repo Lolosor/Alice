@@ -21,6 +21,65 @@ for _, char in ipairs(characters) do
     end)
 end
 
+-- Misc Section
+local Tab = Window:NewTab("Misc")
+local Section = Tab:NewSection("Misc")
+
+Section:NewButton("Infinite Yield", "OP FE admin commands", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
+end)
+
+Section:NewButton("Dex Explorer V3", "See what's inside the game", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Babyhamsta/RBLX_Scripts/main/Universal/BypassedDarkDexV3.lua", true))()
+end)
+
+Section:NewButton("Animation Logger", "Detects current played animation", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Lolosor/Alice/main/Animation%20Logger"))()
+end)
+
+Section:NewButton("Aimbot", "Locks at the nearest player's head", function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/1Gp9c57U"))()
+end)
+
+Section:NewButton("Keyboard", "", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/advxzivhsjjdhxhsidifvsh/mobkeyboard/main/main.txt", true))()
+end)
+
+Section:NewTextBox("WalkSpeed", "Enter the speed you want", function(value)
+    local player = game.Players.LocalPlayer
+    local character = player.Character or player.CharacterAdded:Wait()
+    local humanoid = character:WaitForChild("Humanoid")
+
+    -- Convert the value from string to number
+    local speed = tonumber(value)
+    
+    -- If the input is a valid number, change the walk speed
+    if speed then
+        humanoid.WalkSpeed = speed
+    else
+        -- Optionally, notify the player if the input is invalid
+        print("Please enter a valid number")
+    end
+end)
+
+Section:NewTextBox("JumpPower", "Enter the jump power you want", function(value)
+    local newJumpPower = tonumber(value)
+    
+    if newJumpPower then
+        local player = game.Players.LocalPlayer
+        local character = player.Character or player.CharacterAdded:Wait()
+        local humanoid = character:WaitForChild("Humanoid")
+        
+        -- Set the JumpPower directly to the new value
+        humanoid.JumpPower = newJumpPower
+        humanoid.UseJumpPower = true
+        print("Jump Power set to", newJumpPower)
+    else
+        -- Notify the player if the input is invalid
+        print("Please enter a valid number for Jump Power")
+    end
+end)
+
 local Tab = Window:NewTab("Other Hubs")
 local Section = Tab:NewSection("Hubs")
 
@@ -197,7 +256,7 @@ local Tab = Window:NewTab("Movesets")
 local Section = Tab:NewSection("The Strongest Hero")
 
 Section:NewButton("Normal Punch", "", function()
-    playAnimation("15957366251")
+    playAnimation("10468665991")
 end)
 
 Section:NewButton("Consecutive Punches", "", function()
@@ -243,7 +302,30 @@ Section:NewButton("Flowing Water (Full)", "", function()
         AnimTrack2:Play()
     end)
 end)
+Section:NewButton("Flowing Water (Finisher)", "", function()
+    local player = game.Players.LocalPlayer
+    local character = player.Character or player.CharacterAdded:Wait()
+    local humanoid = character:WaitForChild("Humanoid")
 
+    -- First animation
+    local Anim1 = Instance.new("Animation")
+    Anim1.AnimationId = "rbxassetid://12272894215"
+    local AnimTrack1 = humanoid:LoadAnimation(Anim1)
+
+    -- Second animation
+    local Anim2 = Instance.new("Animation")
+    Anim2.AnimationId = "rbxassetid://14374357351"
+    local AnimTrack2 = humanoid:LoadAnimation(Anim2)
+
+    -- Play the first animation
+    AnimTrack1:Play()
+
+    -- Wait for 0.7 seconds, then play the second animation
+    delay(0.6, function()
+        AnimTrack1:Stop()
+        AnimTrack2:Play()
+    end)
+end)
 Section:NewButton("Lethal Whirlwind Stream (Miss)", "", function()
     playAnimation("12296882427")
 end)
@@ -272,7 +354,40 @@ Section:NewButton("Lethal Whirlwind Stream (Full)", "", function()
         AnimTrack2:Play()
     end)
 end)
+Section:NewButton("Lethal Whirlwind Stream (Finisher)", "", function()
+    local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local humanoid = character:WaitForChild("Humanoid")
 
+-- First animation
+local Anim1 = Instance.new("Animation")
+Anim1.AnimationId = "rbxassetid://12296882427"
+local AnimTrack1 = humanoid:LoadAnimation(Anim1)
+
+-- Second animation
+local Anim2 = Instance.new("Animation")
+Anim2.AnimationId = "rbxassetid://12296113986"
+local AnimTrack2 = humanoid:LoadAnimation(Anim2)
+
+-- Third animation
+local Anim3 = Instance.new("Animation")
+Anim3.AnimationId = "rbxassetid://14798608838"
+local AnimTrack3 = humanoid:LoadAnimation(Anim3)
+
+-- Play the first animation
+AnimTrack1:Play()
+
+-- Wait for 0.48 seconds, then play the second animation
+delay(0.48, function()
+    AnimTrack1:Stop()
+    AnimTrack2:Play()
+end)
+
+-- Wait for 2 seconds after the second animation starts, then play the third animation
+delay(2.1, function()
+    AnimTrack2:Stop()
+    AnimTrack3:Play()
+end)
 Section:NewButton("Hunter's Grasp (Miss)", "", function()
     playAnimation("12307656616")
 end)
@@ -301,74 +416,370 @@ Section:NewButton("Hunter's Grasp (Full)", "", function()
         AnimTrack2:Play()
     end)
 end)
+Section:NewButton("Hunter's Grasp (Finisher)", "", function()
+    local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local humanoid = character:WaitForChild("Humanoid")
 
+-- First animation
+local Anim1 = Instance.new("Animation")
+Anim1.AnimationId = "rbxassetid://12307656616"  -- Replace with your first animation ID
+local AnimTrack1 = humanoid:LoadAnimation(Anim1)
+
+-- Second animation
+local Anim2 = Instance.new("Animation")
+Anim2.AnimationId = "rbxassetid://12447247483"  -- Replace with your second animation ID
+local AnimTrack2 = humanoid:LoadAnimation(Anim2)
+
+AnimTrack1:Play()
+
+-- Wait for 0.7 seconds, then play the second animation
+delay(0.3, function()
+    AnimTrack1:Stop()  -- Stop the first animation if needed
+    AnimTrack2:Play()
+end)
 Section:NewButton("Prey's Peril (Miss)", "", function()
     playAnimation("12351854556")
 end)
 
 Section:NewButton("Prey's Peril (Full)", "", function()
-    playAnimation("12352467652")
-end)
-
--- Misc Section
-local Tab = Window:NewTab("Misc")
-local Section = Tab:NewSection("Misc")
-
-Section:NewButton("Infinite Yield", "OP FE admin commands", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
-end)
-
-Section:NewButton("Dex Explorer V3", "See what's inside the game", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/Babyhamsta/RBLX_Scripts/main/Universal/BypassedDarkDexV3.lua", true))()
-end)
-
-Section:NewButton("Animation Logger", "Detects current played animation", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/Lolosor/Alice/main/Animation%20Logger"))()
-end)
-
-Section:NewButton("Aimbot", "Locks at the nearest player's head", function()
-    loadstring(game:HttpGet("https://pastebin.com/raw/1Gp9c57U"))()
-end)
-
-Section:NewButton("Keyboard", "", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/advxzivhsjjdhxhsidifvsh/mobkeyboard/main/main.txt", true))()
-end)
-
-Section:NewTextBox("WalkSpeed", "Enter the speed you want", function(value)
     local player = game.Players.LocalPlayer
-    local character = player.Character or player.CharacterAdded:Wait()
-    local humanoid = character:WaitForChild("Humanoid")
+local character = player.Character or player.CharacterAdded:Wait()
+local humanoid = character:WaitForChild("Humanoid")
 
-    -- Convert the value from string to number
-    local speed = tonumber(value)
-    
-    -- If the input is a valid number, change the walk speed
-    if speed then
-        humanoid.WalkSpeed = speed
-    else
-        -- Optionally, notify the player if the input is invalid
-        print("Please enter a valid number")
-    end
+-- First animation
+local Anim1 = Instance.new("Animation")
+Anim1.AnimationId = "rbxassetid://12351854556"  -- Replace with your first animation ID
+local AnimTrack1 = humanoid:LoadAnimation(Anim1)
+
+-- Second animation
+local Anim2 = Instance.new("Animation")
+Anim2.AnimationId = "rbxassetid://13603396939"  -- Replace with your second animation ID
+local AnimTrack2 = humanoid:LoadAnimation(Anim2)
+
+AnimTrack1:Play()
+
+-- Wait for 0.7 seconds, then play the second animation
+delay(0.3, function()
+    AnimTrack1:Stop()  -- Stop the first animation if needed
+    AnimTrack2:Play()
+end)
+end)
+Section:NewButton("Prey's Peril (Finisher)", "", function()
+    local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local humanoid = character:WaitForChild("Humanoid")
+
+-- First animation
+local Anim1 = Instance.new("Animation")
+Anim1.AnimationId = "rbxassetid://12351854556"
+local AnimTrack1 = humanoid:LoadAnimation(Anim1)
+
+-- Second animation
+local Anim2 = Instance.new("Animation")
+Anim2.AnimationId = "rbxassetid://13603396939"
+local AnimTrack2 = humanoid:LoadAnimation(Anim2)
+
+-- Third animation
+local Anim3 = Instance.new("Animation")
+Anim3.AnimationId = "rbxassetid://14809836765"
+local AnimTrack3 = humanoid:LoadAnimation(Anim3)
+
+-- Play the first animation
+AnimTrack1:Play()
+
+-- Wait for 0.48 seconds, then play the second animation
+delay(0.48, function()
+    AnimTrack1:Stop()
+    AnimTrack2:Play()
 end)
 
-Section:NewTextBox("JumpPower", "Enter the jump power you want", function(value)
-    local newJumpPower = tonumber(value)
-    
-    if newJumpPower then
-        local player = game.Players.LocalPlayer
-        local character = player.Character or player.CharacterAdded:Wait()
-        local humanoid = character:WaitForChild("Humanoid")
-        
-        -- Set the JumpPower directly to the new value
-        humanoid.JumpPower = newJumpPower
-        humanoid.UseJumpPower = true
-        print("Jump Power set to", newJumpPower)
-    else
-        -- Notify the player if the input is invalid
-        print("Please enter a valid number for Jump Power")
-    end
+-- Wait for 2 seconds after the second animation starts, then play the third animation
+delay(2.7, function()
+    AnimTrack2:Stop()
+    AnimTrack3:Play()
 end)
+local Section = Tab:NewSection("Destructive Cyborg")
+Section:NewButton("Machine Gun Blows", "", function()
+    playAnimation("12534735382")
+end)
+Section:NewButton("Machine Gun Blows (Finished)", "", function()
+    playAnimation("12971270638")
+end)
+Section:NewButton("Ignition Burst (Start)", "", fucntion()
+    playAnimation("12502664044")
+end)
+Section:NewButton("Ignition Burst (Full)", "", function()
+    local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local humanoid = character:WaitForChild("Humanoid")
 
+-- First animation
+local Anim1 = Instance.new("Animation")
+Anim1.AnimationId = "rbxassetid://12502664044"  -- Replace with your first animation ID
+local AnimTrack1 = humanoid:LoadAnimation(Anim1)
+
+-- Second animation
+local Anim2 = Instance.new("Animation")
+Anim2.AnimationId = "rbxassetid://12509505723"  -- Replace with your second animation ID
+local AnimTrack2 = humanoid:LoadAnimation(Anim2)
+
+AnimTrack1:Play()
+
+-- Wait for 0.7 seconds, then play the second animation
+delay(1, function()
+    AnimTrack1:Stop()  -- Stop the first animation if needed
+    AnimTrack2:Play()
+end)
+Section:NewButton("Blizt Shot", "", function()
+    playAnimation("12618271998")
+end)
+Section:NewButton("Jet Dive (Flight)", "", function()
+    playAniamtion("12684390285")
+end)
+Section:NewButton("Jet Dive (Full)", "", function()
+    local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local humanoid = character:WaitForChild("Humanoid")
+
+    
+-- First animation
+local Anim1 = Instance.new("Animation")
+Anim1.AnimationId = "rbxassetid://12684390285"  -- Replace with your first animation ID
+local AnimTrack1 = humanoid:LoadAnimation(Anim1)
+
+-- Second animation
+local Anim2 = Instance.new("Animation")
+Anim2.AnimationId = "rbxassetid://12684185971"  -- Replace with your second animation ID
+local AnimTrack2 = humanoid:LoadAnimation(Anim2)
+
+-- Play the first animation
+AnimTrack1:Play()
+
+-- Wait for 0.7 seconds, then play the second animation
+delay(1.7, function()
+    AnimTrack1:Stop()  -- Stop the first animation if needed
+    AnimTrack2:Play()
+end)
+Section:NewButton("Jet Dive (Finisher)", "", function()
+    
+local Section = Tab:NewSection("Deadly Ninja")
+Section:NewButton("Flash Strike", "", function()
+    playAnimation("13376869471")
+end)
+Section:NewButton("Whirlwind Kick", "", function()
+    playAnimation("13294790250")
+end)
+Section:NewButton("Scatter (Start)", "", function()
+    playAnimation("13376962659")
+end)
+Section:NewButton("Scatter (Full)", "", function()
+    local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local humanoid = character:WaitForChild("Humanoid")
+
+-- First animation
+local Anim1 = Instance.new("Animation")
+Anim1.AnimationId = "rbxassetid://13376962659"  -- Replace with your first animation ID
+local AnimTrack1 = humanoid:LoadAnimation(Anim1)
+
+-- Second animation
+local Anim2 = Instance.new("Animation")
+Anim2.AnimationId = "rbxassetid://13365849295"  -- Replace with your second animation ID
+local AnimTrack2 = humanoid:LoadAnimation(Anim2)
+
+-- Play the first animation
+AnimTrack1:Play()
+
+-- Wait for 0.7 seconds, then play the second animation
+delay(2, function()
+    AnimTrack1:Stop()  -- Stop the first animation if needed
+    AnimTrack2:Play()
+end)
+Section:NewButton("Explosive Shuriken", "", function()
+    playAnimation("13501296372")
+end)
+local Section = Tab:NewSection("Brutal Demon")
+Section:NewButton("Homerun (Miss)", "", function()
+    local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local humanoid = character:WaitForChild("Humanoid")
+
+-- First animation
+local Anim1 = Instance.new("Animation")
+Anim1.AnimationId = "rbxassetid://14004235777"  -- Replace with your first animation ID
+local AnimTrack1 = humanoid:LoadAnimation(Anim1)
+
+-- Second animation
+local Anim2 = Instance.new("Animation")
+Anim2.AnimationId = "rbxassetid://14003607057"  -- Replace with your second animation ID
+local AnimTrack2 = humanoid:LoadAnimation(Anim2)
+
+AnimTrack1:Play()
+
+-- Wait for 0.7 seconds, then play the second animation
+delay(0.4, function()
+    AnimTrack1:Stop()  -- Stop the first animation if needed
+    AnimTrack2:Play()
+end)
+Section:NewButton("Homerun (Success)", "", fucntion()
+    playAnimation("14004235777")
+end)
+Section:NewButton("Beatdown (Miss)", "", function()
+    local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local humanoid = character:WaitForChild("Humanoid")
+
+-- First animation
+local Anim1 = Instance.new("Animation")
+Anim1.AnimationId = "rbxassetid://14046756619"  -- Replace with your first animation ID
+local AnimTrack1 = humanoid:LoadAnimation(Anim1)
+
+-- Second animation
+local Anim2 = Instance.new("Animation")
+Anim2.AnimationId = "rbxassetid://14048349132"  -- Replace with your second animation ID
+local AnimTrack2 = humanoid:LoadAnimation(Anim2)
+
+AnimTrack1:Play()
+
+-- Wait for 0.7 seconds, then play the second animation
+delay(0.7, function()
+    AnimTrack1:Stop()  -- Stop the first animation if needed
+    AnimTrack2:Play()
+end)
+Section:NewButton("Beatdown (Full)", "", function()
+    playAnimation("14046756619")
+end)
+Section:NewButton("Grand Slam", "", function()
+    local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local humanoid = character:WaitForChild("Humanoid")
+
+-- First animation
+local Anim1 = Instance.new("Animation")
+Anim1.AnimationId = "rbxassetid://14299135500"  -- Replace with your first animation ID
+local AnimTrack1 = humanoid:LoadAnimation(Anim1)
+
+-- Second animation
+local Anim2 = Instance.new("Animation")
+Anim2.AnimationId = "rbxassetid://14967219354"  -- Replace with your second animation ID
+local AnimTrack2 = humanoid:LoadAnimation(Anim2)
+
+AnimTrack1:Play()
+
+-- Wait for 0.7 seconds, then play the second animation
+delay(0.9, function()
+    AnimTrack1:Stop()  -- Stop the first animation if needed
+    AnimTrack2:Play()
+end)
+Section:NewButton("Foul Ball (Miss)", "", function()
+    playAnimation("14351441234")
+end)
+Section:NewButton("Foul Ball (Success)", "", function()
+    local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local humanoid = character:WaitForChild("Humanoid")
+
+-- First animation
+local Anim1 = Instance.new("Animation")
+Anim1.AnimationId = "rbxassetid://14351441234"  -- Replace with your first animation ID
+local AnimTrack1 = humanoid:LoadAnimation(Anim1)
+
+-- Second animation
+local Anim2 = Instance.new("Animation")
+Anim2.AnimationId = "rbxassetid://14705929107"  -- Replace with your second animation ID
+local AnimTrack2 = humanoid:LoadAnimation(Anim2)
+
+AnimTrack1:Play()
+
+-- Wait for 0.7 seconds, then play the second animation
+delay(0.66, function()
+    AnimTrack1:Stop()  -- Stop the first animation if needed
+    AnimTrack2:Play()
+end)
+local Section = Tab:NewSection("Blade Master")
+Section:NewButton("Quick Slice", "", function()
+    playAnimation("15290930205")
+end)
+Section:NewButton("Atmos Cleave", "", function()
+    playAnimation("15145462680")
+end)
+Section:NewButton("Pinpoint Cut", "", function()
+    playAnimation("15295895753")
+end)
+Section:NewButton("Pinpoint Cut (Flight)", "", function()
+    playAnimation("15295336270")
+end)
+Section:NewButton("Split Second Counter (Miss)", "", function()
+    playAnimation("15311685628")
+end)
+Section:NewButton("Split Second Counter (Full)", "", fucntion()
+
+end)
+local Section = Tab:NewSection("Wild Psychic")
+Section:NewButton("Crushing Pull (Miss)", "", function()
+    local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local humanoid = character:WaitForChild("Humanoid")
+
+-- First animation
+local Anim1 = Instance.new("Animation")
+Anim1.AnimationId = "rbxassetid://16139108718"  -- Replace with your first animation ID
+local AnimTrack1 = humanoid:LoadAnimation(Anim1)
+
+-- Second animation
+local Anim2 = Instance.new("Animation")
+Anim2.AnimationId = "rbxassetid://16139402582"  -- Replace with your second animation ID
+local AnimTrack2 = humanoid:LoadAnimation(Anim2)
+
+AnimTrack1:Play()
+
+-- Wait for 0.7 seconds, then play the second animation
+delay(0.66, function()
+    AnimTrack1:Stop()  -- Stop the first animation if needed
+    AnimTrack2:Play()
+end)
+Section:NewButton("Crushing Pull (Full)", "", function()
+    playAnimation("16139108718")
+end)
+Section:NewButton("Crushing Pull (Flight)", "", function()
+    playAnimation("16571461202")
+end)
+Section:NewButton("Windstorm Fury", "", function()
+    playAnimation("16515850153")
+end)
+Section:NewButton("Stone Coffin", "", function()
+    playAnimation("16431491215")
+end)
+Section:NewButton("Expulsive Push (Miss)", "", function()
+    playAnimation("16597322398")
+end)
+Section:NewButton("Expulsive Push (Full)", "", function()
+    local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local humanoid = character:WaitForChild("Humanoid")
+
+-- First animation
+local Anim1 = Instance.new("Animation")
+Anim1.AnimationId = "rbxassetid://16597322398"  -- Replace with your first animation ID
+local AnimTrack1 = humanoid:LoadAnimation(Anim1)
+AnimTrack1:Play()
+
+-- Set the speed of the first animation to 0.6
+AnimTrack1:AdjustSpeed(0.7)
+
+-- Second animation
+local Anim2 = Instance.new("Animation")
+Anim2.AnimationId = "rbxassetid://16597912086"  -- Replace with your second animation ID
+local AnimTrack2 = humanoid:LoadAnimation(Anim2)
+
+-- Wait for 1.5 seconds, then play the second animation
+delay(1.6, function()
+    AnimTrack1:Stop()  -- Stop the first animation if needed
+    AnimTrack2:Play()
+end)
+local Section = Tab:NewSection("Martial Artist")
+Section:NewButton("
 local Tab = Window:NewTab("Credits")
 local Section = Tab:NewSection("Alice, Allah_isthebest, NetlessKJ")
 
