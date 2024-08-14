@@ -1,0 +1,163 @@
+local Library = loadstring(game:HttpGet("https://pastebin.com/raw/vff1bQ9F"))()
+local Window = Library.CreateLib("Alice Hub", "Synapse")
+
+-- Function to ensure the humanoid is ready
+local function getHumanoid()
+    local player = game.Players.LocalPlayer
+    local character = player.Character or player.CharacterAdded:Wait()
+    return character:WaitForChild("Humanoid")
+end
+
+-- Function to play an animation given an animation ID
+local function playAnimation(animationId)
+    local humanoid = getHumanoid()
+    local anim = Instance.new("Animation")
+    anim.AnimationId = "rbxassetid://"..animationId
+    local playAnim = humanoid:LoadAnimation(anim)
+    playAnim:Play()
+end
+
+-- Characters FE Section
+local Tab = Window:NewTab("Main")
+local Section = Tab:NewSection("Characters FE")
+
+local buttons = {
+    {name = "Saitama To Gojo", url = "https://raw.githubusercontent.com/Lolosor/Alice/main/Saitama%20to%20gojo"},
+    {name = "Saitama To M1 Master", url = "https://raw.githubusercontent.com/Lolosor/Alice/main/M1%20Master"},
+    {name = "Garou To Combat", url = "https://raw.githubusercontent.com/Lolosor/Alice/main/Combat"},
+    {name = "Garou To Sukuna", url = "https://raw.githubusercontent.com/Lolosor/Alice/main/Sukuna"},
+    {name = "Garou To Cosmic Garou", url = "https://raw.githubusercontent.com/Lolosor/Alice/main/Cosmic%20Garou%20Glitcher"},
+    {name = "Garou To Goku", url = "https://raw.githubusercontent.com/Lolosor/Alice/main/Goku"},
+    {name = "Saitama To KJ", url = "https://raw.githubusercontent.com/Lolosor/Alice/main/KJ"}
+}
+
+for _, button in ipairs(buttons) do
+    Section:NewButton(button.name, "", function()
+        loadstring(game:HttpGet(button.url))()
+    end)
+end
+
+-- Spawn Animations Section
+local Tab = Window:NewTab("Spawn Animations")
+local Section = Tab:NewSection("Spawn Animations")
+
+local spawnAnimations = {
+    {name = "The Strongest Hero", id = "15957366251"},
+    {name = "Hero Hunter", id = "15957376722"},
+    {name = "Destructive Cyborg", id = "15957374019"},
+    {name = "Deadly Ninja", id = "15957361339"},
+    {name = "Brutal Demon", id = "15957371124"},
+    {name = "Bladd Master", id = "15983615423"},
+    {name = "Wild Psychic", id = "16136144568"},
+    {name = "Martial Artist", id = "18435303746"},
+    {name = "KJ", id = "17325160621"}
+}
+
+for _, animation in ipairs(spawnAnimations) do
+    Section:NewButton(animation.name, "", function()
+        playAnimation(animation.id)
+    end)
+end
+
+-- M1 Animations Section
+local Tab = Window:NewTab("M1 Animations")
+
+-- Helper function to create M1 animation sections
+local function createM1Section(title, animations)
+    local Section = Tab:NewSection(title)
+    for _, animation in ipairs(animations) do
+        Section:NewButton(animation.name, "", function()
+            playAnimation(animation.id)
+        end)
+    end
+end
+
+createM1Section("The Strongest Hero", {
+    {name = "M1 / 1", id = "10469493270"},
+    {name = "M1 / 2", id = "10469630950"},
+    {name = "M1 / 3", id = "10469639222"},
+    {name = "M1 / 4", id = "10469643643"}
+})
+
+createM1Section("Hero Hunter", {
+    {name = "M1 / 1", id = "13532562418"},
+    {name = "M1 / 2", id = "13532600125"},
+    {name = "M1 / 3", id = "13532604085"},
+    {name = "M1 / 4", id = "13294471966"}
+})
+
+createM1Section("Destructive Cyborg", {
+    {name = "M1 / 1", id = "13491635433"},
+    {name = "M1 / 2", id = "13296577783"},
+    {name = "M1 / 3", id = "13295919399"},
+    {name = "M1 / 4", id = "13295919399"}
+})
+
+-- Further buttons for animations and other tabs
+-- This includes your Misc and Other Hubs sections
+
+-- Misc Section
+local Tab = Window:NewTab("Misc")
+local Section = Tab:NewSection("Misc")
+
+Section:NewButton("Infinite Yield", "OP FE admin commands", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
+end)
+
+Section:NewButton("Dex Explorer V3", "See what's inside the game", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Babyhamsta/RBLX_Scripts/main/Universal/BypassedDarkDexV3.lua", true))()
+end)
+
+Section:NewButton("Animation Logger", "Detects current played animation", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Lolosor/Alice/main/Animation%20Logger"))()
+end)
+
+Section:NewButton("Aimbot", "Locks at the nearest player's head", function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/1Gp9c57U"))()
+end)
+
+Section:NewButton("Keyboard", "", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/advxzivhsjjdhxhsidifvsh/mobkeyboard/main/main.txt", true))()
+end)
+
+Section:NewTextBox("WalkSpeed", "Enter the speed you want", function(value)
+    local humanoid = getHumanoid()
+    local speed = tonumber(value)
+    if speed then
+        humanoid.WalkSpeed = speed
+    else
+        print("Please enter a valid number")
+    end
+end)
+
+Section:NewTextBox("JumpPower", "Enter the jump power you want", function(value)
+    local humanoid = getHumanoid()
+    local newJumpPower = tonumber(value)
+    if newJumpPower then
+        humanoid.JumpPower = newJumpPower
+        humanoid.UseJumpPower = true
+        print("Jump Power set to", newJumpPower)
+    else
+        print("Please enter a valid number for Jump Power")
+    end
+end)
+
+-- Other Hubs Section
+local Tab = Window:NewTab("Other Hubs")
+local Section = Tab:NewSection("Hubs")
+
+Section:NewButton("Epic Hub", "By allah_isthebest", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/frosty-601/Epic-Hub/main/Script"))()
+end)
+
+Section:NewButton("Burner Hub", "By xVicity", function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/1Gp9c57U"))()
+end)
+Section:NewButton("Animations", "By xVicity", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/Mautiku/ehh/main/strong%20guest.lua.txt'))()
+end)
+local Tab = Window:NewTab("Credits")
+local Section = Tab:NewSection("Alice, Allah_isthebest, NetlessKJ")
+Section:NewKeybind("Toggle UI", "", Enum.KeyCode.E, function()
+	Library:ToggleUI()
+end)
