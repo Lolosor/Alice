@@ -552,7 +552,7 @@ end)Section:NewButton("M1 / 3", "", function()
 
     local playAnim2 = humanoid:LoadAnimation(anim2)
     playAnim2:Play()
-  end
+
 end)
 Section:NewButton("M1 / 4", "", function()
     local player = game.Players.LocalPlayer
