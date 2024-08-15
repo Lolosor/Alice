@@ -1,0 +1,23 @@
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local humanoid = character:WaitForChild("Humanoid")
+
+-- First animation
+local Anim1 = Instance.new("Animation")
+Anim1.AnimationId = "rbxassetid://16597322398"  -- Replace with your first animation ID
+local AnimTrack1 = humanoid:LoadAnimation(Anim1)
+AnimTrack1:Play()
+
+-- Set the speed of the first animation to 0.6
+AnimTrack1:AdjustSpeed(0.6)
+
+-- Second animation
+local Anim2 = Instance.new("Animation")
+Anim2.AnimationId = "rbxassetid://16597912086"  -- Replace with your second animation ID
+local AnimTrack2 = humanoid:LoadAnimation(Anim2)
+
+-- Wait for 1.5 seconds, then play the second animation
+delay(1.5, function()
+    AnimTrack1:Stop()  -- Stop the first animation if needed
+    AnimTrack2:Play()
+end)
