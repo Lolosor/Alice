@@ -1,358 +1,533 @@
--- Load Kavo Library
 local Library = loadstring(game:HttpGet("https://pastebin.com/raw/vff1bQ9F"))()
-local Window = Library.CreateLib("Alice Hub", "Synapse")  -- You can change the theme as desired
+local Window = Library.CreateLib("Alice hub", "Ocean")local Tab = Window:NewTab("Main")
+local Section = Tab:NewSection("Characters FE")
+Section:NewButton("Saitama To Gojo", "", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/Lolosor/Alice/main/Saitama%20to%20gojo"))()
 
--- Helper Function to Play Animations
-local function playAnimation(animationId)
+end)
+Section:NewButton("Saitama To M1 Master", "", function() 
+ loadstring(game:HttpGet("https://raw.githubusercontent.com/Lolosor/Alice/main/M1%20Master"))()
+
+end)
+Section:NewButton("Garou To Combat", "", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Lolosor/Alice/main/Combat"))()
+end)Section:NewButton("Garou To Sukuna", "okd", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Lolosor/Alice/main/Sukuna"))()
+
+end)Section:NewButton("Garou To Cosmic Garou", "", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Lolosor/Alice/main/Cosmic%20Garou%20Glitcher"))()
+
+end)Section:NewButton("Garou To Goku", "", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Lolosor/Alice/main/Goku"))()
+
+end)Section:NewButton("Saitama To KJ", "", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Lolosor/Alice/main/KJ"))()
+
+end)local Tab = Window:NewTab("Spawn Animations")
+local Section = Tab:NewSection("Spawn Animations")
+Section:NewButton("The Strongest Hero", "", function()
+    local player = game.Players.LocalPlayer
+repeat wait() until player.Character.Humanoid
+local humanoid = player.Character.Humanoid
+local character = player.Character or player.CharacterAdded:Wait()
+local UserInputService = game:GetService("UserInputService")
+
+local anim2 = Instance.new("Animation")
+anim2.AnimationId = "rbxassetid://15957366251"
+
+local playAnim2 = humanoid:LoadAnimation(anim2)
+playAnim2:Play()
+end)
+Section:NewButton("Hero Hunter", "", function()
+    local player = game.Players.LocalPlayer
+repeat wait() until player.Character.Humanoid
+local humanoid = player.Character.Humanoid
+local character = player.Character or player.CharacterAdded:Wait()
+local UserInputService = game:GetService("UserInputService")
+
+local anim2 = Instance.new("Animation")
+anim2.AnimationId = "rbxassetid://15957376722"
+
+local playAnim2 = humanoid:LoadAnimation(anim2)
+playAnim2:Play()
+
+end)Section:NewButton("Destructive Cyborg", "", function()
+    local player = game.Players.LocalPlayer
+repeat wait() until player.Character.Humanoid
+local humanoid = player.Character.Humanoid
+local character = player.Character or player.CharacterAdded:Wait()
+local UserInputService = game:GetService("UserInputService")
+
+local anim2 = Instance.new("Animation")
+anim2.AnimationId = "rbxassetid://15957374019"
+
+local playAnim2 = humanoid:LoadAnimation(anim2)
+playAnim2:Play()
+
+end)Section:NewButton("Deadly Ninja", "", function()
+    local player = game.Players.LocalPlayer
+repeat wait() until player.Character.Humanoid
+local humanoid = player.Character.Humanoid
+local character = player.Character or player.CharacterAdded:Wait()
+local UserInputService = game:GetService("UserInputService")
+
+local anim2 = Instance.new("Animation")
+anim2.AnimationId = "rbxassetid://15957361339"
+
+local playAnim2 = humanoid:LoadAnimation(anim2)
+playAnim2:Play()
+end)
+Section:NewButton("Brutal Demon", "", function()
+    local player = game.Players.LocalPlayer
+repeat wait() until player.Character.Humanoid
+local humanoid = player.Character.Humanoid
+local character = player.Character or player.CharacterAdded:Wait()
+local UserInputService = game:GetService("UserInputService")
+
+local anim2 = Instance.new("Animation")
+anim2.AnimationId = "rbxassetid://15957371124"
+
+local playAnim2 = humanoid:LoadAnimation(anim2)
+playAnim2:Play()
+
+end)Section:NewButton("Bladd Master", "", function()
+    local player = game.Players.LocalPlayer
+repeat wait() until player.Character.Humanoid
+local humanoid = player.Character.Humanoid
+local character = player.Character or player.CharacterAdded:Wait()
+local UserInputService = game:GetService("UserInputService")
+
+local anim2 = Instance.new("Animation")
+anim2.AnimationId = "rbxassetid://15983615423"
+
+local playAnim2 = humanoid:LoadAnimation(anim2)
+playAnim2:Play()
+end)
+Section:NewButton("Wild psychic", "", function()
+    local player = game.Players.LocalPlayer
+repeat wait() until player.Character.Humanoid
+local humanoid = player.Character.Humanoid
+local character = player.Character or player.CharacterAdded:Wait()
+local UserInputService = game:GetService("UserInputService")
+
+local anim2 = Instance.new("Animation")
+anim2.AnimationId = "rbxassetid://16136144568"
+
+local playAnim2 = humanoid:LoadAnimation(anim2)
+playAnim2:Play()
+
+end)Section:NewButton("Martial Artist", "", function()
+    local player = game.Players.LocalPlayer
+repeat wait() until player.Character.Humanoid
+local humanoid = player.Character.Humanoid
+local character = player.Character or player.CharacterAdded:Wait()
+local UserInputService = game:GetService("UserInputService")
+
+local anim2 = Instance.new("Animation")
+anim2.AnimationId = "rbxassetid://18435303746"
+
+local playAnim2 = humanoid:LoadAnimation(anim2)
+playAnim2:Play()
+end)
+Section:NewButton("KJ", "", function()
+    local player = game.Players.LocalPlayer
+repeat wait() until player.Character.Humanoid
+local humanoid = player.Character.Humanoid
+local character = player.Character or player.CharacterAdded:Wait()
+local UserInputService = game:GetService("UserInputService")
+
+local anim2 = Instance.new("Animation")
+anim2.AnimationId = "rbxassetid://17325160621"
+
+local playAnim2 = humanoid:LoadAnimation(anim2)
+playAnim2:Play()
+end)
+local Tab = Window:NewTab("M1 Animations")
+local Section = Tab:NewSection("The Strongest Hero")
+Section:NewButton("M1 / 1", "", function()
+    local player = game.Players.LocalPlayer
+repeat wait() until player.Character.Humanoid
+local humanoid = player.Character.Humanoid
+local character = player.Character or player.CharacterAdded:Wait()
+local UserInputService = game:GetService("UserInputService")
+
+local anim2 = Instance.new("Animation")
+anim2.AnimationId = "rbxassetid://10469493270"
+
+local playAnim2 = humanoid:LoadAnimation(anim2)
+playAnim2:Play()
+
+end)Section:NewButton("M1 / 2", "", function()
+    local player = game.Players.LocalPlayer
+repeat wait() until player.Character.Humanoid
+local humanoid = player.Character.Humanoid
+local character = player.Character or player.CharacterAdded:Wait()
+local UserInputService = game:GetService("UserInputService")
+
+local anim2 = Instance.new("Animation")
+anim2.AnimationId = "rbxassetid://10469630950"
+
+local playAnim2 = humanoid:LoadAnimation(anim2)
+playAnim2:Play()
+
+end)Section:NewButton("M1 / 3", "", function()
+    local player = game.Players.LocalPlayer
+repeat wait() until player.Character.Humanoid
+local humanoid = player.Character.Humanoid
+local character = player.Character or player.CharacterAdded:Wait()
+local UserInputService = game:GetService("UserInputService")
+
+local anim2 = Instance.new("Animation")
+anim2.AnimationId = "rbxassetid://10469639222"
+
+local playAnim2 = humanoid:LoadAnimation(anim2)
+playAnim2:Play()
+
+end)Section:NewButton("M1 / 4", "", function()
+    local player = game.Players.LocalPlayer
+repeat wait() until player.Character.Humanoid
+local humanoid = player.Character.Humanoid
+local character = player.Character or player.CharacterAdded:Wait()
+local UserInputService = game:GetService("UserInputService")
+
+local anim2 = Instance.new("Animation")
+anim2.AnimationId = "rbxassetid://10469643643"
+
+local playAnim2 = humanoid:LoadAnimation(anim2)
+playAnim2:Play()
+
+end)local Section = Tab:NewSection("Hero Hunter")
+Section:NewButton("M1 / 1", "", function()
+    local player = game.Players.LocalPlayer
+repeat wait() until player.Character.Humanoid
+local humanoid = player.Character.Humanoid
+local character = player.Character or player.CharacterAdded:Wait()
+local UserInputService = game:GetService("UserInputService")
+
+local anim2 = Instance.new("Animation")
+anim2.AnimationId = "rbxassetid://13532562418"
+
+local playAnim2 = humanoid:LoadAnimation(anim2)
+playAnim2:Play()
+end)
+Section:NewButton("M1 / 2", "", function()
+    local player = game.Players.LocalPlayer
+repeat wait() until player.Character.Humanoid
+local humanoid = player.Character.Humanoid
+local character = player.Character or player.CharacterAdded:Wait()
+local UserInputService = game:GetService("UserInputService")
+
+local anim2 = Instance.new("Animation")
+anim2.AnimationId = "rbxassetid://13532600125"
+
+local playAnim2 = humanoid:LoadAnimation(anim2)
+playAnim2:Play()
+
+end)Section:NewButton("M1 / 3", "", function()
+    local player = game.Players.LocalPlayer
+repeat wait() until player.Character.Humanoid
+local humanoid = player.Character.Humanoid
+local character = player.Character or player.CharacterAdded:Wait()
+local UserInputService = game:GetService("UserInputService")
+
+local anim2 = Instance.new("Animation")
+anim2.AnimationId = "rbxassetid://13532604085"
+
+local playAnim2 = humanoid:LoadAnimation(anim2)
+playAnim2:Play()
+
+end)Section:NewButton("M1 / 4", "", function()
+    local player = game.Players.LocalPlayer
+repeat wait() until player.Character.Humanoid
+local humanoid = player.Character.Humanoid
+local character = player.Character or player.CharacterAdded:Wait()
+local UserInputService = game:GetService("UserInputService")
+
+local anim2 = Instance.new("Animation")
+anim2.AnimationId = "rbxassetid://13294471966"
+
+local playAnim2 = humanoid:LoadAnimation(anim2)
+playAnim2:Play()
+
+end)local Section = Tab:NewSection("Destructive Cyborg")
+Section:NewButton("M1 / 1", "", function()
+    local player = game.Players.LocalPlayer
+repeat wait() until player.Character.Humanoid
+local humanoid = player.Character.Humanoid
+local character = player.Character or player.CharacterAdded:Wait()
+local UserInputService = game:GetService("UserInputService")
+
+local anim2 = Instance.new("Animation")
+anim2.AnimationId = "rbxassetid://13491635433"
+
+local playAnim2 = humanoid:LoadAnimation(anim2)
+playAnim2:Play()
+
+end)Section:NewButton("M1 / 2", "", function()
+    local player = game.Players.LocalPlayer
+repeat wait() until player.Character.Humanoid
+local humanoid = player.Character.Humanoid
+local character = player.Character or player.CharacterAdded:Wait()
+local UserInputService = game:GetService("UserInputService")
+
+local anim2 = Instance.new("Animation")
+anim2.AnimationId = "rbxassetid://13296577783"
+
+local playAnim2 = humanoid:LoadAnimation(anim2)
+playAnim2:Play()
+
+end)Section:NewButton("M1 / 3", "", function()
+    local player = game.Players.LocalPlayer
+repeat wait() until player.Character.Humanoid
+local humanoid = player.Character.Humanoid
+local character = player.Character or player.CharacterAdded:Wait()
+local UserInputService = game:GetService("UserInputService")
+
+local anim2 = Instance.new("Animation")
+anim2.AnimationId = "rbxassetid://13295919399"
+
+local playAnim2 = humanoid:LoadAnimation(anim2)
+playAnim2:Play()
+
+end)Section:NewButton("M1 / 4", "", function()
+    local player = game.Players.LocalPlayer
+repeat wait() until player.Character.Humanoid
+local humanoid = player.Character.Humanoid
+local character = player.Character or player.CharacterAdded:Wait()
+local UserInputService = game:GetService("UserInputService")
+
+local anim2 = Instance.new("Animation")
+anim2.AnimationId = "rbxassetid://13295936866"
+
+local playAnim2 = humanoid:LoadAnimation(anim2)
+playAnim2:Play()
+
+end)local Section = Tab:NewSection("Deadly Ninja")
+Section:NewButton("M1 / 1", "", function()
+    local player = game.Players.LocalPlayer
+repeat wait() until player.Character.Humanoid
+local humanoid = player.Character.Humanoid
+local character = player.Character or player.CharacterAdded:Wait()
+local UserInputService = game:GetService("UserInputService")
+
+local anim2 = Instance.new("Animation")
+anim2.AnimationId = "rbxassetid://13370310513"
+
+local playAnim2 = humanoid:LoadAnimation(anim2)
+playAnim2:Play()
+
+end)Section:NewButton("M1 / 2", "", function()
+    local player = game.Players.LocalPlayer
+repeat wait() until player.Character.Humanoid
+local humanoid = player.Character.Humanoid
+local character = player.Character or player.CharacterAdded:Wait()
+local UserInputService = game:GetService("UserInputService")
+
+local anim2 = Instance.new("Animation")
+anim2.AnimationId = "rbxassetid://13390230973"
+
+local playAnim2 = humanoid:LoadAnimation(anim2)
+playAnim2:Play()
+
+end)Section:NewButton("M1 / 3", "", function()
+    local player = game.Players.LocalPlayer
+repeat wait() until player.Character.Humanoid
+local humanoid = player.Character.Humanoid
+local character = player.Character or player.CharacterAdded:Wait()
+local UserInputService = game:GetService("UserInputService")
+
+local anim2 = Instance.new("Animation")
+anim2.AnimationId = "rbxassetid://13378751717"
+
+local playAnim2 = humanoid:LoadAnimation(anim2)
+playAnim2:Play()
+
+end)Section:NewButton("M1 / 4", "", function()
+    local player = game.Players.LocalPlayer
+repeat wait() until player.Character.Humanoid
+local humanoid = player.Character.Humanoid
+local character = player.Character or player.CharacterAdded:Wait()
+local UserInputService = game:GetService("UserInputService")
+
+local anim2 = Instance.new("Animation")
+anim2.AnimationId = "rbxassetid://13378708199"
+
+local playAnim2 = humanoid:LoadAnimation(anim2)
+playAnim2:Play()
+
+end)local Section = Tab:NewSection("Brutal Demon")
+Section:NewButton("M1 / 1", "", function()
+    local player = game.Players.LocalPlayer
+repeat wait() until player.Character.Humanoid
+local humanoid = player.Character.Humanoid
+local character = player.Character or player.CharacterAdded:Wait()
+local UserInputService = game:GetService("UserInputService")
+
+local anim2 = Instance.new("Animation")
+anim2.AnimationId = "rbxassetid://14004222985"
+
+local playAnim2 = humanoid:LoadAnimation(anim2)
+playAnim2:Play()
+
+end)Section:NewButton("M1 / 2", "", function()
+    local player = game.Players.LocalPlayer
+repeat wait() until player.Character.Humanoid
+local humanoid = player.Character.Humanoid
+local character = player.Character or player.CharacterAdded:Wait()
+local UserInputService = game:GetService("UserInputService")
+
+local anim2 = Instance.new("Animation")
+anim2.AnimationId = "rbxassetid://13997092940"
+
+local playAnim2 = humanoid:LoadAnimation(anim2)
+playAnim2:Play()
+
+end)Section:NewButton("M1 / 3", "", function()
+    local player = game.Players.LocalPlayer
+repeat wait() until player.Character.Humanoid
+local humanoid = player.Character.Humanoid
+local character = player.Character or player.CharacterAdded:Wait()
+local UserInputService = game:GetService("UserInputService")
+
+local anim2 = Instance.new("Animation")
+anim2.AnimationId = "rbxassetid://14001963401"
+
+local playAnim2 = humanoid:LoadAnimation(anim2)
+playAnim2:Play()
+
+end)Section:NewButton("M1 / 4", "", function()
+    local player = game.Players.LocalPlayer
+repeat wait() until player.Character.Humanoid
+local humanoid = player.Character.Humanoid
+local character = player.Character or player.CharacterAdded:Wait()
+local UserInputService = game:GetService("UserInputService")
+
+local anim2 = Instance.new("Animation")
+anim2.AnimationId = "rbxassetid://14136436157"
+
+local playAnim2 = humanoid:LoadAnimation(anim2)
+playAnim2:Play()
+
+end)local Section = Tab:NewSection("Blade Master")
+Section:NewButton("M1 / 1", "", function()
+    local player = game.Players.LocalPlayer
+repeat wait() until player.Character.Humanoid
+local humanoid = player.Character.Humanoid
+local character = player.Character or player.CharacterAdded:Wait()
+local UserInputService = game:GetService("UserInputService")
+
+local anim2 = Instance.new("Animation")
+anim2.AnimationId = "rbxassetid://15259161390"
+
+local playAnim2 = humanoid:LoadAnimation(anim2)
+playAnim2:Play()
+
+end)Section:NewButton("M1 / 2", "", function()
+    local player = game.Players.LocalPlayer
+repeat wait() until player.Character.Humanoid
+local humanoid = player.Character.Humanoid
+local character = player.Character or player.CharacterAdded:Wait()
+local UserInputService = game:GetService("UserInputService")
+
+local anim2 = Instance.new("Animation")
+anim2.AnimationId = "rbxassetid://15240216931"
+
+local playAnim2 = humanoid:LoadAnimation(anim2)
+playAnim2:Play()
+
+end)Section:NewButton("M1 / 3", "", function()
+    local player = game.Players.LocalPlayer
+repeat wait() until player.Character.Humanoid
+local humanoid = player.Character.Humanoid
+local character = player.Character or player.CharacterAdded:Wait()
+local UserInputService = game:GetService("UserInputService")
+
+local anim2 = Instance.new("Animation")
+anim2.AnimationId = "rbxassetid://15240176873"
+
+local playAnim2 = humanoid:LoadAnimation(anim2)
+playAnim2:Play()
+
+end)Section:NewButton("M1 / 4", "", function()
+    local player = game.Players.LocalPlayer
+repeat wait() until player.Character.Humanoid
+local humanoid = player.Character.Humanoid
+local character = player.Character or player.CharacterAdded:Wait()
+local UserInputService = game:GetService("UserInputService")
+
+local anim2 = Instance.new("Animation")
+anim2.AnimationId = "rbxassetid://15162694192"
+
+local playAnim2 = humanoid:LoadAnimation(anim2)
+playAnim2:Play()
+
+end)local Section = Tab:NewSection("Wild Psychic")
+Section:NewButton("M1 / 1", "", function()
+    local player = game.Players.LocalPlayer
+repeat wait() until player.Character.Humanoid
+local humanoid = player.Character.Humanoid
+local character = player.Character or player.CharacterAdded:Wait()
+local UserInputService = game:GetService("UserInputService")
+
+local anim2 = Instance.new("Animation")
+anim2.AnimationId = "rbxassetid://16515503507"
+
+local playAnim2 = humanoid:LoadAnimation(anim2)
+playanim2:Play()
+
+end)Section:NewButton("M1 / 2", "", function()
+    local player = game.Players.LocalPlayer
+repeat wait() until player.Character.Humanoid
+local humanoid = player.Character.Humanoid
+local character = player.Character or player.CharacterAdded:Wait()
+local UserInputService = game:GetService("UserInputService")
+
+local anim2 = Instance.new("Animation")
+anim2.AnimationId = "rbxassetid://16515520431"
+
+local playAnim2 = humanoid:LoadAnimation(anim2)
+playAnim2:Play()
+
+end)Section:NewButton("M1 / 3", "", function()
+    local player = game.Players.LocalPlayer
+repeat wait() until player.Character.Humanoid
+local humanoid = player.Character.Humanoid
+local character = player.Character or player.CharacterAdded:Wait()
+local UserInputService = game:GetService("UserInputService")
+
+local anim2 = Instance.new("Animation")
+anim2.AnimationId = "rbxassetid://16515448089"
+
+local playAnim2 = humanoid:LoadAnimation(anim2)
+playAnim2:Play()
+
+end)Section:NewButton("M1 / 4", "", function()
+    local player = game.Players.LocalPlayer
+repeat wait() until player.Character.Humanoid
+local humanoid = player.Character.Humanoid
+local character = player.Character or player.CharacterAdded:Wait()
+local UserInputService = game:GetService("UserInputService")
+
+local anim2 = Instance.new("Animation")
+anim2.AnimationId = "rbxassetid://16552234590"
+
+local playAnim2 = humanoid:LoadAnimation(anim2)
+playAnim2:Play()
+
+end)local Tab = Window:NewTab("Movesets")
+local Section = Tab:NewSection("The Strongest Hero")
+Section:NewButton("Normal Punch", "", function()
     local player = game.Players.LocalPlayer
     local character = player.Character or player.CharacterAdded:Wait()
-    local humanoid = character:WaitForChildOfClass("Humanoid")
     
-    -- Stop all currently playing animations
-    for _, track in pairs(humanoid:GetPlayingAnimationTracks()) do
-        track:Stop()
-    end
-
-    local animation = Instance.new("Animation")
-    animation.AnimationId = "rbxassetid://" .. animationId
-    local animTrack = humanoid:LoadAnimation(animation)
-    animTrack:Play()
-end
-
--- 1. Main Tab: Characters FE
-local mainTab = Window:NewTab("Main")
-local charactersSection = mainTab:NewSection("Characters FE")
-
-local characters = {
-    {name = "Saitama To Gojo", url = "https://raw.githubusercontent.com/Lolosor/Alice/main/Saitama%20to%20gojo"},
-    {name = "Saitama To M1 Master", url = "https://raw.githubusercontent.com/Lolosor/Alice/main/M1%20Master"},
-    {name = "Garou To Combat", url = "https://raw.githubusercontent.com/Lolosor/Alice/main/Combat"},
-    {name = "Garou To Sukuna", url = "https://raw.githubusercontent.com/Lolosor/Alice/main/Sukuna"},
-    {name = "Garou To Cosmic Garou", url = "https://raw.githubusercontent.com/Lolosor/Alice/main/Cosmic%20Garou%20Glitcher"},
-    {name = "Garou To Goku", url = "https://raw.githubusercontent.com/Lolosor/Alice/main/Goku"},
-    {name = "Saitama To KJ", url = "https://raw.githubusercontent.com/Lolosor/Alice/main/KJ"},
-}
-
-for _, char in ipairs(characters) do
-    charactersSection:NewButton(char.name, "", function()
-        loadstring(game:HttpGet(char.url))()
-    end)
-end
-
--- 2. Misc Tab
-local miscTab = Window:NewTab("Misc")
-local miscSection = miscTab:NewSection("Misc")
-
-miscSection:NewButton("Infinite Yield", "OP FE admin commands", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
-end)
-
-miscSection:NewButton("Dex Explorer V3", "See what's inside the game", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/Babyhamsta/RBLX_Scripts/main/Universal/BypassedDarkDexV3.lua", true))()
-end)
-
-miscSection:NewButton("Animation Logger", "Detects current played animation", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/Lolosor/Alice/main/Animation%20Logger"))()
-end)
-
-miscSection:NewButton("Aimbot", "Locks at the nearest player's head", function()
-    loadstring(game:HttpGet("https://pastebin.com/raw/1Gp9c57U"))()
-end)
-
-miscSection:NewButton("Keyboard", "", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/advxzivhsjjdhxhsidifvsh/mobkeyboard/main/main.txt", true))()
-end)
-
-miscSection:NewTextBox("WalkSpeed", "Enter the desired speed", function(value)
-    local speed = tonumber(value)
-    if speed then
-        local player = game.Players.LocalPlayer
-        local character = player.Character or player.CharacterAdded:Wait()
-        local humanoid = character:WaitForChild("Humanoid")
-        humanoid.WalkSpeed = speed
-    else
-        warn("Invalid input for WalkSpeed.")
-    end
-end)
-
-miscSection:NewTextBox("JumpPower", "Enter the desired jump power", function(value)
-    local jumpPower = tonumber(value)
-    if jumpPower then
-        local player = game.Players.LocalPlayer
-        local character = player.Character or player.CharacterAdded:Wait()
-        local humanoid = character:WaitForChild("Humanoid")
-        humanoid.UseJumpPower = true
-        humanoid.JumpPower = jumpPower
-    else
-        warn("Invalid input for JumpPower.")
-    end
-end)
-
--- 3. Other Hubs Tab
-local hubsTab = Window:NewTab("Other Hubs")
-local hubsSection = hubsTab:NewSection("Hubs")
-
-hubsSection:NewButton("Epic Hub", "By allah_isthebest", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/frosty-601/Epic-Hub/main/Script"))()
-end)
-
-hubsSection:NewButton("Burner Hub", "By xVicity", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/xVicity/BURNED/main/LATEST.lua"))()
-end)
-
-hubsSection:NewButton("Animations", "By xVicity", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/Mautiku/ehh/main/strong%20guest.lua.txt"))()
-end)
-
--- 4. Spawn Animations Tab
-local spawnTab = Window:NewTab("Spawn Animations")
-local spawnSection = spawnTab:NewSection("Spawn Animations")
-
-local spawnAnimations = {
-    {name = "The Strongest Hero", id = "15957366251"},
-    {name = "Hero Hunter", id = "15957376722"},
-    {name = "Destructive Cyborg", id = "15957374019"},
-    {name = "Deadly Ninja", id = "15957361339"},
-    {name = "Brutal Demon", id = "15957371124"},
-    {name = "Blade Master", id = "15983615423"},
-    {name = "Wild Psychic", id = "16136144568"},
-    {name = "Martial Artist", id = "18435303746"},
-    {name = "KJ", id = "17325160621"},
-}
-
-for _, anim in ipairs(spawnAnimations) do
-    spawnSection:NewButton(anim.name, "", function()
-        playAnimation(anim.id)
-    end)
-end
-
--- 5. M1 Animations Tab
-local m1Tab = Window:NewTab("M1 Animations")
-
-local m1Animations = {
-    ["The Strongest Hero"] = {
-        {name = "M1 / 1", id = "10469493270"},
-        {name = "M1 / 2", id = "10469630950"},
-        {name = "M1 / 3", id = "10469639222"},
-        {name = "M1 / 4", id = "10469643643"},
-    },
-    ["Hero Hunter"] = {
-        {name = "M1 / 1", id = "13532562418"},
-        {name = "M1 / 2", id = "13532600125"},
-        {name = "M1 / 3", id = "13532604085"},
-        {name = "M1 / 4", id = "13294471966"},
-    },
-    ["Destructive Cyborg"] = {
-        {name = "M1 / 1", id = "13491635433"},
-        {name = "M1 / 2", id = "13296577783"},
-        {name = "M1 / 3", id = "13295919399"},
-        {name = "M1 / 4", id = "13295936866"},
-    },
-    ["Deadly Ninja"] = {
-        {name = "M1 / 1", id = "13370310513"},
-        {name = "M1 / 2", id = "13390230973"},
-        {name = "M1 / 3", id = "13378751717"},
-        {name = "M1 / 4", id = "13378708199"},
-    },
-    ["Brutal Demon"] = {
-        {name = "M1 / 1", id = "14004222985"},
-        {name = "M1 / 2", id = "13997092940"},
-        {name = "M1 / 3", id = "13295919399"},
-        {name = "M1 / 4", id = "15162694192"},
-    },
-    ["Blade Master"] = {
-        {name = "M1 / 1", id = "15259161390"},
-        {name = "M1 / 2", id = "15240216931"},
-        {name = "M1 / 3", id = "15240176873"},
-        {name = "M1 / 4", id = "15162694192"},
-    },
-    ["Wild Psychic"] = {
-        {name = "M1 / 1", id = "16515503507"},
-        {name = "M1 / 2", id = "16515520431"},
-        {name = "M1 / 3", id = "16515448089"},
-        {name = "M1 / 4", id = "16552234590"},
-    },
-    ["Martial Artist"] = {
-        {name = "M1 / 1", id = "18126458635"},
-        {name = "M1 / 2", id = "18126464706"},
-        {name = "M1 / 3", id = "18126474494"},
-        {name = "M1 / 4", id = "18126482293"},
-    },
-}
-
-for sectionName, anims in pairs(m1Animations) do
-    local section = m1Tab:NewSection(sectionName)
-    for _, anim in ipairs(anims) do
-        section:NewButton(anim.name, "", function()
-            playAnimation(anim.id)
-        end)
-    end
-end
-
--- 6. Movesets Tab
-local movesetTab = Window:NewTab("Movesets")
-
--- Helper Function for Sequenced Animations
-local function playAnimationSequence(animationIds, delays)
-    local player = game.Players.LocalPlayer
-    local character = player.Character or player.CharacterAdded:Wait()
+    -- Ensure Humanoid is available
     local humanoid = character:WaitForChild("Humanoid")
+    
+    -- Create and load animation
+    local anim2 = Instance.new("Animation")
+    anim2.AnimationId = "rbxassetid://10468665991"
+    local playAnim2 = humanoid:LoadAnimation(anim2)
+    
+    -- Play the animation
+    playAnim2:Play()
 
-    -- Stop all current animations
-    for _, track in pairs(humanoid:GetPlayingAnimationTracks()) do
-        track:Stop()
-    end
-
-    local index = 1
-    local function playNext()
-        if index <= #animationIds then
-            local anim = Instance.new("Animation")
-            anim.AnimationId = "rbxassetid://" .. animationIds[index]
-            local animTrack = humanoid:LoadAnimation(anim)
-            animTrack:Play()
-            index = index + 1
-            if delays[index - 1] then
-                delay(delays[index - 1], playNext)
-            end
-        end
-    end
-
-    playNext()
-end
-
--- The Strongest Hero Movesets
-local heroSection = movesetTab:NewSection("The Strongest Hero")
-
-heroSection:NewButton("Normal Punch", "", function()
-    playAnimation("10468665991")
 end)
-
-heroSection:NewButton("Consecutive Punches", "", function()
-    playAnimation("10466974800")
-end)
-
-heroSection:NewButton("Shove", "", function()
-    playAnimation("10471336737")
-end)
-
-heroSection:NewButton("Uppercut", "", function()
-    playAnimation("12510170988")
-end)
-
--- Hero Hunter Movesets
-local hunterSection = movesetTab:NewSection("Hero Hunter")
-
--- Flowing Water Moves
-hunterSection:NewButton("Flowing Water (Miss)", "", function()
-    playAnimation("12272894215")
-end)
-
-hunterSection:NewButton("Flowing Water (Full)", "", function()
-    playAnimationSequence(
-        {"12272894215", "12273188754"},
-        {0.6}  -- Delay before the second animation
-    )
-end)
-
-hunterSection:NewButton("Flowing Water (Finisher)", "", function()
-    playAnimationSequence(
-        {"12272894215", "14374357351"},
-        {0.6}
-    )
-end)
-
--- Lethal Whirlwind Stream Moves
-hunterSection:NewButton("Lethal Whirlwind Stream (Miss)", "", function()
-    playAnimation("12296882427")
-end)
-
-hunterSection:NewButton("Lethal Whirlwind Stream (Full)", function()
-    playAnimationSequence(
-        {"12296882427", "12296113986"},
-        {0.48}
-    )
-end)
-
-hunterSection:NewButton("Lethal Whirlwind Stream (Finisher)", function()
-    playAnimationSequence(
-        {"12296882427", "12296113986", "14798608838"},
-        {0.48, 2.1}
-    )
-end)
-
--- Hunter's Grasp Moves
-hunterSection:NewButton("Hunter's Grasp (Miss)", "", function()
-    playAnimation("12307656616")
-end)
-
-hunterSection:NewButton("Hunter's Grasp (Full)", "", function()
-    playAnimationSequence(
-        {"12307656616", "12309835105"},
-        {0.3}
-    )
-end)
-
-hunterSection:NewButton("Hunter's Grasp (Finisher)", "", function()
-    playAnimationSequence(
-        {"12307656616", "12447247483"},
-        {0.3}
-    )
-end)
-
--- Prey's Peril Moves
-hunterSection:NewButton("Prey's Peril (Miss)", "", function()
-    playAnimation("12351854556")
-end)
-
-hunterSection:NewButton("Prey's Peril (Full)", "", function()
-    playAnimationSequence(
-        {"12351854556", "13603396939"},
-        {0.3}
-    )
-end)
-
-hunterSection:NewButton("Prey's Peril (Finisher)", "", function()
-    playAnimationSequence(
-        {"12351854556", "13603396939", "14809836765"},
-        {0.48, 2.7}
-    )
-end)
-
--- Destructive Cyborg Movesets
-local cyborgSection = movesetTab:NewSection("Destructive Cyborg")
-
-cyborgSection:NewButton("Machine Gun Blows", "", function()
-    playAnimation("12534735382")
-end)
-
-cyborgSection:NewButton("Machine Gun Blows (Finished)", "", function()
-    playAnimation("12971270638")
-end)
-
-cyborgSection:NewButton("Ignition Burst (Start)", "", function()
-    playAnimation("12502664044")
-end)
-
-cyborgSection:NewButton("Ignition Burst (Full)", "", function()
-    playAnimationSequence(
-        {"12502664044", "12509505723"},
-        {1}
-    )
-end)
-
-cyborgSection:NewButton("Blitz Shot", "", function()
-    playAnimation("12618271998")
-end)
-
-cyborgSection:NewButton("Jet Dive (Flight)", "", function()
-    playAnimation("12684390285")
-end)
-
-cyborgSection:NewButton("Jet Dive (Full)", "", function()
-    playAnimationSequence(
-        {"12684390285", "12684185971"},
-        {1.7}
-    )
-end)
-
--- Add other character movesets similarly...
