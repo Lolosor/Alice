@@ -539,8 +539,8 @@ anim2.AnimationId = "rbxassetid://"
 
 local playAnim2 = humanoid:LoadAnimation(anim2)
 playAnim2:Play()
-
-end)Section:NewButton("M1 / 3", "", function()
+end)
+Section:NewButton("M1 / 3", "", function()
     local player = game.Players.LocalPlayer
 repeat wait() until player.Character.Humanoid
 local humanoid = player.Character.Humanoid
