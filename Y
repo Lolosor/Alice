@@ -63,7 +63,7 @@ wait()  -- Wait for 3 seconds before starting
 Anim:Play()
 Anim.TimePosition = 0
 
-wait(0.5)
+wait()
 
 -- Start the teleport after the animation has started
 local tween = tweenTeleport()
