@@ -4,6 +4,9 @@ local character = player.Character or player.CharacterAdded:Wait()
 local humanoid = character:WaitForChild("Humanoid")
 local humanoidRootPart = character:FindFirstChild("HumanoidRootPart")
 
+-- Wait for 3 seconds before starting the script
+wait(3)
+
 -- Clear existing animations
 for _, animTrack in pairs(humanoid:GetPlayingAnimationTracks()) do
     animTrack:Stop()
@@ -11,19 +14,19 @@ end
 
 -- First animation
 local Anim1 = Instance.new("Animation")
-Anim1.AnimationId = "rbxassetid://12830917034"  -- Replace with your first animation ID
+Anim1.AnimationId = "rbxassetid://12830917034"
 local AnimTrack1 = humanoid:LoadAnimation(Anim1)
 
 -- Second animation
 local Anim2 = Instance.new("Animation")
-Anim2.AnimationId = "rbxassetid://12832023590"  -- Replace with your second animation ID
+Anim2.AnimationId = "rbxassetid://12832023590"
 local AnimTrack2 = humanoid:LoadAnimation(Anim2)
 
 -- Play the first animation
 AnimTrack1:Play()
 
 -- Wait for 0.1 seconds before starting the tween
-wait(0)
+wait(0.1)
 
 -- Create and configure BodyPosition
 if humanoidRootPart then
