@@ -1764,6 +1764,7 @@ function OrionLib:Destroy()
 end
 
 -- Draggable functionality for PC and mobile
+-- Draggable functionality for PC and mobile
 local UserInputService = game:GetService("UserInputService")
 
 local gui = script.Parent -- The GUI element to be dragged
@@ -1777,7 +1778,7 @@ local function update(input)
     gui.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
 end
 
-gui.InputBegin:Connect(function(input)
+gui.InputBegan:Connect(function(input)
     if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
         dragging = true
         dragStart = input.Position
@@ -1791,10 +1792,9 @@ gui.InputBegin:Connect(function(input)
     end
 end)
 
-gui.InputChanged:Connect(function(input)
+UserInputService.InputChanged:Connect(function(input)
     if dragging and (input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch) then
         update(input)
     end
 end)
-
 return OrionLib
