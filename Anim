@@ -1,6 +1,6 @@
 local player = game.Players.LocalPlayer
 
-local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/thanhdat4461/OrionMoblie/main/source')))()
+local OrionLib = loadstring(game:HttpGet('https://raw.githubusercontent.com/thanhdat4461/OrionMoblie/main/source'))()
 local Window = OrionLib:MakeWindow({Name = "Animations (By allah_isthebest)", HidePremium = false, SaveConfig = false, ConfigFolder = "OrionTest"})
 OrionLib:MakeNotification({
 	Name = "Title!",
