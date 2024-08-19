@@ -4037,13 +4037,75 @@ AnimTrack3:Stop()
 Tab:AddButton({
     Name = "Carnage",
     Callback = function()
-              
+              local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local humanoid = character:WaitForChild("Humanoid")
+local rootPart = character:WaitForChild("HumanoidRootPart")
+
+-- Load the animation
+local animation = Instance.new("Animation")
+animation.AnimationId = "rbxassetid://13723174078"
+local animTrack = humanoid:LoadAnimation(animation)
+
+-- Function to teleport up and stay in the air
+local function teleportUp()
+    -- Play the animation
+    animTrack:Play()
+
+    -- Teleport up 80 studs and anchor the character
+    wait(0.6)
+    rootPart.CFrame = rootPart.CFrame + Vector3.new(0, 80, 0)
+    rootPart.Anchored = true
+
+    -- Stay in the air for 0.8 seconds
+    wait(0.8)
+
+    -- Unanchor to let the character fall naturally
+    rootPart.Anchored = false
+end
+
+-- Connect teleportUp function to an event or call it directly
+teleportUp()
       end
 })
 Tab:AddButton({
     Name = "Fourfold Flashstrike",
     Callback = function()
-              
+              local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local humanoid = character:WaitForChild("Humanoid")
+local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
+
+-- Animation IDs
+local firstAnimationId = "13881335713"
+local secondAnimationId = "13876406148"
+
+-- Load animations
+local animation1 = Instance.new("Animation")
+animation1.AnimationId = "rbxassetid://" .. firstAnimationId
+local animationTrack1 = humanoid:LoadAnimation(animation1)
+
+local animation2 = Instance.new("Animation")
+animation2.AnimationId = "rbxassetid://" .. secondAnimationId
+local animationTrack2 = humanoid:LoadAnimation(animation2)
+
+-- Function to teleport the character forward
+local function teleportForward(distance)
+    humanoidRootPart.CFrame = humanoidRootPart.CFrame * CFrame.new(0, 0, -distance)
+end
+
+-- Play the first animation
+animationTrack1:Play()
+
+-- Wait for the first animation to finish, then teleport and play the second animation
+animationTrack1.Stopped:Wait()
+
+-- Teleport the character forward by 100 studs
+wait()
+teleportForward(100)
+
+-- Play the second animation
+animationTrack2:Play()
       end
 })
 local Section = Tab:AddSection({
