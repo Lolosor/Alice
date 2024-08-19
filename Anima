@@ -4114,11 +4114,43 @@ local Section = Tab:AddSection({
 Tab:AddButton({
     Name = "Savage Tornado",
     Callback = function()
-              
+              local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local humanoid = character:WaitForChild("Humanoid")
+local humanoidRootPart = character:FindFirstChild("HumanoidRootPart")
+
+-- Clear existing animations
+for _, animTrack in pairs(humanoid:GetPlayingAnimationTracks()) do
+    animTrack:Stop()
+end
+
+-- The new animation
+local Anim = Instance.new("Animation")
+Anim.AnimationId = "rbxassetid://14719290328"  -- Your new animation ID
+local AnimTrack = humanoid:LoadAnimation(Anim)
+
+-- Play the animation
+AnimTrack:Play()
+
+-- Function to teleport forward
+wait(0.7)
+local function teleportForward()
+    if humanoidRootPart then
+        for i = 0, 90 do  -- 3 seconds / 0.1 seconds = 30 iterations
+            local lookVector = humanoidRootPart.CFrame.LookVector
+            humanoidRootPart.CFrame = humanoidRootPart.CFrame + lookVector * 2  -- Move 0.1 studs forward
+            wait()  -- Wait for 0.1 seconds
+        end
+    end
+end
+
+-- Start the teleport after a short delay
+wait()
+teleportForward()
       end
 })
 Tab:AddButton({
-    Name = "Beatdown",
+    Name = "Brutal Beatdown",
     Callback = function()
               
       end
