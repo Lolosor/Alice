@@ -1,6 +1,6 @@
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Lolosor/Alice/main/Goku2"))()
 
-loadstring(game:HttpGet("https://pastebin.com/raw/NDjRmTKv"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Lolosor/Alice/main/Go"))()
 
 -- Create the Tool
 local tool = Instance.new("Tool")
