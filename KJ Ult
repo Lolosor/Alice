@@ -75,8 +75,8 @@ local function createEffects()
             end
         end
 
+        wait(0.4)
         actuallyNice:Destroy()
-        wait(4)
         boom2:Destroy()
         boom:Destroy()
     end)
