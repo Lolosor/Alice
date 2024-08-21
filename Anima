@@ -2865,216 +2865,115 @@ delay(3, function()
 Tab:AddButton({
     Name = "KJ Variant 1 (FE Except Sound And Effects)",
     Callback = function()
-              local immediateAnimationId = 16746843881
-local delayedAnimationId = 13801083337
-local delayedAnimationSpeed = 0.65
-local delayTime = 7.5 -- Delay in seconds before playing the delayed animation
-local stopDelay = 8 -- Delay in seconds before stopping all animations
-local delayedAnimationSkipTime = 1.7 -- Time in seconds to skip to
+        local immediateAnimationId = 16746843881
+        local delayedAnimationId = 13801083337
 
-local player = game.Players.LocalPlayer
-local character = player.Character or player.CharacterAdded:Wait()
-local humanoid = character:WaitForChild("Humanoid")
-local humRp = character:WaitForChild("HumanoidRootPart")
+        local player = game.Players.LocalPlayer
+        local character = player.Character or player.CharacterAdded:Wait()
+        local humanoid = character:WaitForChild("Humanoid")
+        local humRp = character:WaitForChild("HumanoidRootPart")
 
--- Create and play sound effects
-local function playSounds()
-    local soundSFX = Instance.new("Sound")
-    soundSFX.SoundId = "rbxassetid://17150550302"
-    soundSFX.Volume = 2
-    soundSFX.Name = "SFX"
-    soundSFX.Parent = humRp
-    soundSFX:Play()
+        -- Function to play sound effects
+        local function playSounds()
+            local soundSFX = Instance.new("Sound")
+            soundSFX.SoundId = "rbxassetid://17150550302"
+            soundSFX.Volume = 2
+            soundSFX.Name = "SFX"
+            soundSFX.Parent = humRp
+            soundSFX:Play()
 
-    local soundSFX2 = Instance.new("Sound")
-    soundSFX2.SoundId = "rbxassetid://17150550559"
-    soundSFX2.Volume = 2
-    soundSFX2.Name = "SFX2"
-    soundSFX2.Parent = humRp
-    soundSFX2:Play()
-end
-
-local function createEffects()
-    -- Create and configure the fine effect
-    local actuallyNice = game.ReplicatedStorage.Resources.KJEffects["fine...1"]:Clone()
-    actuallyNice.CFrame = humRp.CFrame
-    actuallyNice.CanCollide = false
-
-    local weld = Instance.new("Weld")
-    weld.Parent = actuallyNice
-    weld.Part0 = actuallyNice
-    weld.Part1 = humRp
-    weld.C1 = CFrame.new(0, 0, 0)
-
-    -- Create and configure the emit effects
-    local boom = game.ReplicatedStorage.Resources.KJEffects["fine...Emit"]:Clone()
-    boom.Parent = workspace
-    boom.CanCollide = false
-    boom.CFrame = humRp.CFrame * CFrame.new(0, -0.65, 0)
-
-    local boom2 = game.ReplicatedStorage.Resources.KJEffects["fine...Emit2"]:Clone()
-    boom2.Parent = workspace
-    boom2.CanCollide = false
-    boom2.CFrame = humRp.CFrame * CFrame.new(0, -0.65, 0)
-
-    local weld2 = Instance.new("Weld")
-    weld2.Parent = boom
-    weld2.Part0 = boom
-    weld2.Part1 = humRp
-    weld2.C1 = CFrame.new(0, -0.65, 0)
-
-    -- Emit particles from the first effect
-    delay(0.16, function()
-        for _, Particles in pairs(boom:GetDescendants()) do
-            if Particles:IsA("ParticleEmitter") then
-                actuallyNice.Parent = workspace
-                Particles:Emit(Particles:GetAttribute("EmitCount"))
-            end
-        end
-    end)
-
-    -- Cleanup after 8.17 seconds
-    delay(8.17, function()
-        for _, Particles in pairs(boom2:GetDescendants()) do
-            if Particles:IsA("ParticleEmitter") then
-                Particles:Emit(Particles:GetAttribute("EmitCount"))
-            end
+            local soundSFX2 = Instance.new("Sound")
+            soundSFX2.SoundId = "rbxassetid://17150550559"
+            soundSFX2.Volume = 2
+            soundSFX2.Name = "SFX2"
+            soundSFX2.Parent = humRp
+            soundSFX2:Play()
         end
 
-        actuallyNice:Destroy()
-        wait(4)
-        boom2:Destroy()
-        boom:Destroy()
-    end)
-task.spawn(function()
-local player = game.Players.LocalPlayer
-local character = player.Character or player.CharacterAdded:Wait()
-local humRp = character:WaitForChild("HumanoidRootPart")
+        -- Function to create visual effects
+        local function createEffects()
+            local actuallyNice = game.ReplicatedStorage.Resources.KJEffects["fine...1"]:Clone()
+            actuallyNice.CFrame = humRp.CFrame
+            actuallyNice.CanCollide = false
 
--- Create and play sound effects
-local function playSounds()
-    local soundSFX = Instance.new("Sound")
-    soundSFX.SoundId = "rbxassetid://17150550302"
-    soundSFX.Volume = 2
-    soundSFX.Name = "SFX"
-    soundSFX.Parent = humRp
-    soundSFX:Play()
+            local weld = Instance.new("Weld")
+            weld.Parent = actuallyNice
+            weld.Part0 = actuallyNice
+            weld.Part1 = humRp
+            weld.C1 = CFrame.new(0, 0, 0)
 
-    local soundSFX2 = Instance.new("Sound")
-    soundSFX2.SoundId = "rbxassetid://17150550559"
-    soundSFX2.Volume = 2
-    soundSFX2.Name = "SFX2"
-    soundSFX2.Parent = humRp
-    soundSFX2:Play()
-end
+            local boom = game.ReplicatedStorage.Resources.KJEffects["fine...Emit"]:Clone()
+            boom.Parent = workspace
+            boom.CanCollide = false
+            boom.CFrame = humRp.CFrame * CFrame.new(0, -0.65, 0)
 
-local function createEffects()
-    -- Create and configure the fine effect
-    local actuallyNice = game.ReplicatedStorage.Resources.KJEffects["fine...1"]:Clone()
-    actuallyNice.CFrame = humRp.CFrame
-    actuallyNice.CanCollide = false
+            local boom2 = game.ReplicatedStorage.Resources.KJEffects["fine...Emit2"]:Clone()
+            boom2.Parent = workspace
+            boom2.CanCollide = false
+            boom2.CFrame = humRp.CFrame * CFrame.new(0, -0.65, 0)
 
-    local weld = Instance.new("Weld")
-    weld.Parent = actuallyNice
-    weld.Part0 = actuallyNice
-    weld.Part1 = humRp
-    weld.C1 = CFrame.new(0, 0, 0)
+            local weld2 = Instance.new("Weld")
+            weld2.Parent = boom
+            weld2.Part0 = boom
+            weld2.Part1 = humRp
+            weld2.C1 = CFrame.new(0, -0.65, 0)
 
-    -- Create and configure the emit effects
-    local boom = game.ReplicatedStorage.Resources.KJEffects["fine...Emit"]:Clone()
-    boom.Parent = workspace
-    boom.CanCollide = false
-    boom.CFrame = humRp.CFrame * CFrame.new(0, -0.65, 0)
+            -- Emit particles
+            delay(0.16, function()
+                for _, Particles in pairs(boom:GetDescendants()) do
+                    if Particles:IsA("ParticleEmitter") then
+                        actuallyNice.Parent = workspace
+                        Particles:Emit(Particles:GetAttribute("EmitCount"))
+                    end
+                end
+            end)
 
-    local boom2 = game.ReplicatedStorage.Resources.KJEffects["fine...Emit2"]:Clone()
-    boom2.Parent = workspace
-    boom2.CanCollide = false
-    boom2.CFrame = humRp.CFrame * CFrame.new(0, -0.65, 0)
+            -- Cleanup effects
+            delay(8.17, function()
+                for _, Particles in pairs(boom2:GetDescendants()) do
+                    if Particles:IsA("ParticleEmitter") then
+                        Particles:Emit(Particles:GetAttribute("EmitCount"))
+                    end
+                end
 
-    local weld2 = Instance.new("Weld")
-    weld2.Parent = boom
-    weld2.Part0 = boom
-    weld2.Part1 = humRp
-    weld2.C1 = CFrame.new(0, -0.65, 0)
-
-    -- Emit particles from the first effect
-    delay(0.16, function()
-        for _, Particles in pairs(boom:GetDescendants()) do
-            if Particles:IsA("ParticleEmitter") then
-                actuallyNice.Parent = workspace
-                Particles:Emit(Particles:GetAttribute("EmitCount"))
-            end
-        end
-    end)
-
-    -- Cleanup after 8.17 seconds
-    delay(8.17, function()
-        for _, Particles in pairs(boom2:GetDescendants()) do
-            if Particles:IsA("ParticleEmitter") then
-                Particles:Emit(Particles:GetAttribute("EmitCount"))
-            end
+                wait(1)
+                actuallyNice:Destroy()
+                boom2:Destroy()
+                boom:Destroy()
+            end)
         end
 
-        wait(0.4)
-        actuallyNice:Destroy()
-        boom2:Destroy()
-        boom:Destroy()
-    end)
-end
+        -- Function to play the immediate animation
+        local function playImmediateAnimation()
+            local animation = Instance.new("Animation")
+            animation.AnimationId = "rbxassetid://" .. immediateAnimationId
+            local animationTrack = humanoid:LoadAnimation(animation)
+            animationTrack:Play()
+            animationTrack:AdjustSpeed(0.55)
+            wait(7.7)
+            animationTrack:Stop()
+        end
 
-local function executeVFX()
-    -- Play sound effects and create visual effects
-    playSounds()
-    createEffects()
-end
+        -- Function to play the delayed animation
+        local function playDelayedAnimation()
+            wait(7.6)
+            local animation = Instance.new("Animation")
+            animation.AnimationId = "rbxassetid://" .. delayedAnimationId
+            local animationTrack = humanoid:LoadAnimation(animation)
+            animationTrack:Play()
+            animationTrack:AdjustSpeed(1)
 
--- Execute the VFX when the script runs
-executeVFX()
-end)
-task.spawn(function()
-local animationId = 16746843881
+            delay(0.6, function()
+                animationTrack.TimePosition = 1.75
+            end)
+        end
 
-local player = game.Players.LocalPlayer
-local character = player.Character or player.CharacterAdded:Wait()
-local humanoid = character:WaitForChild("Humanoid")
-
-local function playAnimation()
-    local animation = Instance.new("Animation")
-    animation.AnimationId = "rbxassetid://" .. animationId
-    local animationTrack = humanoid:LoadAnimation(animation)
-    animationTrack:Play()
-    animationTrack:AdjustSpeed(0.55)
-    wait(7.7)  -- Wait for 3 seconds
-    animationTrack:Stop()
-end
-
-playAnimation()
-end)
-task.spawn(function()
-wait(7.6)
-local animationId = 13801083337
-
-local player = game.Players.LocalPlayer
-local character = player.Character or player.CharacterAdded:Wait()
-local humanoid = character:WaitForChild("Humanoid")
-
-local function playAnimation()
-    local animation = Instance.new("Animation")
-    animation.AnimationId = "rbxassetid://" .. animationId
-    local animationTrack = humanoid:LoadAnimation(animation)
-    animationTrack:Play()
-    animationTrack:AdjustSpeed(1)
-    
-    -- Wait for 0.8 seconds
-    delay(0.6, function()
-        -- Skip to 1.7 seconds
-        animationTrack.TimePosition = 1.75
-    end)
-end
-
-playAnimation()
-end)
-      end
+        -- Execute sounds, effects, and animations
+        task.spawn(playSounds)
+        task.spawn(createEffects)
+        task.spawn(playImmediateAnimation)
+        task.spawn(playDelayedAnimation)
+    end
 })
 Tab:AddButton({
     Name = "KJ Variant 1 (Client)",
