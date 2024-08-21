@@ -5200,19 +5200,19 @@ local Section = Tab:AddSection({
 Tab:AddButton({
     Name = "Five Seasons (Client)",
     Callback = function()
-              l
+              
       end
 })
 Tab:AddButton({
     Name = "Stoic Bomb (Client)",
     Callback = function()
-              l
+              
       end
 })
 Tab:AddButton({
     Name = "20-20-20 Dropkick (Client)",
     Callback = function()
-              l
+              
       end
 })
 local Tab = Window:MakeTab({
