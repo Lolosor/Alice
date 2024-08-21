@@ -13,7 +13,7 @@ local Tab = Window:MakeTab({
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
 })
-CoolLabel:Set("Nothing is bannable, Enjoy!"
+CoolLabel:Set("Nothing is bannable, Enjoy!")
 local Tab = Window:MakeTab({
 	Name = "Animation Logger",
 	Icon = "rbxassetid://4483345998",
