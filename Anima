@@ -3131,25 +3131,25 @@ Tab:AddButton({
 Tab:AddButton({
     Name = "Swift Sweep (FE except sounds and effects)",
     Callback = function()
-              l
+              
       end
 })
 Tab:AddButton({
     Name = "Swift Sweep (Client)",
     Callback = function()
-              l
+              
       end
 })
 Tab:AddButton({
     Name = "Collateral Ruin (FE except sounds and effects)",
     Callback = function()
-              l
+              
       end
 })
 Tab:AddButton({
     Name = "Collateral Ruin (Client)",
     Callback = function()
-              l
+              
       end
 })
 local Tab = Window:MakeTab({
