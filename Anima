@@ -2842,6 +2842,45 @@ wait(AnimTrack3.Length + cooldownTime)
 -- Add any additional logic needed after the cooldown here
   	end    
 })
+local Section = Tab:AddSection({
+	Name = "KJ"
+})
+Tab:AddButton({
+    Name = "Ravage (Client/Start Up)",
+    Callback = function()
+              l
+      end
+})
+Tab:AddButton({
+    Name = "Ravage (Client)",
+    Callback = function()
+              loadstring(game:HttpGet("https://pastebin.com/raw/NTzQYqxy"))()
+      end
+})
+Tab:AddButton({
+    Name = "Swift Sweep (FE except sounds and effects)",
+    Callback = function()
+              l
+      end
+})
+Tab:AddButton({
+    Name = "Swift Sweep (Client)",
+    Callback = function()
+              l
+      end
+})
+Tab:AddButton({
+    Name = "Collateral Ruin (FE except sounds and effects)",
+    Callback = function()
+              l
+      end
+})
+Tab:AddButton({
+    Name = "Collateral Ruin (Client)",
+    Callback = function()
+              l
+      end
+})
 local Tab = Window:MakeTab({
 	Name = "Ult Animations",
 	Icon = "rbxassetid://4483345998",
@@ -4882,6 +4921,27 @@ Tab:AddButton({
 
     local playAnim2 = humanoid:LoadAnimation(anim2)
     playAnim2:Play()
+      end
+})
+local Section = Tab:AddSection({
+	Name = "KJ"
+})
+Tab:AddButton({
+    Name = "Five Seasons (Client)",
+    Callback = function()
+              l
+      end
+})
+Tab:AddButton({
+    Name = "Stoic Bomb (Client)",
+    Callback = function()
+              l
+      end
+})
+Tab:AddButton({
+    Name = "20-20-20 Dropkick (Client)",
+    Callback = function()
+              l
       end
 })
 local Tab = Window:MakeTab({
