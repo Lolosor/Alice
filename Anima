@@ -13,7 +13,9 @@ local Tab = Window:MakeTab({
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
 })
-Tab:AddLabel("Nothing is bannable, Enjoy!")
+local Section = Tab:AddSection({
+	Name = "Nothing is bannable, Enjoy!"
+})
 local Tab = Window:MakeTab({
 	Name = "Animation Logger",
 	Icon = "rbxassetid://4483345998",
