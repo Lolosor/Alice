@@ -3083,12 +3083,6 @@ Tab:AddButton({
       end
 })
 Tab:AddButton({
-    Name = "KJ Variant 2",
-    Callback = function()
-              l
-      end
-})
-Tab:AddButton({
     Name = "KJ Variant 2 (Client)",
     Callback = function()
               l
