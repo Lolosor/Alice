@@ -709,6 +709,129 @@ Tab:AddButton({
     playAnim2:Play()
   	end    
 })
+local Section = Tab:AddSection({
+	Name = "KJ (Client)"
+})
+Tab:AddButton({
+	Name = "M1 / 1",
+	Callback = function()
+      		local player = game.Players.LocalPlayer
+repeat wait() until player.Character.Humanoid
+local humanoid = player.Character.Humanoid
+local character = game.Players.LocalPlayer.Character or game.Players.LocalPlayer.CharacterAdded:Wait()
+local UserInputService = game:GetService("UserInputService")
+debounce = false -- Activate debounce
+local anim = Instance.new("Animation")
+anim.AnimationId = "rbxassetid://17325510002"
+local playAnim = humanoid:LoadAnimation(anim)
+anim.AnimationId = "rbxassetid://0"
+
+spawn(function()
+    wait(1)
+    debounce = true
+end)
+
+playAnim:Play()
+playAnim:AdjustSpeed(1)
+wait(0.3)
+playAnim:AdjustSpeed(1)
+
+local Players = game:GetService("Players")
+local Character = Players.LocalPlayer.Character or Players.LocalPlayer.CharacterAdded:Wait()
+
+local animationPlayed = false -- Flag to track if the animation has already been played
+  	end    
+})
+Tab:AddButton({
+	Name = "M1 / 2",
+	Callback = function()
+      		local player = game.Players.LocalPlayer
+repeat wait() until player.Character.Humanoid
+local humanoid = player.Character.Humanoid
+local character = game.Players.LocalPlayer.Character or game.Players.LocalPlayer.CharacterAdded:Wait()
+local UserInputService = game:GetService("UserInputService")
+debounce = false -- Activate debounce
+local anim = Instance.new("Animation")
+anim.AnimationId = "rbxassetid://17325513870"
+local playAnim = humanoid:LoadAnimation(anim)
+anim.AnimationId = "rbxassetid://0"
+
+spawn(function()
+    wait(1)
+    debounce = true
+end)
+
+playAnim:Play()
+playAnim:AdjustSpeed(1)
+wait(0.3)
+playAnim:AdjustSpeed(1)
+
+local Players = game:GetService("Players")
+local Character = Players.LocalPlayer.Character or Players.LocalPlayer.CharacterAdded:Wait()
+
+local animationPlayed = false -- Flag to track if the animation has already been played
+  	end    
+})
+Tab:AddButton({
+	Name = "M1 / 3",
+	Callback = function()
+      		local player = game.Players.LocalPlayer
+repeat wait() until player.Character.Humanoid
+local humanoid = player.Character.Humanoid
+local character = game.Players.LocalPlayer.Character or game.Players.LocalPlayer.CharacterAdded:Wait()
+local UserInputService = game:GetService("UserInputService")
+debounce = false -- Activate debounce
+local anim = Instance.new("Animation")
+anim.AnimationId = "rbxassetid://17325522388"
+local playAnim = humanoid:LoadAnimation(anim)
+anim.AnimationId = "rbxassetid://0"
+
+spawn(function()
+    wait(1)
+    debounce = true
+end)
+
+playAnim:Play()
+playAnim:AdjustSpeed(1)
+wait(0.3)
+playAnim:AdjustSpeed(1)
+
+local Players = game:GetService("Players")
+local Character = Players.LocalPlayer.Character or Players.LocalPlayer.CharacterAdded:Wait()
+
+local animationPlayed = false -- Flag to track if the animation has already been played
+  	end    
+})
+Tab:AddButton({
+	Name = "M1 / 4",
+	Callback = function()
+      		local player = game.Players.LocalPlayer
+repeat wait() until player.Character.Humanoid
+local humanoid = player.Character.Humanoid
+local character = game.Players.LocalPlayer.Character or game.Players.LocalPlayer.CharacterAdded:Wait()
+local UserInputService = game:GetService("UserInputService")
+debounce = false -- Activate debounce
+local anim = Instance.new("Animation")
+anim.AnimationId = "rbxassetid://17325537719"
+local playAnim = humanoid:LoadAnimation(anim)
+anim.AnimationId = "rbxassetid://0"
+
+spawn(function()
+    wait(1)
+    debounce = true
+end)
+
+playAnim:Play()
+playAnim:AdjustSpeed(1)
+wait(0.3)
+playAnim:AdjustSpeed(1)
+
+local Players = game:GetService("Players")
+local Character = Players.LocalPlayer.Character or Players.LocalPlayer.CharacterAdded:Wait()
+
+local animationPlayed = false -- Flag to track if the animation has already been played
+  	end    
+})
 local Tab = Window:MakeTab({
     Name = "Basic Movesets",
     Icon = "rbxassetid://4483345998",
