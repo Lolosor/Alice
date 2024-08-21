@@ -3259,7 +3259,7 @@ delay(3, function()
       end
 })
 Tab:AddButton({
-    Name = "KJ Variant 1 (FE Except Sound And Effects)",
+    Name = "KJ Variant 1 (By Alice/FE Except Sound And Effects)",
     Callback = function()
         local immediateAnimationId = 16746843881
         local delayedAnimationId = 13801083337
@@ -3489,7 +3489,7 @@ end)
       end
 })
 Tab:AddButton({
-    Name = "KJ Variant 2 (FE Except Sounds and effects)",
+    Name = "KJ Variant 2 (By Alice/FE Except Sounds and effects)",
     Callback = function()
               task.spawn(function()
     local player = game.Players.LocalPlayer
