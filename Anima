@@ -8579,6 +8579,9 @@ Tab:AddButton({
     end
 })
 local Section = Tab:AddSection({
+	Name = "MOVESETS"
+})
+local Section = Tab:AddSection({
 	Name = "The Strongest Hero"
 })
 Tab:AddButton({
@@ -9040,6 +9043,9 @@ Tab:AddButton({
               
       end
 })
+local Section = Tab:AddSection({
+	Name = "ULT ANIMATIONS"
+})
 Tab:AddButton({
     Name = "The Strongest Hero",
     Callback = function()
@@ -9327,7 +9333,10 @@ Tab:AddButton({
     Callback = function()
               
       end
-})       
+}) 
+local Section = Tab:AddSection({
+	Name = "ULT MOVESETS"
+})
 local Section = Tab:AddSection({
 	Name = "The Strongest Hero"
 })
@@ -10256,6 +10265,9 @@ Tab:AddButton({
     playAnim2:Play()
       end
 })
+local Section = Tab:AddSection({
+	Name = "WALL COMBOS"
+})
 Tab:AddButton({
     Name = "The Strongest Hero",
     Callback = function()
@@ -10402,6 +10414,9 @@ Tab:AddButton({
 })
 local Section = Tab:AddSection({
 	Name = "The Strongest Hero"
+})
+local Section = Tab:AddSection({
+	Name = "MOVESETS (Victim)"
 })
 Tab:AddButton({
     Name = "Normal Punch",
@@ -11423,6 +11438,9 @@ Tab:AddButton({
       end
 })
 local Section = Tab:AddSection({
+	Name = "ULT MOVESETS (Victim)"
+})
+local Section = Tab:AddSection({
 	Name = "The Strongest Hero"
 })
 Tab:AddButton({
@@ -11960,6 +11978,9 @@ Tab:AddButton({
     local playAnim2 = humanoid:LoadAnimation(anim2)
     playAnim2:Play()
       end
+})
+local Section = Tab:AddSection({
+	Name = "EMOTES"
 })
 local Tab = Window:MakeTab({
 	Name = "Emotes",
