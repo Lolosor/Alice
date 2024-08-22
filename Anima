@@ -644,13 +644,13 @@ Tab:AddButton({
     local UserInputService = game:GetService("UserInputService")
 
     local anim2 = Instance.new("Animation")
-    anim2.AnimationId = "rbxassetid://3755636438"
+    anim2.AnimationId = "rbxassetid://10469643643"
 
     local playAnim2 = humanoid:LoadAnimation(anim2)
     playAnim2:Play()
 end)
 task.spawn(function()
-local soundId = "rbxassetid://17325174223"
+local soundId = "rbxassetid://3755636438"
 
 -- Create and configure the sound
 local sound = Instance.new("Sound")
