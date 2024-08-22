@@ -3125,7 +3125,49 @@ end)
 Tab:AddButton({
     Name = "Ravage (Client)",
     Callback = function()
-              loadstring(game:HttpGet("https://pastebin.com/raw/NTzQYqxy"))()
+              task.spawn(function()
+loadstring(game:HttpGet("https://pastebin.com/raw/NTzQYqxy"))()
+end)
+task.spawn(function()
+wait(6.17)
+local player = game.Players.LocalPlayer
+local playerGui = player:WaitForChild("PlayerGui")
+
+local screenGui = Instance.new("ScreenGui")
+screenGui.Name = "ImageLabelGui"
+screenGui.Parent = playerGui
+
+local imageLabel = Instance.new("ImageLabel")
+imageLabel.Size = UDim2.new(1, 0, 1, 0)
+imageLabel.Position = UDim2.new(0, 0, 0, 0)
+imageLabel.SliceScale = 1
+imageLabel.ZIndex = 1
+imageLabel.TileSize = UDim2.new(1, 0, 1, 0)
+imageLabel.BackgroundTransparency = 1
+imageLabel.ImageTransparency = 0 -- Fully visible
+imageLabel.Parent = screenGui
+
+local imageIds = {
+    "rbxassetid://9572542664"
+}
+
+local function cycleImages()
+    for _, imageId in ipairs(imageIds) do
+        imageLabel.Image = imageId
+        task.wait(0.1) -- Adjust this to control how long the image is visible
+    end
+end
+
+cycleImages()
+
+-- Wait for a short duration to simulate impact
+task.wait() -- Time the image stays visible
+imageLabel.ImageTransparency = 1 -- Immediately hide the image
+
+-- Destroy the ScreenGui after a brief delay to ensure the effect is visible
+task.wait(0.1) -- Brief pause before destroying
+screenGui:Destroy()
+end)
       end
 })
 Tab:AddButton({
