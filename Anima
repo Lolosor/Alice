@@ -218,6 +218,16 @@ end
 -- Play the sound
 sound:Play()
 end)
+task.spawn(function()
+wait(0.7)
+local final1 = game.ReplicatedStorage.Resources.KJEffects["BARRAGESMOKE"]. BARRAGESMOKE:Clone()
+final1.Parent = game.Players.LocalPlayer.Character["Torso"]
+for _, child in ipairs(final1:GetChildren()) do
+    if child:IsA("ParticleEmitter") then -- Check if the child is a ParticleEmitter
+        child:Emit(28) -- Emit 20 particles
+    end
+end
+end)
   	end    
 })
 Tab:AddButton({
