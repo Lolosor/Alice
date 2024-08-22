@@ -330,6 +330,86 @@ end)
 Tab:AddButton({
 	Name = "Blade Master",
 	Callback = function()
+      		task.spawn(function()
+local soundId = "rbxassetid://15983408349"
+
+-- Create and configure the sound
+local sound = Instance.new("Sound")
+sound.SoundId = soundId
+sound.Volume = 2
+sound.Parent = game.Workspace  -- Parent the sound to the Workspace
+
+-- Function to adjust the playback speed to extend the duration
+local function extendDuration(sound, targetDuration)
+    local currentDuration = sound.TimeLength
+    local speedFactor = currentDuration / targetDuration
+    sound.PlaybackSpeed = 2
+end
+
+-- Play the sound
+sound:Play()
+end)
+task.spawn(function()
+wait(1.2)
+local soundId = "rbxassetid://15162809734"
+
+-- Create and configure the sound
+local sound = Instance.new("Sound")
+sound.SoundId = soundId
+sound.Volume = 2
+sound.Parent = game.Workspace  -- Parent the sound to the Workspace
+
+-- Function to adjust the playback speed to extend the duration
+local function extendDuration(sound, targetDuration)
+    local currentDuration = sound.TimeLength
+    local speedFactor = currentDuration / targetDuration
+    sound.PlaybackSpeed = 2
+end
+
+-- Play the sound
+sound:Play()
+end)
+task.spawn(function()
+wait(1.2)
+local soundId = "rbxassetid://13773869254"
+
+-- Create and configure the sound
+local sound = Instance.new("Sound")
+sound.SoundId = soundId
+sound.Volume = 2
+sound.Parent = game.Workspace  -- Parent the sound to the Workspace
+
+-- Function to adjust the playback speed to extend the duration
+local function extendDuration(sound, targetDuration)
+    local currentDuration = sound.TimeLength
+    local speedFactor = currentDuration / targetDuration
+    sound.PlaybackSpeed = 2
+end
+
+-- Play the sound
+sound:Play()
+end)
+task.spawn(function()
+wait(2.9)
+local soundId = "rbxassetid://15990071380"
+
+-- Create and configure the sound
+local sound = Instance.new("Sound")
+sound.SoundId = soundId
+sound.Volume = 2
+sound.Parent = game.Workspace  -- Parent the sound to the Workspace
+
+-- Function to adjust the playback speed to extend the duration
+local function extendDuration(sound, targetDuration)
+    local currentDuration = sound.TimeLength
+    local speedFactor = currentDuration / targetDuration
+    sound.PlaybackSpeed = 2
+end
+
+-- Play the sound
+sound:Play()
+end)
+task.spawn(function()
       		local player = game.Players.LocalPlayer
     repeat wait() until player.Character.Humanoid
     local humanoid = player.Character.Humanoid
@@ -341,12 +421,14 @@ Tab:AddButton({
 
     local playAnim2 = humanoid:LoadAnimation(anim2)
     playAnim2:Play()
+end)
   	end    
 })
 Tab:AddButton({
 	Name = "Wild Psychic",
 	Callback = function()
-      		local player = game.Players.LocalPlayer
+                task.spawn(function()
+    local player = game.Players.LocalPlayer
     repeat wait() until player.Character.Humanoid
     local humanoid = player.Character.Humanoid
     local character = player.Character or player.CharacterAdded:Wait()
@@ -357,6 +439,26 @@ Tab:AddButton({
 
     local playAnim2 = humanoid:LoadAnimation(anim2)
     playAnim2:Play()
+end)
+task.spawn(function()
+local soundId = "rbxassetid://16136569377"
+
+-- Create and configure the sound
+local sound = Instance.new("Sound")
+sound.SoundId = soundId
+sound.Volume = 2
+sound.Parent = game.Workspace  -- Parent the sound to the Workspace
+
+-- Function to adjust the playback speed to extend the duration
+local function extendDuration(sound, targetDuration)
+    local currentDuration = sound.TimeLength
+    local speedFactor = currentDuration / targetDuration
+    sound.PlaybackSpeed = 2
+end
+
+-- Play the sound
+sound:Play()
+end)
   	end    
 })
 Tab:AddButton({
@@ -378,7 +480,8 @@ Tab:AddButton({
 Tab:AddButton({
 	Name = "KJ",
 	Callback = function()
-      		local player = game.Players.LocalPlayer
+                task.spawn(function()
+    local player = game.Players.LocalPlayer
     repeat wait() until player.Character.Humanoid
     local humanoid = player.Character.Humanoid
     local character = player.Character or player.CharacterAdded:Wait()
@@ -389,6 +492,26 @@ Tab:AddButton({
 
     local playAnim2 = humanoid:LoadAnimation(anim2)
     playAnim2:Play()
+end)
+task.spawn(function()
+local soundId = "rbxassetid://17325174223"
+
+-- Create and configure the sound
+local sound = Instance.new("Sound")
+sound.SoundId = soundId
+sound.Volume = 2
+sound.Parent = game.Workspace  -- Parent the sound to the Workspace
+
+-- Function to adjust the playback speed to extend the duration
+local function extendDuration(sound, targetDuration)
+    local currentDuration = sound.TimeLength
+    local speedFactor = currentDuration / targetDuration
+    sound.PlaybackSpeed = 2
+end
+
+-- Play the sound
+sound:Play()
+end)
   	end    
 })
 local Tab = Window:MakeTab({
@@ -416,7 +539,7 @@ Tab:AddButton({
     playAnim2:Play()
 end)
 task.spawn(function()
-local soundId = "rbxassetid://3755636825"
+local soundId = "rbxassetid://3755636438"
 
 -- Create and configure the sound
 local sound = Instance.new("Sound")
@@ -439,7 +562,8 @@ end)
 Tab:AddButton({
 	Name = "M1 / 2",
 	Callback = function()
-      		local player = game.Players.LocalPlayer
+                task.spawn(function()
+    local player = game.Players.LocalPlayer
     repeat wait() until player.Character.Humanoid
     local humanoid = player.Character.Humanoid
     local character = player.Character or player.CharacterAdded:Wait()
@@ -450,12 +574,33 @@ Tab:AddButton({
 
     local playAnim2 = humanoid:LoadAnimation(anim2)
     playAnim2:Play()
+end)
+task.spawn(function()
+local soundId = "rbxassetid://3755636825"
+
+-- Create and configure the sound
+local sound = Instance.new("Sound")
+sound.SoundId = soundId
+sound.Volume = 2
+sound.Parent = game.Workspace  -- Parent the sound to the Workspace
+
+-- Function to adjust the playback speed to extend the duration
+local function extendDuration(sound, targetDuration)
+    local currentDuration = sound.TimeLength
+    local speedFactor = currentDuration / targetDuration
+    sound.PlaybackSpeed = 2
+end
+
+-- Play the sound
+sound:Play()
+end)
   	end    
 })
 Tab:AddButton({
 	Name = "M1 / 3",
 	Callback = function()
-      		local player = game.Players.LocalPlayer
+                task.spawn(function()
+    local player = game.Players.LocalPlayer
     repeat wait() until player.Character.Humanoid
     local humanoid = player.Character.Humanoid
     local character = player.Character or player.CharacterAdded:Wait()
@@ -466,22 +611,63 @@ Tab:AddButton({
 
     local playAnim2 = humanoid:LoadAnimation(anim2)
     playAnim2:Play()
+end)
+task.spawn(function()
+local soundId = "rbxassetid://10472822874"
+
+-- Create and configure the sound
+local sound = Instance.new("Sound")
+sound.SoundId = soundId
+sound.Volume = 2
+sound.Parent = game.Workspace  -- Parent the sound to the Workspace
+
+-- Function to adjust the playback speed to extend the duration
+local function extendDuration(sound, targetDuration)
+    local currentDuration = sound.TimeLength
+    local speedFactor = currentDuration / targetDuration
+    sound.PlaybackSpeed = 2
+end
+
+-- Play the sound
+sound:Play()
+end)
   	end    
 })
 Tab:AddButton({
 	Name = "M1 / 4",
 	Callback = function()
-      		local player = game.Players.LocalPlayer
+                task.spawn(function()
+    local player = game.Players.LocalPlayer
     repeat wait() until player.Character.Humanoid
     local humanoid = player.Character.Humanoid
     local character = player.Character or player.CharacterAdded:Wait()
     local UserInputService = game:GetService("UserInputService")
 
     local anim2 = Instance.new("Animation")
-    anim2.AnimationId = "rbxassetid://10469643643"
+    anim2.AnimationId = "rbxassetid://3755636438"
 
     local playAnim2 = humanoid:LoadAnimation(anim2)
     playAnim2:Play()
+end)
+task.spawn(function()
+local soundId = "rbxassetid://17325174223"
+
+-- Create and configure the sound
+local sound = Instance.new("Sound")
+sound.SoundId = soundId
+sound.Volume = 2
+sound.Parent = game.Workspace  -- Parent the sound to the Workspace
+
+-- Function to adjust the playback speed to extend the duration
+local function extendDuration(sound, targetDuration)
+    local currentDuration = sound.TimeLength
+    local speedFactor = currentDuration / targetDuration
+    sound.PlaybackSpeed = 2
+end
+
+-- Play the sound
+sound:Play()
+end)
   	end    
 })
 local Section = Tab:AddSection({
@@ -490,7 +676,8 @@ local Section = Tab:AddSection({
 Tab:AddButton({
 	Name = "M1 / 1",
 	Callback = function()
-      		local player = game.Players.LocalPlayer
+                task.spawn(function()
+    local player = game.Players.LocalPlayer
     repeat wait() until player.Character.Humanoid
     local humanoid = player.Character.Humanoid
     local character = player.Character or player.CharacterAdded:Wait()
@@ -501,12 +688,71 @@ Tab:AddButton({
 
     local playAnim2 = humanoid:LoadAnimation(anim2)
     playAnim2:Play()
+end)
+task.spawn(function()
+local soundId = "rbxassetid://13294122585"
+
+-- Create and configure the sound
+local sound = Instance.new("Sound")
+sound.SoundId = soundId
+sound.Volume = 2
+sound.Parent = game.Workspace  -- Parent the sound to the Workspace
+
+-- Function to adjust the playback speed to extend the duration
+local function extendDuration(sound, targetDuration)
+    local currentDuration = sound.TimeLength
+    local speedFactor = currentDuration / targetDuration
+    sound.PlaybackSpeed = 2
+end
+
+-- Play the sound
+sound:Play()
+end)
+task.spawn(function()
+local soundId = "rbxassetid://12351882098"
+
+-- Create and configure the sound
+local sound = Instance.new("Sound")
+sound.SoundId = soundId
+sound.Volume = 2
+sound.Parent = game.Workspace  -- Parent the sound to the Workspace
+
+-- Function to adjust the playback speed to extend the duration
+local function extendDuration(sound, targetDuration)
+    local currentDuration = sound.TimeLength
+    local speedFactor = currentDuration / targetDuration
+    sound.PlaybackSpeed = 2
+end
+
+-- Play the sound
+sound:Play()
+end)
+task.spawn(function()
+local soundId = "rbxassetid://3755636438"
+
+-- Create and configure the sound
+local sound = Instance.new("Sound")
+sound.SoundId = soundId
+sound.Volume = 2
+sound.Parent = game.Workspace  -- Parent the sound to the Workspace
+
+-- Function to adjust the playback speed to extend the duration
+local function extendDuration(sound, targetDuration)
+    local currentDuration = sound.TimeLength
+    local speedFactor = currentDuration / targetDuration
+    sound.PlaybackSpeed = 2
+end
+
+-- Play the sound
+sound:Play()
+end)
   	end    
 })
 Tab:AddButton({
 	Name = "M1 / 2",
 	Callback = function()
-      		local player = game.Players.LocalPlayer
+                task.spawn(function()
+    local player = game.Players.LocalPlayer
     repeat wait() until player.Character.Humanoid
     local humanoid = player.Character.Humanoid
     local character = player.Character or player.CharacterAdded:Wait()
@@ -517,12 +763,71 @@ Tab:AddButton({
 
     local playAnim2 = humanoid:LoadAnimation(anim2)
     playAnim2:Play()
+end)
+task.spawn(function()
+local soundId = "rbxassetid://13294122648"
+
+-- Create and configure the sound
+local sound = Instance.new("Sound")
+sound.SoundId = soundId
+sound.Volume = 2
+sound.Parent = game.Workspace  -- Parent the sound to the Workspace
+
+-- Function to adjust the playback speed to extend the duration
+local function extendDuration(sound, targetDuration)
+    local currentDuration = sound.TimeLength
+    local speedFactor = currentDuration / targetDuration
+    sound.PlaybackSpeed = 2
+end
+
+-- Play the sound
+sound:Play()
+end)
+task.spawn(function()
+local soundId = "rbxassetid://3755636825"
+
+-- Create and configure the sound
+local sound = Instance.new("Sound")
+sound.SoundId = soundId
+sound.Volume = 2
+sound.Parent = game.Workspace  -- Parent the sound to the Workspace
+
+-- Function to adjust the playback speed to extend the duration
+local function extendDuration(sound, targetDuration)
+    local currentDuration = sound.TimeLength
+    local speedFactor = currentDuration / targetDuration
+    sound.PlaybackSpeed = 2
+end
+
+-- Play the sound
+sound:Play()
+end)
+task.spawn(function()
+local soundId = "rbxassetid://12351882098"
+
+-- Create and configure the sound
+local sound = Instance.new("Sound")
+sound.SoundId = soundId
+sound.Volume = 2
+sound.Parent = game.Workspace  -- Parent the sound to the Workspace
+
+-- Function to adjust the playback speed to extend the duration
+local function extendDuration(sound, targetDuration)
+    local currentDuration = sound.TimeLength
+    local speedFactor = currentDuration / targetDuration
+    sound.PlaybackSpeed = 2
+end
+
+-- Play the sound
+sound:Play()
+end)
   	end    
 })
 Tab:AddButton({
 	Name = "M1 / 3",
 	Callback = function()
-      		local player = game.Players.LocalPlayer
+                task.spawn(function()
+    local player = game.Players.LocalPlayer
     repeat wait() until player.Character.Humanoid
     local humanoid = player.Character.Humanoid
     local character = player.Character or player.CharacterAdded:Wait()
@@ -533,12 +838,71 @@ Tab:AddButton({
 
     local playAnim2 = humanoid:LoadAnimation(anim2)
     playAnim2:Play()
+end)
+task.spawn(function()
+local soundId = "rbxassetid://12273121701"
+
+-- Create and configure the sound
+local sound = Instance.new("Sound")
+sound.SoundId = soundId
+sound.Volume = 2
+sound.Parent = game.Workspace  -- Parent the sound to the Workspace
+
+-- Function to adjust the playback speed to extend the duration
+local function extendDuration(sound, targetDuration)
+    local currentDuration = sound.TimeLength
+    local speedFactor = currentDuration / targetDuration
+    sound.PlaybackSpeed = 2
+end
+
+-- Play the sound
+sound:Play()
+end)
+task.spawn(function()
+local soundId = "rbxassetid://10472822874"
+
+-- Create and configure the sound
+local sound = Instance.new("Sound")
+sound.SoundId = soundId
+sound.Volume = 2
+sound.Parent = game.Workspace  -- Parent the sound to the Workspace
+
+-- Function to adjust the playback speed to extend the duration
+local function extendDuration(sound, targetDuration)
+    local currentDuration = sound.TimeLength
+    local speedFactor = currentDuration / targetDuration
+    sound.PlaybackSpeed = 2
+end
+
+-- Play the sound
+sound:Play()
+end)
+task.spawn(function()
+local soundId = "rbxassetid://12308648953"
+
+-- Create and configure the sound
+local sound = Instance.new("Sound")
+sound.SoundId = soundId
+sound.Volume = 2
+sound.Parent = game.Workspace  -- Parent the sound to the Workspace
+
+-- Function to adjust the playback speed to extend the duration
+local function extendDuration(sound, targetDuration)
+    local currentDuration = sound.TimeLength
+    local speedFactor = currentDuration / targetDuration
+    sound.PlaybackSpeed = 2
+end
+
+-- Play the sound
+sound:Play()
+end)
   	end    
 })
 Tab:AddButton({
 	Name = "M1 / 4",
 	Callback = function()
-      		local player = game.Players.LocalPlayer
+                task.spawn(function()
+    local player = game.Players.LocalPlayer
     repeat wait() until player.Character.Humanoid
     local humanoid = player.Character.Humanoid
     local character = player.Character or player.CharacterAdded:Wait()
@@ -549,6 +913,64 @@ Tab:AddButton({
 
     local playAnim2 = humanoid:LoadAnimation(anim2)
     playAnim2:Play()
+end)
+task.spawn(function()
+local soundId = "rbxassetid://12273121701"
+
+-- Create and configure the sound
+local sound = Instance.new("Sound")
+sound.SoundId = soundId
+sound.Volume = 2
+sound.Parent = game.Workspace  -- Parent the sound to the Workspace
+
+-- Function to adjust the playback speed to extend the duration
+local function extendDuration(sound, targetDuration)
+    local currentDuration = sound.TimeLength
+    local speedFactor = currentDuration / targetDuration
+    sound.PlaybackSpeed = 2
+end
+
+-- Play the sound
+sound:Play()
+end)
+task.spawn(function()
+local soundId = "rbxassetid://12273121655"
+
+-- Create and configure the sound
+local sound = Instance.new("Sound")
+sound.SoundId = soundId
+sound.Volume = 2
+sound.Parent = game.Workspace  -- Parent the sound to the Workspace
+
+-- Function to adjust the playback speed to extend the duration
+local function extendDuration(sound, targetDuration)
+    local currentDuration = sound.TimeLength
+    local speedFactor = currentDuration / targetDuration
+    sound.PlaybackSpeed = 2
+end
+
+-- Play the sound
+sound:Play()
+end)
+task.spawn(function()
+local soundId = "rbxassetid://3755636825"
+
+-- Create and configure the sound
+local sound = Instance.new("Sound")
+sound.SoundId = soundId
+sound.Volume = 2
+sound.Parent = game.Workspace  -- Parent the sound to the Workspace
+
+-- Function to adjust the playback speed to extend the duration
+local function extendDuration(sound, targetDuration)
+    local currentDuration = sound.TimeLength
+    local speedFactor = currentDuration / targetDuration
+    sound.PlaybackSpeed = 2
+end
+
+-- Play the sound
+sound:Play()
+end)
   	end    
 })
 local Section = Tab:AddSection({
@@ -557,7 +979,8 @@ local Section = Tab:AddSection({
 Tab:AddButton({
 	Name = "M1 / 1",
 	Callback = function()
-      		local player = game.Players.LocalPlayer
+                task.spawn(function()
+    local player = game.Players.LocalPlayer
     repeat wait() until player.Character.Humanoid
     local humanoid = player.Character.Humanoid
     local character = player.Character or player.CharacterAdded:Wait()
@@ -568,12 +991,52 @@ Tab:AddButton({
 
     local playAnim2 = humanoid:LoadAnimation(anim2)
     playAnim2:Play()
+end)
+task.spawn(function()
+local soundId = "rbxassetid://3755636825"
+
+-- Create and configure the sound
+local sound = Instance.new("Sound")
+sound.SoundId = soundId
+sound.Volume = 2
+sound.Parent = game.Workspace  -- Parent the sound to the Workspace
+
+-- Function to adjust the playback speed to extend the duration
+local function extendDuration(sound, targetDuration)
+    local currentDuration = sound.TimeLength
+    local speedFactor = currentDuration / targetDuration
+    sound.PlaybackSpeed = 2
+end
+
+-- Play the sound
+sound:Play()
+end)
+task.spawn(function()
+local soundId = "rbxassetid://12481912200"
+
+-- Create and configure the sound
+local sound = Instance.new("Sound")
+sound.SoundId = soundId
+sound.Volume = 2
+sound.Parent = game.Workspace  -- Parent the sound to the Workspace
+
+-- Function to adjust the playback speed to extend the duration
+local function extendDuration(sound, targetDuration)
+    local currentDuration = sound.TimeLength
+    local speedFactor = currentDuration / targetDuration
+    sound.PlaybackSpeed = 2
+end
+
+-- Play the sound
+sound:Play()
+end)
   	end    
 })
 Tab:AddButton({
 	Name = "M1 / 2",
 	Callback = function()
-      		local player = game.Players.LocalPlayer
+                task.spawn(function()
+    local player = game.Players.LocalPlayer
     repeat wait() until player.Character.Humanoid
     local humanoid = player.Character.Humanoid
     local character = player.Character or player.CharacterAdded:Wait()
@@ -584,12 +1047,52 @@ Tab:AddButton({
 
     local playAnim2 = humanoid:LoadAnimation(anim2)
     playAnim2:Play()
+end)
+task.spawn(function()
+local soundId = "rbxassetid://13294122648"
+
+-- Create and configure the sound
+local sound = Instance.new("Sound")
+sound.SoundId = soundId
+sound.Volume = 2
+sound.Parent = game.Workspace  -- Parent the sound to the Workspace
+
+-- Function to adjust the playback speed to extend the duration
+local function extendDuration(sound, targetDuration)
+    local currentDuration = sound.TimeLength
+    local speedFactor = currentDuration / targetDuration
+    sound.PlaybackSpeed = 2
+end
+
+-- Play the sound
+sound:Play()
+end)
+task.spawn(function()
+local soundId = "rbxassetid://3755636438"
+
+-- Create and configure the sound
+local sound = Instance.new("Sound")
+sound.SoundId = soundId
+sound.Volume = 2
+sound.Parent = game.Workspace  -- Parent the sound to the Workspace
+
+-- Function to adjust the playback speed to extend the duration
+local function extendDuration(sound, targetDuration)
+    local currentDuration = sound.TimeLength
+    local speedFactor = currentDuration / targetDuration
+    sound.PlaybackSpeed = 2
+end
+
+-- Play the sound
+sound:Play()
+end)
   	end    
 })
 Tab:AddButton({
 	Name = "M1 / 3",
 	Callback = function()
-      		local player = game.Players.LocalPlayer
+                task.spawn(function()
+    local player = game.Players.LocalPlayer
     repeat wait() until player.Character.Humanoid
     local humanoid = player.Character.Humanoid
     local character = player.Character or player.CharacterAdded:Wait()
@@ -600,12 +1103,71 @@ Tab:AddButton({
 
     local playAnim2 = humanoid:LoadAnimation(anim2)
     playAnim2:Play()
+end)
+task.spawn(function()
+local soundId = "rbxassetid://10472822874"
+
+-- Create and configure the sound
+local sound = Instance.new("Sound")
+sound.SoundId = soundId
+sound.Volume = 2
+sound.Parent = game.Workspace  -- Parent the sound to the Workspace
+
+-- Function to adjust the playback speed to extend the duration
+local function extendDuration(sound, targetDuration)
+    local currentDuration = sound.TimeLength
+    local speedFactor = currentDuration / targetDuration
+    sound.PlaybackSpeed = 2
+end
+
+-- Play the sound
+sound:Play()
+end)
+task.spawn(function()
+local soundId = "rbxassetid://3755636438"
+
+-- Create and configure the sound
+local sound = Instance.new("Sound")
+sound.SoundId = soundId
+sound.Volume = 2
+sound.Parent = game.Workspace  -- Parent the sound to the Workspace
+
+-- Function to adjust the playback speed to extend the duration
+local function extendDuration(sound, targetDuration)
+    local currentDuration = sound.TimeLength
+    local speedFactor = currentDuration / targetDuration
+    sound.PlaybackSpeed = 2
+end
+
+-- Play the sound
+sound:Play()
+end)
+task.spawn(function()
+local soundId = "rbxassetid://12481912200"
+
+-- Create and configure the sound
+local sound = Instance.new("Sound")
+sound.SoundId = soundId
+sound.Volume = 2
+sound.Parent = game.Workspace  -- Parent the sound to the Workspace
+
+-- Function to adjust the playback speed to extend the duration
+local function extendDuration(sound, targetDuration)
+    local currentDuration = sound.TimeLength
+    local speedFactor = currentDuration / targetDuration
+    sound.PlaybackSpeed = 2
+end
+
+-- Play the sound
+sound:Play()
+end)
   	end    
 })
 Tab:AddButton({
 	Name = "M1 / 4",
 	Callback = function()
-      		local player = game.Players.LocalPlayer
+                task.spawn(function()
+    local player = game.Players.LocalPlayer
     repeat wait() until player.Character.Humanoid
     local humanoid = player.Character.Humanoid
     local character = player.Character or player.CharacterAdded:Wait()
@@ -616,6 +1178,121 @@ Tab:AddButton({
 
     local playAnim2 = humanoid:LoadAnimation(anim2)
     playAnim2:Play()
+end)
+task.spawn(function()
+local soundId = "rbxassetid://13296206030"
+
+-- Create and configure the sound
+local sound = Instance.new("Sound")
+sound.SoundId = soundId
+sound.Volume = 2
+sound.Parent = game.Workspace  -- Parent the sound to the Workspace
+
+-- Function to adjust the playback speed to extend the duration
+local function extendDuration(sound, targetDuration)
+    local currentDuration = sound.TimeLength
+    local speedFactor = currentDuration / targetDuration
+    sound.PlaybackSpeed = 2
+end
+
+-- Play the sound
+sound:Play()
+end)
+task.spawn(function()
+local soundId = "rbxassetid://3755636825"
+
+-- Create and configure the sound
+local sound = Instance.new("Sound")
+sound.SoundId = soundId
+sound.Volume = 2
+sound.Parent = game.Workspace  -- Parent the sound to the Workspace
+
+-- Function to adjust the playback speed to extend the duration
+local function extendDuration(sound, targetDuration)
+    local currentDuration = sound.TimeLength
+    local speedFactor = currentDuration / targetDuration
+    sound.PlaybackSpeed = 2
+end
+
+-- Play the sound
+sound:Play()
+end)
+task.spawn(function()
+local soundId = "rbxassetid://12481912200"
+
+-- Create and configure the sound
+local sound = Instance.new("Sound")
+sound.SoundId = soundId
+sound.Volume = 2
+sound.Parent = game.Workspace  -- Parent the sound to the Workspace
+
+-- Function to adjust the playback speed to extend the duration
+local function extendDuration(sound, targetDuration)
+    local currentDuration = sound.TimeLength
+    local speedFactor = currentDuration / targetDuration
+    sound.PlaybackSpeed = 2
+end
+
+-- Play the sound
+sound:Play()
+end)
+task.spawn(function()
+local soundId = "rbxassetid://13296506500"
+
+-- Create and configure the sound
+local sound = Instance.new("Sound")
+sound.SoundId = soundId
+sound.Volume = 2
+sound.Parent = game.Workspace  -- Parent the sound to the Workspace
+
+-- Function to adjust the playback speed to extend the duration
+local function extendDuration(sound, targetDuration)
+    local currentDuration = sound.TimeLength
+    local speedFactor = currentDuration / targetDuration
+    sound.PlaybackSpeed = 2
+end
+
+-- Play the sound
+sound:Play()
+end)
+task.spawn(function()
+local soundId = "rbxassetid://698224146"
+
+-- Create and configure the sound
+local sound = Instance.new("Sound")
+sound.SoundId = soundId
+sound.Volume = 2
+sound.Parent = game.Workspace  -- Parent the sound to the Workspace
+
+-- Function to adjust the playback speed to extend the duration
+local function extendDuration(sound, targetDuration)
+    local currentDuration = sound.TimeLength
+    local speedFactor = currentDuration / targetDuration
+    sound.PlaybackSpeed = 2
+end
+
+-- Play the sound
+sound:Play()
+end)
+task.spawn(function()
+local soundId = "rbxassetid://12508901314"
+
+-- Create and configure the sound
+local sound = Instance.new("Sound")
+sound.SoundId = soundId
+sound.Volume = 2
+sound.Parent = game.Workspace  -- Parent the sound to the Workspace
+
+-- Function to adjust the playback speed to extend the duration
+local function extendDuration(sound, targetDuration)
+    local currentDuration = sound.TimeLength
+    local speedFactor = currentDuration / targetDuration
+    sound.PlaybackSpeed = 2
+end
+
+-- Play the sound
+sound:Play()
+end)
   	end    
 })
 local Section = Tab:AddSection({
@@ -624,7 +1301,8 @@ local Section = Tab:AddSection({
 Tab:AddButton({
 	Name = "M1 / 1",
 	Callback = function()
-      		local player = game.Players.LocalPlayer
+                task.spawn(function()
+    local player = game.Players.LocalPlayer
     repeat wait() until player.Character.Humanoid
     local humanoid = player.Character.Humanoid
     local character = player.Character or player.CharacterAdded:Wait()
@@ -635,12 +1313,71 @@ Tab:AddButton({
 
     local playAnim2 = humanoid:LoadAnimation(anim2)
     playAnim2:Play()
+end)
+task.spawn(function()
+local soundId = "rbxassetid://9119742469"
+
+-- Create and configure the sound
+local sound = Instance.new("Sound")
+sound.SoundId = soundId
+sound.Volume = 2
+sound.Parent = game.Workspace  -- Parent the sound to the Workspace
+
+-- Function to adjust the playback speed to extend the duration
+local function extendDuration(sound, targetDuration)
+    local currentDuration = sound.TimeLength
+    local speedFactor = currentDuration / targetDuration
+    sound.PlaybackSpeed = 2
+end
+
+-- Play the sound
+sound:Play()
+end)
+task.spawn(function()
+local soundId = "rbxassetid://13391530557"
+
+-- Create and configure the sound
+local sound = Instance.new("Sound")
+sound.SoundId = soundId
+sound.Volume = 2
+sound.Parent = game.Workspace  -- Parent the sound to the Workspace
+
+-- Function to adjust the playback speed to extend the duration
+local function extendDuration(sound, targetDuration)
+    local currentDuration = sound.TimeLength
+    local speedFactor = currentDuration / targetDuration
+    sound.PlaybackSpeed = 2
+end
+
+-- Play the sound
+sound:Play()
+end)
+task.spawn(function()
+local soundId = "rbxassetid://13376307114"
+
+-- Create and configure the sound
+local sound = Instance.new("Sound")
+sound.SoundId = soundId
+sound.Volume = 2
+sound.Parent = game.Workspace  -- Parent the sound to the Workspace
+
+-- Function to adjust the playback speed to extend the duration
+local function extendDuration(sound, targetDuration)
+    local currentDuration = sound.TimeLength
+    local speedFactor = currentDuration / targetDuration
+    sound.PlaybackSpeed = 2
+end
+
+-- Play the sound
+sound:Play()
+end)
   	end    
 })
 Tab:AddButton({
 	Name = "M1 / 2",
 	Callback = function()
-      		local player = game.Players.LocalPlayer
+                task.spawn(function()
+    local player = game.Players.LocalPlayer
     repeat wait() until player.Character.Humanoid
     local humanoid = player.Character.Humanoid
     local character = player.Character or player.CharacterAdded:Wait()
@@ -651,12 +1388,52 @@ Tab:AddButton({
 
     local playAnim2 = humanoid:LoadAnimation(anim2)
     playAnim2:Play()
+end)
+task.spawn(function()
+local soundId = "rbxassetid://13376306939"
+
+-- Create and configure the sound
+local sound = Instance.new("Sound")
+sound.SoundId = soundId
+sound.Volume = 2
+sound.Parent = game.Workspace  -- Parent the sound to the Workspace
+
+-- Function to adjust the playback speed to extend the duration
+local function extendDuration(sound, targetDuration)
+    local currentDuration = sound.TimeLength
+    local speedFactor = currentDuration / targetDuration
+    sound.PlaybackSpeed = 2
+end
+
+-- Play the sound
+sound:Play()
+end)
+task.spawn(function()
+local soundId = "rbxassetid://13391530557"
+
+-- Create and configure the sound
+local sound = Instance.new("Sound")
+sound.SoundId = soundId
+sound.Volume = 2
+sound.Parent = game.Workspace  -- Parent the sound to the Workspace
+
+-- Function to adjust the playback speed to extend the duration
+local function extendDuration(sound, targetDuration)
+    local currentDuration = sound.TimeLength
+    local speedFactor = currentDuration / targetDuration
+    sound.PlaybackSpeed = 2
+end
+
+-- Play the sound
+sound:Play()
+end)
   	end    
 })
 Tab:AddButton({
 	Name = "M1 / 3",
 	Callback = function()
-      		local player = game.Players.LocalPlayer
+                task.spawn(function()
+    local player = game.Players.LocalPlayer
     repeat wait() until player.Character.Humanoid
     local humanoid = player.Character.Humanoid
     local character = player.Character or player.CharacterAdded:Wait()
@@ -667,12 +1444,71 @@ Tab:AddButton({
 
     local playAnim2 = humanoid:LoadAnimation(anim2)
     playAnim2:Play()
+end)
+task.spawn(function()
+local soundId = "rbxassetid://10472822874"
+
+-- Create and configure the sound
+local sound = Instance.new("Sound")
+sound.SoundId = soundId
+sound.Volume = 2
+sound.Parent = game.Workspace  -- Parent the sound to the Workspace
+
+-- Function to adjust the playback speed to extend the duration
+local function extendDuration(sound, targetDuration)
+    local currentDuration = sound.TimeLength
+    local speedFactor = currentDuration / targetDuration
+    sound.PlaybackSpeed = 2
+end
+
+-- Play the sound
+sound:Play()
+end)
+task.spawn(function()
+local soundId = "rbxassetid://13294122648"
+
+-- Create and configure the sound
+local sound = Instance.new("Sound")
+sound.SoundId = soundId
+sound.Volume = 2
+sound.Parent = game.Workspace  -- Parent the sound to the Workspace
+
+-- Function to adjust the playback speed to extend the duration
+local function extendDuration(sound, targetDuration)
+    local currentDuration = sound.TimeLength
+    local speedFactor = currentDuration / targetDuration
+    sound.PlaybackSpeed = 2
+end
+
+-- Play the sound
+sound:Play()
+end)
+task.spawn(function()
+local soundId = "rbxassetid://13294122648"
+
+-- Create and configure the sound
+local sound = Instance.new("Sound")
+sound.SoundId = soundId
+sound.Volume = 2
+sound.Parent = game.Workspace  -- Parent the sound to the Workspace
+
+-- Function to adjust the playback speed to extend the duration
+local function extendDuration(sound, targetDuration)
+    local currentDuration = sound.TimeLength
+    local speedFactor = currentDuration / targetDuration
+    sound.PlaybackSpeed = 2
+end
+
+-- Play the sound
+sound:Play()
+end)
   	end    
 })
 Tab:AddButton({
 	Name = "M1 / 4",
 	Callback = function()
-      		local player = game.Players.LocalPlayer
+                task.spawn(function()
+    local player = game.Players.LocalPlayer
     repeat wait() until player.Character.Humanoid
     local humanoid = player.Character.Humanoid
     local character = player.Character or player.CharacterAdded:Wait()
@@ -683,6 +1519,64 @@ Tab:AddButton({
 
     local playAnim2 = humanoid:LoadAnimation(anim2)
     playAnim2:Play()
+end)
+task.spawn(function()
+local soundId = "rbxassetid://13294122648"
+
+-- Create and configure the sound
+local sound = Instance.new("Sound")
+sound.SoundId = soundId
+sound.Volume = 2
+sound.Parent = game.Workspace  -- Parent the sound to the Workspace
+
+-- Function to adjust the playback speed to extend the duration
+local function extendDuration(sound, targetDuration)
+    local currentDuration = sound.TimeLength
+    local speedFactor = currentDuration / targetDuration
+    sound.PlaybackSpeed = 2
+end
+
+-- Play the sound
+sound:Play()
+end)
+task.spawn(function()
+local soundId = "rbxassetid://1337607114"
+
+-- Create and configure the sound
+local sound = Instance.new("Sound")
+sound.SoundId = soundId
+sound.Volume = 2
+sound.Parent = game.Workspace  -- Parent the sound to the Workspace
+
+-- Function to adjust the playback speed to extend the duration
+local function extendDuration(sound, targetDuration)
+    local currentDuration = sound.TimeLength
+    local speedFactor = currentDuration / targetDuration
+    sound.PlaybackSpeed = 2
+end
+
+-- Play the sound
+sound:Play()
+end)
+task.spawn(function()
+local soundId = "rbxassetid://12273121655"
+
+-- Create and configure the sound
+local sound = Instance.new("Sound")
+sound.SoundId = soundId
+sound.Volume = 2
+sound.Parent = game.Workspace  -- Parent the sound to the Workspace
+
+-- Function to adjust the playback speed to extend the duration
+local function extendDuration(sound, targetDuration)
+    local currentDuration = sound.TimeLength
+    local speedFactor = currentDuration / targetDuration
+    sound.PlaybackSpeed = 2
+end
+
+-- Play the sound
+sound:Play()
+end)
   	end    
 })
 local Section = Tab:AddSection({
