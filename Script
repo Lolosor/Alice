@@ -49,6 +49,7 @@ Section:NewButton("Speed Tracker", "By allah_isthebest", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Lolosor/Alice/main/Speed"))()
 end)
 Section:NewTextBox("WalkSpeed", "Enter the speed you want", function(value)
+    while true do
     local player = game.Players.LocalPlayer
     local character = player.Character or player.CharacterAdded:Wait()
     local humanoid = character:WaitForChild("Humanoid")
@@ -63,8 +64,12 @@ Section:NewTextBox("WalkSpeed", "Enter the speed you want", function(value)
         -- Optionally, notify the player if the input is invalid
         print("Please enter a valid number")
     end
+
+wait()
+end)
 end)
 Section:NewTextBox("JumpPower", "Enter the jump power you want", function(value)
+    while true do
     local newJumpPower = tonumber(value)
     
     if newJumpPower then
@@ -80,6 +85,9 @@ Section:NewTextBox("JumpPower", "Enter the jump power you want", function(value)
         -- Notify the player if the input is invalid
         print("Please enter a valid number for Jump Power")
     end
+
+wait()
+end)
 end)
 local Tab = Window:NewTab("Other Hubs")
 local Section = Tab:NewSection("Hubs")
