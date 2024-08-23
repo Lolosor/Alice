@@ -69,7 +69,7 @@ Section:NewTextBox("WalkSpeed", "Enter the speed you want", function(value)
                 -- Optionally, notify the player if the input is invalid
                 print("Please enter a valid number")
             end
-            wait() -- Adjust the wait time if needed
+            wait(0.1) -- Adjust the wait time if needed
         end
     end
 
@@ -101,7 +101,7 @@ Section:NewTextBox("JumpPower", "Enter the jump power you want", function(value)
                 else
                     print("Please enter a valid number for Jump Power")
                 end
-                wait() -- Adjust the wait time if needed
+                wait(0.1) -- Adjust the wait time if needed
             end
         end
 
