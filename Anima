@@ -1615,7 +1615,7 @@ Tab:AddButton({
 
     local playAnim2 = humanoid:LoadAnimation(anim2)
     playAnim2:Play()
-emd)
+end)
 task.spawn(function()
 local soundId = "rbxassetid://13926352956"
 
