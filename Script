@@ -49,24 +49,37 @@ Section:NewButton("Speed Tracker", "By allah_isthebest", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Lolosor/Alice/main/Speed"))()
 end)
 Section:NewTextBox("WalkSpeed", "Enter the speed you want", function(value)
-    while true do
-    local player = game.Players.LocalPlayer
-    local character = player.Character or player.CharacterAdded:Wait()
-    local humanoid = character:WaitForChild("Humanoid")
-
     -- Convert the value from string to number
     local speed = tonumber(value)
-    
-    -- If the input is a valid number, change the walk speed
-    if speed then
-        humanoid.WalkSpeed = speed
-    else
-        -- Optionally, notify the player if the input is invalid
-        print("Please enter a valid number")
+
+    -- Initialize a flag to control the loop
+    local running = true
+
+    -- Function to update the walk speed
+    local function updateWalkSpeed()
+        local player = game.Players.LocalPlayer
+        local character = player.Character or player.CharacterAdded:Wait()
+        local humanoid = character:WaitForChild("Humanoid")
+
+        -- Continuously update the WalkSpeed
+        while running do
+            if speed then
+                humanoid.WalkSpeed = speed
+            else
+                -- Optionally, notify the player if the input is invalid
+                print("Please enter a valid number")
+            end
+            wait(1) -- Adjust the wait time if needed
+        end
     end
 
-wait()
-end)
+    -- Start updating the WalkSpeed
+    updateWalkSpeed()
+
+    -- Stop the loop when the textbox value is updated again
+    Section:OnValueChanged(function(newValue)
+        speed = tonumber(newValue)
+    end)
 end)
 Section:NewTextBox("JumpPower", "Enter the jump power you want", function(value)
     while true do
