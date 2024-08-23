@@ -82,25 +82,40 @@ Section:NewTextBox("WalkSpeed", "Enter the speed you want", function(value)
     end)
 end)
 Section:NewTextBox("JumpPower", "Enter the jump power you want", function(value)
-    while true do
+    -- Convert the value from string to number
     local newJumpPower = tonumber(value)
     
+    -- Ensure newJumpPower is a valid number
     if newJumpPower then
         local player = game.Players.LocalPlayer
         local character = player.Character or player.CharacterAdded:Wait()
         local humanoid = character:WaitForChild("Humanoid")
         
-        -- Set the JumpPower directly to the new value
-        humanoid.JumpPower = newJumpPower
-        humanoid.UseJumpPower = true
-        print("Jump Power set to", newJumpPower)
+        -- Function to continuously update JumpPower
+        local function updateJumpPower()
+            while true do
+                if newJumpPower then
+                    humanoid.JumpPower = newJumpPower
+                    humanoid.UseJumpPower = true
+                    print("Jump Power set to", newJumpPower)
+                else
+                    print("Please enter a valid number for Jump Power")
+                end
+                wait(1) -- Adjust the wait time if needed
+            end
+        end
+
+        -- Start updating JumpPower in a coroutine
+        coroutine.wrap(updateJumpPower)()
     else
         -- Notify the player if the input is invalid
         print("Please enter a valid number for Jump Power")
     end
 
-wait()
-end)
+    -- Optionally handle changes to the textbox value
+    Section:OnValueChanged(function(newValue)
+        newJumpPower = tonumber(newValue)
+    end)
 end)
 local Tab = Window:NewTab("Other Hubs")
 local Section = Tab:NewSection("Hubs")
