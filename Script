@@ -49,37 +49,28 @@ Section:NewButton("Speed Tracker", "By allah_isthebest", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Lolosor/Alice/main/Speed"))()
 end)
 Section:NewTextBox("WalkSpeed", "Enter the speed you want", function(value)
-    -- Convert the value from string to number
-    local speed = tonumber(value)
+    local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local humanoid = character:WaitForChild("Humanoid")
 
-    -- Initialize a flag to control the loop
-    local running = true
-
-    -- Function to update the walk speed
-    local function updateWalkSpeed()
-        local player = game.Players.LocalPlayer
-        local character = player.Character or player.CharacterAdded:Wait()
-        local humanoid = character:WaitForChild("Humanoid")
-
-        -- Continuously update the WalkSpeed
-        while running do
-            if speed then
-                humanoid.WalkSpeed = speed
-            else
-                -- Optionally, notify the player if the input is invalid
-                print("Please enter a valid number")
-            end
-            wait(0.1) -- Adjust the wait time if needed
+-- Function to continuously enforce WalkSpeed
+local function enforceWalkSpeed()
+    while true do
+        -- Ensure the Humanoid is valid
+        if humanoid then
+            humanoid.WalkSpeed = value
         end
+        wait(0.1) -- Adjust the frequency as needed
     end
+end
 
-    -- Start updating the WalkSpeed
-    updateWalkSpeed()
+-- Connect to the CharacterAdded event to handle respawns
+player.CharacterAdded:Connect(function(char)
+    humanoid = char:WaitForChild("Humanoid")
+end)
 
-    -- Stop the loop when the textbox value is updated again
-    Section:OnValueChanged(function(newValue)
-        speed = tonumber(newValue)
-    end)
+-- Start the enforcement loop
+enforceWalkSpeed()
 end)
 Section:NewTextBox("JumpPower", "Enter the jump power you want", function(value)
     -- Convert the value from string to number
