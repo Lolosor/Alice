@@ -46,7 +46,8 @@ Section:NewButton("Keyboard", "", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/advxzivhsjjdhxhsidifvsh/mobkeyboard/main/main.txt", true))()
 end)
 Section:NewButton("Speed Tracker", "By allah_isthebest", function()
-    
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Lolosor/Alice/main/Speed"))()
+end)
 Section:NewTextBox("WalkSpeed", "Enter the speed you want", function(value)
     local player = game.Players.LocalPlayer
     local character = player.Character or player.CharacterAdded:Wait()
