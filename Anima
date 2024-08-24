@@ -17,7 +17,7 @@ local Section = Tab:AddSection({
 	Name = "Nothing is bannable, Enjoy!"
 })
 local Tab = Window:MakeTab({
-	Name = "Animation Logger",
+	Name = "Other Scripts",
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
 })
@@ -25,6 +25,24 @@ Tab:AddButton({
 	Name = "Animation Logger (By ._hawda)",
 	Callback = function()
       		loadstring(game:HttpGet("https://pastefy.app/1hmYhdIw/raw"))()
+  	end    
+})
+Tab:AddButton({
+	Name = "Copy play animation script",
+	Callback = function()
+      		
+  	end    
+})
+Tab:AddButton({
+	Name = "Copy play client animation script",
+	Callback = function()
+      		
+  	end    
+})
+Tab:AddButton({
+	Name = "Play animation UI",
+	Callback = function()
+      		
   	end    
 })
 local Tab = Window:MakeTab({
