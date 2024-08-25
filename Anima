@@ -953,7 +953,6 @@ Tab:AddButton({
     playAnim2:Play()
 end)
 task.spawn(function()
-task.spawn(function()
 local soundId = "rbxassetid://12309110506"
 
 -- Create and configure the sound
