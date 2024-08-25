@@ -172,9 +172,6 @@ Section:NewKeybind("Toggle UI", "", Enum.KeyCode.E, function()
 	Library:ToggleUI()
 end)
 
--- Ensure this script is a LocalScript
-
--- Create the ScreenGui and parent it to PlayerGui
 local ScreenGui = Instance.new("ScreenGui")
 ScreenGui.Name = "ToggleGui"
 ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
@@ -184,7 +181,7 @@ local Toggle = Instance.new("ImageButton")
 Toggle.Name = "Toggle"
 Toggle.Parent = ScreenGui
 Toggle.BackgroundColor3 = Color3.fromRGB(0, 0, 0) -- Optional: Set background color if needed
-Toggle.Position = UDim2.new(0.5, -45, 0.1, 0) -- Adjust the position as needed
+Toggle.Position = UDim2.new(0.5, 80, -0, 0) -- Adjust the position as needed
 Toggle.Size = UDim2.new(0, 40, 0, 40) -- Square size (change as needed)
 Toggle.Image = "rbxassetid://19003306395" -- The provided image ID
 Toggle.Draggable = true -- Make the button draggable
@@ -204,6 +201,3 @@ ScreenGui.AncestryChanged:Connect(function(child, parent)
         Toggle:Destroy()
     end
 end)
-
--- Debugging: Print to confirm the script is running
-print("Toggle button created and parented to ScreenGui")
