@@ -1237,6 +1237,7 @@ end
 
 -- Play the sound
 sound:Play()
+end)
 task.spawn(function()
 local soundId = "rbxassetid://13296206030"
 
