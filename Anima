@@ -30,19 +30,57 @@ Tab:AddButton({
 Tab:AddButton({
 	Name = "Copy play animation script",
 	Callback = function()
-      		
+      		setclipboard([[
+local player = game.Players.LocalPlayer
+repeat wait() until player.Character.Humanoid
+local humanoid = player.Character.Humanoid
+local character = player.Character or player.CharacterAdded:Wait()
+local UserInputService = game:GetService("UserInputService")
+
+local anim2 = Instance.new("Animation")
+anim2.AnimationId = "rbxassetid://enter id"
+
+local playAnim2 = humanoid:LoadAnimation(anim2)
+playAnim2:Play()
+]])
   	end    
 })
 Tab:AddButton({
 	Name = "Copy play client animation script",
 	Callback = function()
-      		
+      		setclipboard([[
+local player = game.Players.LocalPlayer
+repeat wait() until player.Character.Humanoid
+local humanoid = player.Character.Humanoid
+local character = game.Players.LocalPlayer.Character or game.Players.LocalPlayer.CharacterAdded:Wait()
+local UserInputService = game:GetService("UserInputService")
+debounce = false -- Activate debounce
+local anim = Instance.new("Animation")
+anim.AnimationId = "rbxassetid://enter id"
+local playAnim = humanoid:LoadAnimation(anim)
+anim.AnimationId = "rbxassetid://0" -- don't change anything here
+
+spawn(function()
+    wait(1)
+    debounce = true
+end)
+
+playAnim:Play()
+playAnim:AdjustSpeed(1)
+wait(0.3)
+playAnim:AdjustSpeed(1)
+
+local Players = game:GetService("Players")
+local Character = Players.LocalPlayer.Character or Players.LocalPlayer.CharacterAdded:Wait()
+
+local animationPlayed = false -- Flag to track if the animation has already been played
+]])
   	end    
 })
 Tab:AddButton({
 	Name = "Play animation UI",
 	Callback = function()
-      		
+      		loadstring(game:HttpGet("https://raw.githubusercontent.com/Fromonor/Ui/main/UI"))()
   	end    
 })
 local Tab = Window:MakeTab({
