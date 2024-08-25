@@ -25,7 +25,7 @@ Section:NewButton("Saitama To KJ", "", function()
 end)
 local Tab = Window:NewTab("Animations")
 local Section = Tab:NewSection("Animations")
-Section:NewButton("Animations (Best)", "By allah_isthebest", function()
+Section:NewButton("Alice Animations", "By allah_isthebest/Alice", function()
 
 end)
 local Tab = Window:NewTab("Misc")
