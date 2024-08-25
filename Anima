@@ -1237,8 +1237,27 @@ end
 
 -- Play the sound
 sound:Play()
+task.spawn(function()
+local soundId = "rbxassetid://13296206030"
+
+-- Create and configure the sound
+local sound = Instance.new("Sound")
+sound.SoundId = soundId
+sound.Volume = 2
+sound.Parent = game.Workspace  -- Parent the sound to the Workspace
+
+-- Function to adjust the playback speed to extend the duration
+local function extendDuration(sound, targetDuration)
+    local currentDuration = sound.TimeLength
+    local speedFactor = currentDuration / targetDuration
+    sound.PlaybackSpeed = 2
+end
+
+-- Play the sound
+sound:Play()
 end)
 task.spawn(function()
+wait(0.2)
 local soundId = "rbxassetid://3755636825"
 
 -- Create and configure the sound
