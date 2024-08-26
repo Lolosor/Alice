@@ -1239,6 +1239,7 @@ end
 sound:Play()
 end)
 task.spawn(function()
+wait(0.2)
 local soundId = "rbxassetid://13296206030"
 
 -- Create and configure the sound
@@ -1278,6 +1279,7 @@ end
 sound:Play()
 end)
 task.spawn(function()
+wait(0.2)
 local soundId = "rbxassetid://12481912200"
 
 -- Create and configure the sound
@@ -1297,6 +1299,7 @@ end
 sound:Play()
 end)
 task.spawn(function()
+wait(0.2)
 local soundId = "rbxassetid://13296506500"
 
 -- Create and configure the sound
@@ -1316,6 +1319,7 @@ end
 sound:Play()
 end)
 task.spawn(function()
+wait(0.2)
 local soundId = "rbxassetid://698224146"
 
 -- Create and configure the sound
@@ -1335,6 +1339,7 @@ end
 sound:Play()
 end)
 task.spawn(function()
+wait(0.2)
 local soundId = "rbxassetid://12508901314"
 
 -- Create and configure the sound
