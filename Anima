@@ -2393,7 +2393,7 @@ Tab:AddButton({
   	end    
 })
 Tab:AddButton({
-	Name = "Run",
+	Name = "Run (Dash to cancel)",
 	Callback = function()
       		local player = game.Players.LocalPlayer
     repeat wait() until player.Character.Humanoid
@@ -2425,9 +2425,28 @@ Tab:AddButton({
   	end    
 })
 Tab:AddButton({
-	Name = "Block",
+	Name = "Punch 1(victim)",
 	Callback = function()
-      		local player = game.Players.LocalPlayer
+      		
+  	end    
+})
+Tab:AddButton({
+	Name = "Punch 2(victim)",
+	Callback = function()
+      		
+  	end    
+})
+Tab:AddButton({
+	Name = "Punch 3(victim)",
+	Callback = function()
+      		
+  	end    
+})
+Tab:AddButton({
+	Name = "Block (Dash to cancel)",
+	Callback = function()
+                task.spawn(function()
+    local player = game.Players.LocalPlayer
     repeat wait() until player.Character.Humanoid
     local humanoid = player.Character.Humanoid
     local character = player.Character or player.CharacterAdded:Wait()
@@ -2438,12 +2457,85 @@ Tab:AddButton({
 
     local playAnim2 = humanoid:LoadAnimation(anim2)
     playAnim2:Play()
+end)
+task.spawn(function()
+local player = game.Players.LocalPlayer
+repeat wait() until player.Character and player.Character:FindFirstChild("Humanoid")
+
+local character = player.Character or player.CharacterAdded:Wait()
+local humanoid = character:WaitForChild("Humanoid")
+
+-- The looping animation ID that should be stopped
+local loopingAnimationId = "rbxassetid://10470389827"
+
+-- List of specific animation IDs that will trigger stopping the looping animation
+local triggeringAnimationIds = {
+    "rbxassetid://10479335397",
+    "rbxassetid://10480793962",
+    "rbxassetid://10480796021",
+    "rbxassetid://10491993682"
+}
+
+-- Function to stop the looping animation
+local function stopLoopingAnimation()
+    -- Iterate through all playing animation tracks
+    for _, track in pairs(humanoid:GetPlayingAnimationTracks()) do
+        -- Check if the track's AnimationId is the looping one
+        if track.Animation.AnimationId == loopingAnimationId then
+            track:Stop()
+            print("Stopped looping animation:", loopingAnimationId)
+        end
+    end
+end
+
+-- Function to check for the triggering animations and stop the looping animation
+local function checkAndStopLoopingAnimation()
+    -- Iterate through all playing animation tracks
+    for _, track in pairs(humanoid:GetPlayingAnimationTracks()) do
+        -- Check if the track's AnimationId is in the triggering list
+        for _, id in pairs(triggeringAnimationIds) do
+            if track.Animation.AnimationId == id then
+                stopLoopingAnimation()
+                return -- Exit after stopping the looping animation
+            end
+        end
+    end
+end
+
+-- Monitor for changes in animations
+humanoid.AnimationPlayed:Connect(function(animationTrack)
+    checkAndStopLoopingAnimation()
+end)
+
+-- Initial check in case the triggering animation is already playing
+checkAndStopLoopingAnimation()
+end)
+task.spawn(function()
+local soundId = "rbxassetid://7406697981"
+
+-- Create and configure the sound
+local sound = Instance.new("Sound")
+sound.SoundId = soundId
+sound.Volume = 2
+sound.Parent = game.Workspace  -- Parent the sound to the Workspace
+
+-- Function to adjust the playback speed to extend the duration
+local function extendDuration(sound, targetDuration)
+    local currentDuration = sound.TimeLength
+    local speedFactor = currentDuration / targetDuration
+    sound.PlaybackSpeed = 2
+end
+
+-- Play the sound
+sound:Play()
+end)
   	end    
 })
 Tab:AddButton({
-	Name = "Mini Uppercut",
+	Name = "Mini Uppercut (Miss)",
 	Callback = function()
-      		local player = game.Players.LocalPlayer
+                task.spawn(function()
+    local player = game.Players.LocalPlayer
     repeat wait() until player.Character.Humanoid
     local humanoid = player.Character.Humanoid
     local character = player.Character or player.CharacterAdded:Wait()
@@ -2454,6 +2546,101 @@ Tab:AddButton({
 
     local playAnim2 = humanoid:LoadAnimation(anim2)
     playAnim2:Play()
+end)
+task.spawn(function()
+local soundId = "10495352199"
+
+-- Create and configure the sound
+local sound = Instance.new("Sound")
+sound.SoundId = soundId
+sound.Volume = 2
+sound.Parent = game.Workspace  -- Parent the sound to the Workspace
+
+-- Function to adjust the playback speed to extend the duration
+local function extendDuration(sound, targetDuration)
+    local currentDuration = sound.TimeLength
+    local speedFactor = currentDuration / targetDuration
+    sound.PlaybackSpeed = 2
+end
+
+-- Play the sound
+sound:Play()
+end)
+  	end    
+})
+Tab:AddButton({
+	Name = "Mini Uppercut",
+	Callback = function()
+                task.spawn(function()
+    local player = game.Players.LocalPlayer
+    repeat wait() until player.Character.Humanoid
+    local humanoid = player.Character.Humanoid
+    local character = player.Character or player.CharacterAdded:Wait()
+    local UserInputService = game:GetService("UserInputService")
+
+    local anim2 = Instance.new("Animation")
+    anim2.AnimationId = "rbxassetid://10503381238"
+
+    local playAnim2 = humanoid:LoadAnimation(anim2)
+    playAnim2:Play()
+end)
+task.spawn(function()
+local soundId = "rbxassetid://4847027421"
+
+-- Create and configure the sound
+local sound = Instance.new("Sound")
+sound.SoundId = soundId
+sound.Volume = 2
+sound.Parent = game.Workspace  -- Parent the sound to the Workspace
+
+-- Function to adjust the playback speed to extend the duration
+local function extendDuration(sound, targetDuration)
+    local currentDuration = sound.TimeLength
+    local speedFactor = currentDuration / targetDuration
+    sound.PlaybackSpeed = 2
+end
+
+-- Play the sound
+sound:Play()
+end)
+task.spawn(function()
+local soundId = "rbxassetid://10495327847"
+
+-- Create and configure the sound
+local sound = Instance.new("Sound")
+sound.SoundId = soundId
+sound.Volume = 2
+sound.Parent = game.Workspace  -- Parent the sound to the Workspace
+
+-- Function to adjust the playback speed to extend the duration
+local function extendDuration(sound, targetDuration)
+    local currentDuration = sound.TimeLength
+    local speedFactor = currentDuration / targetDuration
+    sound.PlaybackSpeed = 2
+end
+
+-- Play the sound
+sound:Play()
+end)
+task.spawn(function()
+local soundId = "rbxassetid://7406698049"
+
+-- Create and configure the sound
+local sound = Instance.new("Sound")
+sound.SoundId = soundId
+sound.Volume = 2
+sound.Parent = game.Workspace  -- Parent the sound to the Workspace
+
+-- Function to adjust the playback speed to extend the duration
+local function extendDuration(sound, targetDuration)
+    local currentDuration = sound.TimeLength
+    local speedFactor = currentDuration / targetDuration
+    sound.PlaybackSpeed = 2
+end
+
+-- Play the sound
+sound:Play()
+end)
   	end    
 })
 Tab:AddButton({
@@ -2486,6 +2673,12 @@ Tab:AddButton({
 
     local playAnim2 = humanoid:LoadAnimation(anim2)
     playAnim2:Play()
+  	end    
+})
+Tab:AddButton({
+	Name = "Downslam Finisher 2",
+	Callback = function()
+      		
   	end    
 })
 Tab:AddButton({
