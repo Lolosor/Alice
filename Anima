@@ -2836,7 +2836,7 @@ while tick() - startTime < duration do
     wait(interval)
 end
 end)
-wait(0.4)
+wait(0.3)
 task.spawn(function()
 wait(0.3)
 local soundId = "rbxassetid://13354861180"
@@ -3120,7 +3120,7 @@ while tick() - startTime < duration do
     wait(interval)
 end
 end)
-wait(0.4)
+wait(0.3)
 task.spawn(function()
 wait(0.3)
 local soundId = "rbxassetid://13354861180"
