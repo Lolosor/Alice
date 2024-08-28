@@ -179,10 +179,14 @@ local ScreenGui = Instance.new("ScreenGui")
 ScreenGui.Name = "ToggleGui"
 ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 
+local ToggleScreenGui = Instance.new("ScreenGui")
+ToggleScreenGui.Name = "ToggleGui"
+ToggleScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+
 -- Create the ImageButton (Toggle)
 local Toggle = Instance.new("ImageButton")
 Toggle.Name = "Toggle"
-Toggle.Parent = ScreenGui
+Toggle.Parent = ToggleScreenGui
 Toggle.BackgroundColor3 = Color3.fromRGB(0, 0, 0) -- Optional: Set background color if needed
 Toggle.Position = UDim2.new(0.5, 80, -0, 0) -- Adjust the position as needed
 Toggle.Size = UDim2.new(0, 40, 0, 40) -- Square size (change as needed)
@@ -198,9 +202,18 @@ Toggle.MouseButton1Click:Connect(function()
     Library:ToggleUI()
 end)
 
--- Ensure toggle button disappears if ScreenGui is destroyed
-ScreenGui.AncestryChanged:Connect(function(child, parent)
-    if not parent then
+-- Ensure toggle button disappears if ToggleScreenGui is destroyed
+ToggleScreenGui.AncestryChanged:Connect(function()
+    if not ToggleScreenGui.Parent then
         Toggle:Destroy()
     end
 end)
+
+-- Detect if the main ScreenGui is destroyed
+if ScreenGui then
+    ScreenGui.AncestryChanged:Connect(function()
+        if not ScreenGui.Parent then
+            ToggleScreenGui:Destroy()
+        end
+    end)
+end
