@@ -234,7 +234,7 @@ function Kavo.CreateLib(kavName, themeList)
     Main.Parent = ScreenGui
     Main.BackgroundColor3 = themeList.Background
     Main.ClipsDescendants = true
-    Main.Position = UDim2.new(0.5, -262.5, 1, -338)
+    Main.Position = UDim2.new(0.5, -262.5, 1, -328)
     Main.Size = UDim2.new(0, 525, 0, 318)
 
     MainCorner.CornerRadius = UDim.new(0, 4)
@@ -290,7 +290,7 @@ function Kavo.CreateLib(kavName, themeList)
         Size = UDim2.new(0,0,0,0),
         Position = UDim2.new(0, Main.AbsolutePosition.X + (Main.AbsoluteSize.X / 2), 0, Main.AbsolutePosition.Y + (Main.AbsoluteSize.Y / 2))
     }):Play()
-    wait(1)
+    wait()
     -- Destroy both ScreenGui and ToggleScreenGui
     ScreenGui:Destroy()
     if game.Players.LocalPlayer.PlayerGui:FindFirstChild("ToggleGui") then
