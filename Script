@@ -174,3 +174,26 @@ local Section = Tab:NewSection("Alice, Allah_isthebest, NetlessKJ")
 Section:NewKeybind("Toggle UI", "", Enum.KeyCode.E, function()
 	Library:ToggleUI()
 end)
+
+local ToggleScreenGui = Instance.new("ScreenGui")
+ToggleScreenGui.Name = "ToggleGui"
+ToggleScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+
+-- Create the ImageButton (Toggle)
+local Toggle = Instance.new("ImageButton")
+Toggle.Name = "Toggle"
+Toggle.Parent = ToggleScreenGui
+Toggle.BackgroundColor3 = Color3.fromRGB(0, 0, 0) -- Optional: Set background color if needed
+Toggle.Position = UDim2.new(0.5, 80, -0, 0) -- Adjust the position as needed
+Toggle.Size = UDim2.new(0, 40, 0, 40) -- Square size (change as needed)
+Toggle.Image = "rbxassetid://19003306395" -- The provided image ID
+Toggle.Draggable = true -- Make the button draggable
+
+-- Make the corners rounded (Optional)
+local Corner = Instance.new("UICorner")
+Corner.Parent = Toggle
+
+-- Connect the button click to toggle the UI
+Toggle.MouseButton1Click:Connect(function()
+    Library:ToggleUI()
+end)
