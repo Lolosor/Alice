@@ -3586,6 +3586,60 @@ end)
 Tab:AddButton({
 	Name = "Forward Dash (Miss)",
 	Callback = function()
+      		task.spawn(function()
+-- Variables
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local torso = character:WaitForChild("Torso")
+
+-- Create a new part
+local circlePart = Instance.new("Part")
+circlePart.Size = Vector3.new(5, 5, 0.3) -- Base size for the circle part
+circlePart.Color = Color3.fromRGB(255, 255, 255) -- Pure white for maximum brightness
+circlePart.Material = Enum.Material.Neon -- Neon material for brightness
+circlePart.Anchored = true
+circlePart.CanCollide = false
+circlePart.Transparency = 0
+circlePart.Reflectance = 0 -- Increase reflectance for added brightness
+
+-- Create a mesh to form a large, thin ring (bracelet effect)
+local mesh = Instance.new("SpecialMesh")
+mesh.MeshType = Enum.MeshType.FileMesh
+mesh.MeshId = "rbxassetid://3270017" -- Use Roblox's built-in Torus (ring) mesh
+
+-- Set initial size of the mesh
+mesh.Scale = Vector3.new(5, 5, 0) -- Initial size and thickness of the ring (small)
+mesh.Parent = circlePart
+
+-- Position the part around the torso
+circlePart.CFrame = torso.CFrame * CFrame.new(0, 0, 0) -- Centered on torso
+circlePart.Orientation = Vector3.new(0, torso.Orientation.Y, 0) -- Match torso's facing direction
+
+-- Parent to workspace
+circlePart.Parent = workspace
+
+-- Function to grow and fade out the part over 0.3 seconds
+local function growAndFadeOut(part)
+    local startSize = mesh.Scale
+    local endSize = Vector3.new(9, 9, 0.1) -- Final size of the ring (larger than initial)
+    local duration = 0.14 -- Duration in seconds
+    local step = 0.02 -- Step size for the loop
+    local steps = duration / step
+
+    for i = 0, steps do
+        local alpha = i / steps
+        -- Calculate size and transparency
+        mesh.Scale = startSize:Lerp(endSize, alpha)
+        part.Transparency = alpha
+        wait(step)
+    end
+    part:Destroy()
+end
+
+-- Call the grow and fade-out function
+growAndFadeOut(circlePart)
+end)
+task.spawn(function()
       		local player = game.Players.LocalPlayer
     repeat wait() until player.Character.Humanoid
     local humanoid = player.Character.Humanoid
@@ -3597,11 +3651,161 @@ Tab:AddButton({
 
     local playAnim2 = humanoid:LoadAnimation(anim2)
     playAnim2:Play()
+    wait(0.2)
+    playAnim2:AdjustSpeed(0)
+    wait(0.4)
+    playAnim2:AdjustSpeed(1)
+end)
+task.spawn(function()
+    local player = game.Players.LocalPlayer
+    local character = player.Character or player.CharacterAdded:Wait()
+    local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
+
+    local teleportDistance = 2.2 -- The distance to teleport forward each step
+    local teleportInterval = 0 -- Time interval between each teleport (in seconds)
+    local totalDuration = 0.62 -- Total duration of the teleportation (in seconds)
+
+    local timeElapsed = 0
+    local startTime = tick() -- Record the start time
+
+    while timeElapsed < totalDuration do
+        humanoidRootPart.CFrame = humanoidRootPart.CFrame * CFrame.new(0, 0, -teleportDistance)
+        wait(teleportInterval)
+        timeElapsed = tick() - startTime -- Update the elapsed time
+    end
+end)
+task.spawn(function()
+local soundId = "rbxassetid://10479358465"
+
+-- Create and configure the sound
+local sound = Instance.new("Sound")
+sound.SoundId = soundId
+sound.Volume = 2
+sound.Parent = game.Workspace  -- Parent the sound to the Workspace
+
+-- Function to adjust the playback speed to extend the duration
+local function extendDuration(sound, targetDuration)
+    local currentDuration = sound.TimeLength
+    local speedFactor = currentDuration / targetDuration
+    sound.PlaybackSpeed = 2
+end
+
+-- Play the sound
+sound:Play()
+wait(0.65)
+local soundId = "rbxassetid://10479799299"
+
+-- Create and configure the sound
+local sound = Instance.new("Sound")
+sound.SoundId = soundId
+sound.Volume = 2
+sound.Parent = game.Workspace  -- Parent the sound to the Workspace
+
+-- Function to adjust the playback speed to extend the duration
+local function extendDuration(sound, targetDuration)
+    local currentDuration = sound.TimeLength
+    local speedFactor = currentDuration / targetDuration
+    sound.PlaybackSpeed = 2
+end
+
+-- Play the sound
+sound:Play()
+wait()
+local soundId = "rbxassetid://10479799231"
+
+-- Create and configure the sound
+local sound = Instance.new("Sound")
+sound.SoundId = soundId
+sound.Volume = 2
+sound.Parent = game.Workspace  -- Parent the sound to the Workspace
+
+-- Function to adjust the playback speed to extend the duration
+local function extendDuration(sound, targetDuration)
+    local currentDuration = sound.TimeLength
+    local speedFactor = currentDuration / targetDuration
+    sound.PlaybackSpeed = 2
+end
+
+-- Play the sound
+sound:Play()
+wait()
+local soundId = "rbxassetid://10480757045"
+
+-- Create and configure the sound
+local sound = Instance.new("Sound")
+sound.SoundId = soundId
+sound.Volume = 2
+sound.Parent = game.Workspace  -- Parent the sound to the Workspace
+
+-- Function to adjust the playback speed to extend the duration
+local function extendDuration(sound, targetDuration)
+    local currentDuration = sound.TimeLength
+    local speedFactor = currentDuration / targetDuration
+    sound.PlaybackSpeed = 2
+end
+
+-- Play the sound
+sound:Play()
+end)
   	end    
 })
 Tab:AddButton({
 	Name = "Forward Dash",
 	Callback = function()
+      		task.spawn(function()
+-- Variables
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local torso = character:WaitForChild("Torso")
+
+-- Create a new part
+local circlePart = Instance.new("Part")
+circlePart.Size = Vector3.new(5, 5, 0.3) -- Base size for the circle part
+circlePart.Color = Color3.fromRGB(255, 255, 255) -- Pure white for maximum brightness
+circlePart.Material = Enum.Material.Neon -- Neon material for brightness
+circlePart.Anchored = true
+circlePart.CanCollide = false
+circlePart.Transparency = 0
+circlePart.Reflectance = 0 -- Increase reflectance for added brightness
+
+-- Create a mesh to form a large, thin ring (bracelet effect)
+local mesh = Instance.new("SpecialMesh")
+mesh.MeshType = Enum.MeshType.FileMesh
+mesh.MeshId = "rbxassetid://3270017" -- Use Roblox's built-in Torus (ring) mesh
+
+-- Set initial size of the mesh
+mesh.Scale = Vector3.new(5, 5, 0) -- Initial size and thickness of the ring (small)
+mesh.Parent = circlePart
+
+-- Position the part around the torso
+circlePart.CFrame = torso.CFrame * CFrame.new(0, 0, 0) -- Centered on torso
+circlePart.Orientation = Vector3.new(0, torso.Orientation.Y, 0) -- Match torso's facing direction
+
+-- Parent to workspace
+circlePart.Parent = workspace
+
+-- Function to grow and fade out the part over 0.3 seconds
+local function growAndFadeOut(part)
+    local startSize = mesh.Scale
+    local endSize = Vector3.new(9, 9, 0.1) -- Final size of the ring (larger than initial)
+    local duration = 0.14 -- Duration in seconds
+    local step = 0.02 -- Step size for the loop
+    local steps = duration / step
+
+    for i = 0, steps do
+        local alpha = i / steps
+        -- Calculate size and transparency
+        mesh.Scale = startSize:Lerp(endSize, alpha)
+        part.Transparency = alpha
+        wait(step)
+    end
+    part:Destroy()
+end
+
+-- Call the grow and fade-out function
+growAndFadeOut(circlePart)
+end)
+task.spawn(function()
       		local player = game.Players.LocalPlayer
     repeat wait() until player.Character.Humanoid
     local humanoid = player.Character.Humanoid
@@ -3613,6 +3817,156 @@ Tab:AddButton({
 
     local playAnim2 = humanoid:LoadAnimation(anim2)
     playAnim2:Play()
+    wait(0.2)
+    playAnim2:AdjustSpeed(0)
+    wait(0.4)
+    playAnim2:AdjustSpeed(1)
+end)
+task.spawn(function()
+    local player = game.Players.LocalPlayer
+    local character = player.Character or player.CharacterAdded:Wait()
+    local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
+
+    local teleportDistance = 2.2 -- The distance to teleport forward each step
+    local teleportInterval = 0 -- Time interval between each teleport (in seconds)
+    local totalDuration = 0.62 -- Total duration of the teleportation (in seconds)
+
+    local timeElapsed = 0
+    local startTime = tick() -- Record the start time
+
+    while timeElapsed < totalDuration do
+        humanoidRootPart.CFrame = humanoidRootPart.CFrame * CFrame.new(0, 0, -teleportDistance)
+        wait(teleportInterval)
+        timeElapsed = tick() - startTime -- Update the elapsed time
+    end
+end)
+task.spawn(function()
+local soundId = "rbxassetid://10479358465"
+
+-- Create and configure the sound
+local sound = Instance.new("Sound")
+sound.SoundId = soundId
+sound.Volume = 2
+sound.Parent = game.Workspace  -- Parent the sound to the Workspace
+
+-- Function to adjust the playback speed to extend the duration
+local function extendDuration(sound, targetDuration)
+    local currentDuration = sound.TimeLength
+    local speedFactor = currentDuration / targetDuration
+    sound.PlaybackSpeed = 2
+end
+
+-- Play the sound
+sound:Play()
+wait(0.65)
+local soundId = "rbxassetid://10479799299"
+
+-- Create and configure the sound
+local sound = Instance.new("Sound")
+sound.SoundId = soundId
+sound.Volume = 2
+sound.Parent = game.Workspace  -- Parent the sound to the Workspace
+
+-- Function to adjust the playback speed to extend the duration
+local function extendDuration(sound, targetDuration)
+    local currentDuration = sound.TimeLength
+    local speedFactor = currentDuration / targetDuration
+    sound.PlaybackSpeed = 2
+end
+
+-- Play the sound
+sound:Play()
+wait()
+local soundId = "rbxassetid://10479799231"
+
+-- Create and configure the sound
+local sound = Instance.new("Sound")
+sound.SoundId = soundId
+sound.Volume = 2
+sound.Parent = game.Workspace  -- Parent the sound to the Workspace
+
+-- Function to adjust the playback speed to extend the duration
+local function extendDuration(sound, targetDuration)
+    local currentDuration = sound.TimeLength
+    local speedFactor = currentDuration / targetDuration
+    sound.PlaybackSpeed = 2
+end
+
+-- Play the sound
+sound:Play()
+wait()
+local soundId = "rbxassetid://10480757045"
+
+-- Create and configure the sound
+local sound = Instance.new("Sound")
+sound.SoundId = soundId
+sound.Volume = 2
+sound.Parent = game.Workspace  -- Parent the sound to the Workspace
+
+-- Function to adjust the playback speed to extend the duration
+local function extendDuration(sound, targetDuration)
+    local currentDuration = sound.TimeLength
+    local speedFactor = currentDuration / targetDuration
+    sound.PlaybackSpeed = 2
+end
+
+-- Play the sound
+sound:Play()
+wait()
+local soundId = "rbxassetid://507150998"
+
+-- Create and configure the sound
+local sound = Instance.new("Sound")
+sound.SoundId = soundId
+sound.Volume = 2
+sound.Parent = game.Workspace  -- Parent the sound to the Workspace
+
+-- Function to adjust the playback speed to extend the duration
+local function extendDuration(sound, targetDuration)
+    local currentDuration = sound.TimeLength
+    local speedFactor = currentDuration / targetDuration
+    sound.PlaybackSpeed = 2
+end
+
+-- Play the sound
+sound:Play()
+wait()
+local soundId = "rbxassetid://10479817490"
+
+-- Create and configure the sound
+local sound = Instance.new("Sound")
+sound.SoundId = soundId
+sound.Volume = 2
+sound.Parent = game.Workspace  -- Parent the sound to the Workspace
+
+-- Function to adjust the playback speed to extend the duration
+local function extendDuration(sound, targetDuration)
+    local currentDuration = sound.TimeLength
+    local speedFactor = currentDuration / targetDuration
+    sound.PlaybackSpeed = 2
+end
+
+-- Play the sound
+sound:Play()
+wait()
+local soundId = "rbxassetid://10480757045"
+
+-- Create and configure the sound
+local sound = Instance.new("Sound")
+sound.SoundId = soundId
+sound.Volume = 2
+sound.Parent = game.Workspace  -- Parent the sound to the Workspace
+
+-- Function to adjust the playback speed to extend the duration
+local function extendDuration(sound, targetDuration)
+    local currentDuration = sound.TimeLength
+    local speedFactor = currentDuration / targetDuration
+    sound.PlaybackSpeed = 2
+end
+
+-- Play the sound
+sound:Play()
+end)
   	end    
 })
 Tab:AddButton({
