@@ -171,7 +171,7 @@ Section:NewButton("Animations", "By xVicity", function()
 end)
 local Tab = Window:NewTab("Credits")
 local Section = Tab:NewSection("Alice, Allah_isthebest, NetlessKJ")
-Section:NewKeybind("Toggle UI", "", Enum.KeyCode.E, function()
+Section:NewKeybind("Toggle UI", "", Enum.KeyCode.Q, function()
 	Library:ToggleUI()
 end)
 
