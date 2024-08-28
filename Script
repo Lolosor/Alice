@@ -186,7 +186,7 @@ Toggle.Parent = ToggleScreenGui
 Toggle.BackgroundColor3 = Color3.fromRGB(0, 0, 0) -- Optional: Set background color if needed
 Toggle.Position = UDim2.new(0.5, 80, -0, 0) -- Adjust the position as needed
 Toggle.Size = UDim2.new(0, 40, 0, 40) -- Square size (change as needed)
-Toggle.Image = "rbxassetid://19003306395" -- The provided image ID
+Toggle.Image = "rbxassetid://127770556815064" -- The provided image ID
 Toggle.Draggable = true -- Make the button draggable
 
 -- Make the corners rounded (Optional)
