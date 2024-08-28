@@ -298,13 +298,6 @@ function Kavo.CreateLib(kavName, themeList)
     end
 end)
 
--- Ensure toggle button disappears if ToggleScreenGui is destroyed
-ToggleScreenGui.AncestryChanged:Connect(function()
-    if not ToggleScreenGui.Parent then
-        Toggle:Destroy()
-    end
-end)
-
     MainSide.Name = "MainSide"
     MainSide.Parent = Main
     MainSide.BackgroundColor3 = themeList.Header
