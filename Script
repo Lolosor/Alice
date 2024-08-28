@@ -1,4 +1,4 @@
-local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Lolosor/Alice/main/Kavo"))()
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Lolosor/Alice/main/Cave"))()
 local Window = Library.CreateLib("Alice Hub", "Synapse")
 local Tab = Window:NewTab("Main")
 local Section = Tab:NewSection("Characters FE")
@@ -174,46 +174,3 @@ local Section = Tab:NewSection("Alice, Allah_isthebest, NetlessKJ")
 Section:NewKeybind("Toggle UI", "", Enum.KeyCode.E, function()
 	Library:ToggleUI()
 end)
-
-local ScreenGui = Instance.new("ScreenGui")
-ScreenGui.Name = "ToggleGui"
-ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
-
-local ToggleScreenGui = Instance.new("ScreenGui")
-ToggleScreenGui.Name = "ToggleGui"
-ToggleScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
-
--- Create the ImageButton (Toggle)
-local Toggle = Instance.new("ImageButton")
-Toggle.Name = "Toggle"
-Toggle.Parent = ToggleScreenGui
-Toggle.BackgroundColor3 = Color3.fromRGB(0, 0, 0) -- Optional: Set background color if needed
-Toggle.Position = UDim2.new(0.5, 80, -0, 0) -- Adjust the position as needed
-Toggle.Size = UDim2.new(0, 40, 0, 40) -- Square size (change as needed)
-Toggle.Image = "rbxassetid://19003306395" -- The provided image ID
-Toggle.Draggable = true -- Make the button draggable
-
--- Make the corners rounded (Optional)
-local Corner = Instance.new("UICorner")
-Corner.Parent = Toggle
-
--- Connect the button click to toggle the UI
-Toggle.MouseButton1Click:Connect(function()
-    Library:ToggleUI()
-end)
-
--- Ensure toggle button disappears if ToggleScreenGui is destroyed
-ToggleScreenGui.AncestryChanged:Connect(function()
-    if not ToggleScreenGui.Parent then
-        Toggle:Destroy()
-    end
-end)
-
--- Detect if the main ScreenGui is destroyed
-if ScreenGui then
-    ScreenGui.AncestryChanged:Connect(function()
-        if not ScreenGui.Parent then
-            ToggleScreenGui:Destroy()
-        end
-    end)
-end
