@@ -30,9 +30,9 @@ local Toggle = Instance.new("ImageButton")
 Toggle.Name = "Toggle"
 Toggle.Parent = ToggleScreenGu
 Toggle.BackgroundColor3 = Color3.fromRGB(0, 0, 0) -- Optional: Set background color if needed
-Toggle.Position = UDim2.new(0.5, 0, 0, 0) -- Adjust the position as needed
+Toggle.Position = UDim2.new(0.5, 170, -0.08, 0) -- Adjust the position as needed
 Toggle.Size = UDim2.new(0, 40, 0, 40) -- Square size (change as needed)
-Toggle.Image = "rbxassetid://127457301130081" -- The provided image ID
+Toggle.Image = "rbxassetid://70926775732023" -- The provided image ID
 Toggle.Draggable = true -- Make the button draggable
 
 -- Make the corners rounded (Optional)
