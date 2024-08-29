@@ -23,6 +23,7 @@ end
 -- Create the Toggle Screen GUI outside of Orion
 local ToggleScreenGu = Instance.new("ScreenGui")
 ToggleScreenGu.Name = "Toggle"
+ToggleScreenGu.ResetOnSpawn = false
 ToggleScreenGu.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 
 -- Create the ImageButton (Toggle)
@@ -2593,6 +2594,31 @@ sound:Play()
 end)
   	end    
 })
+Tab:AddButton({
+	Name = "Block (Deadly Ninja)",
+	Callback = function()
+
+  	end    
+})
+Tab:AddButton({
+	Name = "Block (Brutal Demon)",
+	Callback = function()
+
+  	end    
+})
+Tab:AddButton({
+	Name = "Block (Blade Master)",
+	Callback = function()
+
+  	end    
+})
+Tab:AddButton({
+	Name = "Block (Wild Psychic)",
+	Callback = function()
+
+  	end    
+})
+
 Tab:AddButton({
 	Name = "Mini Uppercut (Miss)",
 	Callback = function()
