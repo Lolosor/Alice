@@ -653,15 +653,28 @@ function OrionLib:MakeWindow(WindowConfig)
 	MakeDraggable(DragPoint, MainWindow)
 
 	AddConnection(CloseBtn.MouseButton1Up, function()
-		MainWindow.Visible = false
-		UIHidden = true
-		OrionLib:MakeNotification({
-			Name = "Interface Hidden",
-			Content = "Tap RightShift to reopen the interface",
-			Time = 5
-		})
-		WindowConfig.CloseCallback()
-	end)
+    -- Hide the main window
+    MainWindow.Visible = false
+    
+    -- Mark UI as hidden
+    UIHidden = true
+
+    -- Destroy the Toggle GUI
+    local toggleGui = game.Players.LocalPlayer.PlayerGui:FindFirstChild("Toggle")
+    if toggleGui then
+        toggleGui:Destroy()
+    end
+
+    -- Show a notification
+    OrionLib:MakeNotification({
+        Name = "Interface Hidden",
+        Content = "Tap RightShift to reopen the interface",
+        Time = 5
+    })
+
+    -- Call the close callback if it exists
+    WindowConfig.CloseCallback()
+end)
 
 	AddConnection(UserInputService.InputBegan, function(Input)
 		if Input.KeyCode == Enum.KeyCode.RightShift and UIHidden then
