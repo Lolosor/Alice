@@ -122,6 +122,12 @@ Tab:AddButton({
       		loadstring(game:HttpGet("https://raw.githubusercontent.com/Fromonor/Ui/main/UI"))()
   	end    
 })
+Tab:AddButton({
+	Name = "Studs Calculator",
+	Callback = function()
+      		loadstring(game:HttpGet("https://raw.githubusercontent.com/Fromonor/E/main/Early"))()
+  	end    
+})
 local Tab = Window:MakeTab({
 	Name = "Spawn Animations",
 	Icon = "rbxassetid://4483345998",
