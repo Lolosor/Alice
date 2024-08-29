@@ -3791,7 +3791,8 @@ end)
 Tab:AddButton({
 	Name = "Right Dash",
 	Callback = function()
-      		local player = game.Players.LocalPlayer
+      		task.spawn(function()
+    local player = game.Players.LocalPlayer
     repeat wait() until player.Character.Humanoid
     local humanoid = player.Character.Humanoid
     local character = player.Character or player.CharacterAdded:Wait()
@@ -3802,7 +3803,310 @@ Tab:AddButton({
 
     local playAnim2 = humanoid:LoadAnimation(anim2)
     playAnim2:Play()
+end)
+task.spawn(function()
+local soundId = "rbxassetid://10481117326"
+
+-- Create and configure the sound
+local sound = Instance.new("Sound")
+sound.SoundId = soundId
+sound.Volume = 2
+sound.Parent = game.Workspace  -- Parent the sound to the Workspace
+
+-- Function to adjust the playback speed to extend the duration
+local function extendDuration(sound, targetDuration)
+    local currentDuration = sound.TimeLength
+    local speedFactor = currentDuration / targetDuration
+    sound.PlaybackSpeed = 2
+end
+
+-- Play the sound
+sound:Play()
+end)
+task.spawn(function()
+    local player = game.Players.LocalPlayer
+    local character = player.Character or player.CharacterAdded:Wait()
+    local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
+
+    local teleportDistance = 1 -- The distance to teleport forward each step
+    local teleportInterval = 0 -- Time interval between each teleport (in seconds)
+    local totalDuration = 0.4 -- Total duration of the teleportation (in seconds)
+
+    local timeElapsed = 0
+    local startTime = tick() -- Record the start time
+
+    while timeElapsed < totalDuration do
+        humanoidRootPart.CFrame = humanoidRootPart.CFrame * CFrame.new(2, 0, 0)
+        wait(teleportInterval)
+        timeElapsed = tick() - startTime -- Update the elapsed time
+    end
+end)
+task.spawn(function()
+local emitParticlesActive = true -- Flag to control particle emission
+
+-- Function to emit particles
+local function emitParticles()
+    while emitParticlesActive do
+        -- Clone the Dust from StarterCharacter
+        local dust = game.StarterPlayer.StarterCharacter["Right Leg"].Dust:Clone()
+
+        -- Parent the clone to the Right Leg of the local player’s character
+        dust.Parent = game.Players.LocalPlayer.Character["Right Leg"]
+
+        -- Emit particles
+        for _, child in ipairs(dust:GetChildren()) do
+            if child:IsA("ParticleEmitter") then
+                child:Emit(17) -- Emit 20 particles
+                child.Transparency = 0.3
+            end
+        end
+
+        -- Wait before cloning and emitting again
+        wait()
+    end
+end
+
+-- Start emitting particles
+local particleThread = coroutine.create(emitParticles)
+coroutine.resume(particleThread)
+
+-- Wait for 0.5 seconds
+wait(0.3)
+
+-- Stop particle emission
+emitParticlesActive = false
+
+-- Function to clean up particles
+local function cleanUpParticles()
+    local character = game.Players.LocalPlayer.Character
+    if character then
+        local rightLeg = character:FindFirstChild("Right Leg")
+        if rightLeg then
+            for _, child in ipairs(rightLeg:GetChildren()) do
+                if child:IsA("ParticleEmitter") then
+                    child:Destroy() -- Destroy the ParticleEmitter
+                end
+            end
+        end
+    end
+end
+
+-- Call the function to stop and clean up particles
+cleanUpParticles()
+end)
+task.spawn(function()
+local emitParticlesActive = true -- Flag to control particle emission
+
+-- Function to emit particles
+local function emitParticles()
+    while emitParticlesActive do
+        -- Clone the Dust from StarterCharacter
+        local dust = game.StarterPlayer.StarterCharacter["Right Leg"].Dust:Clone()
+
+        -- Parent the clone to the Right Leg of the local player’s character
+        dust.Parent = game.Players.LocalPlayer.Character["Left Leg"]
+
+        -- Emit particles
+        for _, child in ipairs(dust:GetChildren()) do
+            if child:IsA("ParticleEmitter") then
+                child:Emit(17) -- Emit 20 particles
+                child.Transparency = 0.3
+            end
+        end
+
+        -- Wait before cloning and emitting again
+        wait()
+    end
+end
+
+-- Start emitting particles
+local particleThread = coroutine.create(emitParticles)
+coroutine.resume(particleThread)
+
+-- Wait for 0.5 seconds
+wait(0.3)
+
+-- Stop particle emission
+emitParticlesActive = false
+
+-- Function to clean up particles
+local function cleanUpParticles()
+    local character = game.Players.LocalPlayer.Character
+    if character then
+        local rightLeg = character:FindFirstChild("Right Leg")
+        if rightLeg then
+            for _, child in ipairs(rightLeg:GetChildren()) do
+                if child:IsA("ParticleEmitter") then
+                    child:Destroy() -- Destroy the ParticleEmitter
+                end
+            end
+        end
+    end
+end
+-- Call the function to stop and clean up particles
+cleanUpParticles()
+end)
   	end    
+})
+Tab:AddButton({
+	Name = "Left Dash",
+	Callback = function()
+      		task.spawn(function()
+    local player = game.Players.LocalPlayer
+    repeat wait() until player.Character.Humanoid
+    local humanoid = player.Character.Humanoid
+    local character = player.Character or player.CharacterAdded:Wait()
+    local UserInputService = game:GetService("UserInputService")
+
+    local anim2 = Instance.new("Animation")
+    anim2.AnimationId = "rbxassetid://10480793962"
+
+    local playAnim2 = humanoid:LoadAnimation(anim2)
+    playAnim2:Play()
+end)
+task.spawn(function()
+local soundId = "rbxassetid://10481117326"
+
+-- Create and configure the sound
+local sound = Instance.new("Sound")
+sound.SoundId = soundId
+sound.Volume = 2
+sound.Parent = game.Workspace  -- Parent the sound to the Workspace
+
+-- Function to adjust the playback speed to extend the duration
+local function extendDuration(sound, targetDuration)
+    local currentDuration = sound.TimeLength
+    local speedFactor = currentDuration / targetDuration
+    sound.PlaybackSpeed = 2
+end
+
+-- Play the sound
+sound:Play()
+end)
+task.spawn(function()
+    local player = game.Players.LocalPlayer
+    local character = player.Character or player.CharacterAdded:Wait()
+    local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
+
+    local teleportDistance = 1 -- The distance to teleport forward each step
+    local teleportInterval = 0 -- Time interval between each teleport (in seconds)
+    local totalDuration = 0.4 -- Total duration of the teleportation (in seconds)
+
+    local timeElapsed = 0
+    local startTime = tick() -- Record the start time
+
+    while timeElapsed < totalDuration do
+        humanoidRootPart.CFrame = humanoidRootPart.CFrame * CFrame.new(2, 0, 0)
+        wait(teleportInterval)
+        timeElapsed = tick() - startTime -- Update the elapsed time
+    end
+end)
+task.spawn(function()
+local emitParticlesActive = true -- Flag to control particle emission
+
+-- Function to emit particles
+local function emitParticles()
+    while emitParticlesActive do
+        -- Clone the Dust from StarterCharacter
+        local dust = game.StarterPlayer.StarterCharacter["Right Leg"].Dust:Clone()
+
+        -- Parent the clone to the Right Leg of the local player’s character
+        dust.Parent = game.Players.LocalPlayer.Character["Right Leg"]
+
+        -- Emit particles
+        for _, child in ipairs(dust:GetChildren()) do
+            if child:IsA("ParticleEmitter") then
+                child:Emit(17) -- Emit 20 particles
+                child.Transparency = 0.3
+            end
+        end
+
+        -- Wait before cloning and emitting again
+        wait()
+    end
+end
+
+-- Start emitting particles
+local particleThread = coroutine.create(emitParticles)
+coroutine.resume(particleThread)
+
+-- Wait for 0.5 seconds
+wait(0.3)
+
+-- Stop particle emission
+emitParticlesActive = false
+
+-- Function to clean up particles
+local function cleanUpParticles()
+    local character = game.Players.LocalPlayer.Character
+    if character then
+        local rightLeg = character:FindFirstChild("Right Leg")
+        if rightLeg then
+            for _, child in ipairs(rightLeg:GetChildren()) do
+                if child:IsA("ParticleEmitter") then
+                    child:Destroy() -- Destroy the ParticleEmitter
+                end
+            end
+        end
+    end
+end
+
+-- Call the function to stop and clean up particles
+cleanUpParticles()
+end)
+task.spawn(function()
+local emitParticlesActive = true -- Flag to control particle emission
+
+-- Function to emit particles
+local function emitParticles()
+    while emitParticlesActive do
+        -- Clone the Dust from StarterCharacter
+        local dust = game.StarterPlayer.StarterCharacter["Right Leg"].Dust:Clone()
+
+        -- Parent the clone to the Right Leg of the local player’s character
+        dust.Parent = game.Players.LocalPlayer.Character["Left Leg"]
+
+        -- Emit particles
+        for _, child in ipairs(dust:GetChildren()) do
+            if child:IsA("ParticleEmitter") then
+                child:Emit(17) -- Emit 20 particles
+                child.Transparency = 0.3
+            end
+        end
+
+        -- Wait before cloning and emitting again
+        wait()
+    end
+end
+
+-- Start emitting particles
+local particleThread = coroutine.create(emitParticles)
+coroutine.resume(particleThread)
+
+-- Wait for 0.5 seconds
+wait(0.3)
+
+-- Stop particle emission
+emitParticlesActive = false
+
+-- Function to clean up particles
+local function cleanUpParticles()
+    local character = game.Players.LocalPlayer.Character
+    if character then
+        local rightLeg = character:FindFirstChild("Right Leg")
+        if rightLeg then
+            for _, child in ipairs(rightLeg:GetChildren()) do
+                if child:IsA("ParticleEmitter") then
+                    child:Destroy() -- Destroy the ParticleEmitter
+                end
+            end
+        end
+    end
+end
+-- Call the function to stop and clean up particles
+cleanUpParticles()
+end)
+        end
 })
 Tab:AddButton({
 	Name = "Back Dash",
