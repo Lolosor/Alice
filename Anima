@@ -491,7 +491,7 @@ end
 sound:Play()
 end)
 task.spawn(function()
-wait(2.9)
+wait(2.7)
 local soundId = "rbxassetid://15990071380"
 
 -- Create and configure the sound
@@ -576,6 +576,23 @@ Tab:AddButton({
 
     local playAnim2 = humanoid:LoadAnimation(anim2)
     playAnim2:Play()
+local soundId = "rbxassetid://18435468901"
+
+-- Create and configure the sound
+local sound = Instance.new("Sound")
+sound.SoundId = soundId
+sound.Volume = 2
+sound.Parent = game.Workspace  -- Parent the sound to the Workspace
+
+-- Function to adjust the playback speed to extend the duration
+local function extendDuration(sound, targetDuration)
+    local currentDuration = sound.TimeLength
+    local speedFactor = currentDuration / targetDuration
+    sound.PlaybackSpeed = 2
+end
+
+-- Play the sound
+sound:Play()
   	end    
 })
 Tab:AddButton({
@@ -3795,6 +3812,24 @@ end)
   	end    
 })
 Tab:AddButton({
+	Name = "Forward Dash (Deadly Ninja)",
+	Callback = function()
+
+  	end    
+})
+Tab:AddButton({
+	Name = "Forward Dash (Brutal Demon)",
+	Callback = function()
+
+  	end    
+})
+Tab:AddButton({
+	Name = "Forward Dash (Blade Master)",
+	Callback = function()
+
+  	end    
+})
+Tab:AddButton({
 	Name = "Right Dash",
 	Callback = function()
       		task.spawn(function()
@@ -3965,7 +4000,7 @@ Tab:AddButton({
     local UserInputService = game:GetService("UserInputService")
 
     local anim2 = Instance.new("Animation")
-    anim2.AnimationId = "rbxassetid://10480793962"
+    anim2.AnimationId = "rbxassetid://10480796021"
 
     local playAnim2 = humanoid:LoadAnimation(anim2)
     playAnim2:Play()
@@ -4002,7 +4037,7 @@ task.spawn(function()
     local startTime = tick() -- Record the start time
 
     while timeElapsed < totalDuration do
-        humanoidRootPart.CFrame = humanoidRootPart.CFrame * CFrame.new(2, 0, 0)
+        humanoidRootPart.CFrame = humanoidRootPart.CFrame * CFrame.new(-2, 0, 0)
         wait(teleportInterval)
         timeElapsed = tick() - startTime -- Update the elapsed time
     end
@@ -4117,7 +4152,8 @@ end)
 Tab:AddButton({
 	Name = "Back Dash",
 	Callback = function()
-      		local player = game.Players.LocalPlayer
+      		task.spawn(function()
+    local player = game.Players.LocalPlayer
     repeat wait() until player.Character.Humanoid
     local humanoid = player.Character.Humanoid
     local character = player.Character or player.CharacterAdded:Wait()
@@ -4128,10 +4164,225 @@ Tab:AddButton({
 
     local playAnim2 = humanoid:LoadAnimation(anim2)
     playAnim2:Play()
+end)
+task.spawn(function()
+local soundId = "rbxassetid://10492011015"
+
+-- Create and configure the sound
+local sound = Instance.new("Sound")
+sound.SoundId = soundId
+sound.Volume = 2
+sound.Parent = game.Workspace  -- Parent the sound to the Workspace
+
+-- Function to adjust the playback speed to extend the duration
+local function extendDuration(sound, targetDuration)
+    local currentDuration = sound.TimeLength
+    local speedFactor = currentDuration / targetDuration
+    sound.PlaybackSpeed = 2
+end
+
+-- Play the sound
+sound:Play()
+end)
+task.spawn(function()
+wait(0.2)
+local soundId = "rbxassetid://10492148313"
+
+-- Create and configure the sound
+local sound = Instance.new("Sound")
+sound.SoundId = soundId
+sound.Volume = 2
+sound.Parent = game.Workspace  -- Parent the sound to the Workspace
+
+-- Function to adjust the playback speed to extend the duration
+local function extendDuration(sound, targetDuration)
+    local currentDuration = sound.TimeLength
+    local speedFactor = currentDuration / targetDuration
+    sound.PlaybackSpeed = 2
+end
+
+-- Play the sound
+sound:Play()
+local soundId = "rbxassetid://10492165778"
+
+-- Create and configure the sound
+local sound = Instance.new("Sound")
+sound.SoundId = soundId
+sound.Volume = 2
+sound.Parent = game.Workspace  -- Parent the sound to the Workspace
+
+-- Function to adjust the playback speed to extend the duration
+local function extendDuration(sound, targetDuration)
+    local currentDuration = sound.TimeLength
+    local speedFactor = currentDuration / targetDuration
+    sound.PlaybackSpeed = 2
+end
+
+-- Play the sound
+sound:Play()
+local soundId = "rbxassetid://10492172518"
+
+-- Create and configure the sound
+local sound = Instance.new("Sound")
+sound.SoundId = soundId
+sound.Volume = 2
+sound.Parent = game.Workspace  -- Parent the sound to the Workspace
+
+-- Function to adjust the playback speed to extend the duration
+local function extendDuration(sound, targetDuration)
+    local currentDuration = sound.TimeLength
+    local speedFactor = currentDuration / targetDuration
+    sound.PlaybackSpeed = 2
+end
+
+-- Play the sound
+sound:Play()
+wait(0.4)
+local soundId = "rbxassetid://10480757045"
+
+-- Create and configure the sound
+local sound = Instance.new("Sound")
+sound.SoundId = soundId
+sound.Volume = 2
+sound.Parent = game.Workspace  -- Parent the sound to the Workspace
+
+-- Function to adjust the playback speed to extend the duration
+local function extendDuration(sound, targetDuration)
+    local currentDuration = sound.TimeLength
+    local speedFactor = currentDuration / targetDuration
+    sound.PlaybackSpeed = 2
+end
+
+-- Play the sound
+sound:Play()
+end)
+task.spawn(function()
+    local player = game.Players.LocalPlayer
+    local character = player.Character or player.CharacterAdded:Wait()
+    local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
+
+    local teleportDistance = 1 -- The distance to teleport forward each step
+    local teleportInterval = 0 -- Time interval between each teleport (in seconds)
+    local totalDuration = 0.9 -- Total duration of the teleportation (in seconds)
+
+    local timeElapsed = 0
+    local startTime = tick() -- Record the start time
+
+    while timeElapsed < totalDuration do
+        humanoidRootPart.CFrame = humanoidRootPart.CFrame * CFrame.new(0, 0, 1.3)
+        wait(teleportInterval)
+        timeElapsed = tick() - startTime -- Update the elapsed time
+    end
+end)
+task.spawn(function()
+local emitParticlesActive = true -- Flag to control particle emission
+
+-- Function to emit particles
+local function emitParticles()
+    while emitParticlesActive do
+        -- Clone the Dust from StarterCharacter
+        local dust = game.StarterPlayer.StarterCharacter["Right Leg"].Dust:Clone()
+
+        -- Parent the clone to the Right Leg of the local player’s character
+        dust.Parent = game.Players.LocalPlayer.Character["Right Leg"]
+
+        -- Emit particles
+        for _, child in ipairs(dust:GetChildren()) do
+            if child:IsA("ParticleEmitter") then
+                child:Emit(17) -- Emit 20 particles
+                child.Transparency = 0.1
+            end
+        end
+
+        -- Wait before cloning and emitting again
+        wait()
+    end
+end
+
+-- Start emitting particles
+local particleThread = coroutine.create(emitParticles)
+coroutine.resume(particleThread)
+
+-- Wait for 0.5 seconds
+wait(0.5)
+
+-- Stop particle emission
+emitParticlesActive = false
+
+-- Function to clean up particles
+local function cleanUpParticles()
+    local character = game.Players.LocalPlayer.Character
+    if character then
+        local rightLeg = character:FindFirstChild("Right Leg")
+        if rightLeg then
+            for _, child in ipairs(rightLeg:GetChildren()) do
+                if child:IsA("ParticleEmitter") then
+                    child:Destroy() -- Destroy the ParticleEmitter
+                end
+            end
+        end
+    end
+end
+
+-- Call the function to stop and clean up particles
+cleanUpParticles()
+end)
+task.spawn(function()
+local emitParticlesActive = true -- Flag to control particle emission
+
+-- Function to emit particles
+local function emitParticles()
+    while emitParticlesActive do
+        -- Clone the Dust from StarterCharacter
+        local dust = game.StarterPlayer.StarterCharacter["Right Leg"].Dust:Clone()
+
+        -- Parent the clone to the Right Leg of the local player’s character
+        dust.Parent = game.Players.LocalPlayer.Character["Left Leg"]
+
+        -- Emit particles
+        for _, child in ipairs(dust:GetChildren()) do
+            if child:IsA("ParticleEmitter") then
+                child:Emit(17) -- Emit 20 particles
+                child.Transparency = 0.1
+            end
+        end
+
+        -- Wait before cloning and emitting again
+        wait()
+    end
+end
+
+-- Start emitting particles
+local particleThread = coroutine.create(emitParticles)
+coroutine.resume(particleThread)
+
+-- Wait for 0.5 seconds
+wait(0.5)
+
+-- Stop particle emission
+emitParticlesActive = false
+
+-- Function to clean up particles
+local function cleanUpParticles()
+    local character = game.Players.LocalPlayer.Character
+    if character then
+        local rightLeg = character:FindFirstChild("Right Leg")
+        if rightLeg then
+            for _, child in ipairs(rightLeg:GetChildren()) do
+                if child:IsA("ParticleEmitter") then
+                    child:Destroy() -- Destroy the ParticleEmitter
+                end
+            end
+        end
+    end
+end
+-- Call the function to stop and clean up particles
+cleanUpParticles()
+end)
   	end    
 })
 Tab:AddButton({
-	Name = "Deadly Ninja/Unequip Katana",
+	Name = "Sheate (Deadly Ninja)",
 	Callback = function()
       		local player = game.Players.LocalPlayer
     repeat wait() until player.Character.Humanoid
@@ -4147,7 +4398,7 @@ Tab:AddButton({
   	end    
 })
 Tab:AddButton({
-	Name = "Brutal Demon/Unequip Bat",
+	Name = "Sheate (Brutal Demon)",
 	Callback = function()
       		local player = game.Players.LocalPlayer
     repeat wait() until player.Character.Humanoid
@@ -4163,7 +4414,7 @@ Tab:AddButton({
   	end    
 })
 Tab:AddButton({
-	Name = "Blade Master/Unequip Sword",
+	Name = "Sheate (Blade Master)",
 	Callback = function()
       		local player = game.Players.LocalPlayer
     repeat wait() until player.Character.Humanoid
@@ -4176,6 +4427,24 @@ Tab:AddButton({
 
     local playAnim2 = humanoid:LoadAnimation(anim2)
     playAnim2:Play()
+  	end    
+})
+Tab:AddButton({
+	Name = "Pick up Trashcan",
+	Callback = function()
+
+  	end    
+})
+Tab:AddButton({
+	Name = "Throw Trashcan(Miss)",
+	Callback = function()
+
+  	end    
+})
+Tab:AddButton({
+	Name = "Throw Trashcan",
+	Callback = function()
+
   	end    
 })
 local Tab = Window:MakeTab({
