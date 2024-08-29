@@ -4,23 +4,30 @@ local OrionLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/Lolo
 local Window = OrionLib:MakeWindow({Name = "Alice Animations", HidePremium = false, SaveConfig = false, ConfigFolder = "OrionTest"})
 OrionLib:Init()
 
--- Find the ScreenGui of the Orion GUI
-local OrionScreenGui = game.CoreGui:FindFirstChild("Orion")
+-- Create the Toggle Screen GUI outside of Orion
+local ToggleScreenGu = Instance.new("ScreenGui")
+ToggleScreenGu.Name = "Toggle"
+ToggleScreenGu.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 
-if not OrionScreenGui then
-    warn("Orion ScreenGui not found")
-    return
-end
+-- Create the ImageButton (Toggle)
+local Toggle = Instance.new("ImageButton")
+Toggle.Name = "Toggle"
+Toggle.Parent = ToggleScreenGu
+Toggle.BackgroundColor3 = Color3.fromRGB(0, 0, 0) -- Optional: Set background color if needed
+Toggle.Position = UDim2.new(0.5, 170, -0.08, 0) -- Adjust the position as needed
+Toggle.Size = UDim2.new(0, 40, 0, 40) -- Square size (change as needed)
+Toggle.Image = "rbxassetid://70926775732023" -- The provided image ID
+Toggle.Draggable = true -- Make the button draggable
 
--- Define the toggle state
-local isOffScreen = false
+-- Make the corners rounded (Optional)
+local Corner = Instance.new("UICorner")
+Corner.Parent = Toggle
 
--- Function to toggle the Orion GUI on and off
-local function ToggleScreenGui()
-    OrionScreenGui.Enabled = not OrionScreenGui.Enabled
-end
-
-local CloseBtn = Window:FindFirstChild("CloseButton") -- Replace with the actual name of the close button if needed
+local CloseBtn = SetChildren(SetProps(MakeElement("Button"), {
+    Size = UDim2.new(0.5, 0, 1, 0),
+    Position = UDim2.new(0.5, 0, 0, 0),
+    BackgroundTransparency = 1
+}))
 
 -- Function to handle the close button click
 local function handleClose()
@@ -49,33 +56,7 @@ local function handleClose()
 end
 
 -- Connect the close button click event
-if CloseBtn then
-    CloseBtn.MouseButton1Up:Connect(handleClose)
-else
-    warn("Close button not found")
-end
-
--- Create the Toggle Screen GUI outside of Orion
-local ToggleScreenGu = Instance.new("ScreenGui")
-ToggleScreenGu.Name = "Toggle"
-ToggleScreenGu.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
-
--- Create the ImageButton (Toggle)
-local Toggle = Instance.new("ImageButton")
-Toggle.Name = "Toggle"
-Toggle.Parent = ToggleScreenGu
-Toggle.BackgroundColor3 = Color3.fromRGB(0, 0, 0) -- Optional: Set background color if needed
-Toggle.Position = UDim2.new(0.5, 170, -0.08, 0) -- Adjust the position as needed
-Toggle.Size = UDim2.new(0, 40, 0, 40) -- Square size (change as needed)
-Toggle.Image = "rbxassetid://70926775732023" -- The provided image ID
-Toggle.Draggable = true -- Make the button draggable
-
--- Make the corners rounded (Optional)
-local Corner = Instance.new("UICorner")
-Corner.Parent = Toggle
-
--- Connect the ImageButton to toggle the Orion GUI
-Toggle.MouseButton1Click:Connect(ToggleScreenGui)
+CloseBtn.MouseButton1Up:Connect(handleClose)
 
 OrionLib:MakeNotification({
 	Name = "Successfully Loaded",
