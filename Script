@@ -182,6 +182,7 @@ end)
 
 local ToggleScreenGui = Instance.new("ScreenGui")
 ToggleScreenGui.Name = "ToggleGui"
+ToggleScreenGui.ResetOnSpawn
 ToggleScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 
 -- Create the ImageButton (Toggle)
