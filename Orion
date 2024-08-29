@@ -100,14 +100,15 @@ end)
 -- This script should be placed in a LocalScript that has access to the Orion variable
 
 -- Reference the Orion ScreenGui directly
+-- Find or define the Orion GUI
 local Oriond = game.CoreGui:FindFirstChild("Orion") or gethui():FindFirstChild("Orion")
 if not Oriond then
     warn("Orion GUI not found")
     return
 end
 
--- Find the toggle button within Orion
-local toggleButton = game.Players.LocalPlayer.PlayerGui:FindFirstChild("Toggle") -- Replace 'YourToggleName' with the actual name of the toggle button
+-- Find the toggle button within PlayerGui
+local toggleButton = game.Players.LocalPlayer.PlayerGui:FindFirstChild("Toggle")
 if not toggleButton then
     warn("Toggle button not found")
     return
@@ -119,16 +120,35 @@ local isOffScreen = false -- Track the state
 local function ToggleScreenGui()
     if isOffScreen then
         -- Move back to the original position
-        Oriond.Position = UDim2.new(0.5, -307, 0.5, -172) -- Original position (adjust these values if needed)
+        Oriond.Position = UDim2.new(0.5, -307, 0.5, -172) -- Ensure these values fit your UI layout
     else
         -- Move far away off-screen
-        Oriond.Position = UDim2.new(1, 1000, 1, 1000) -- Adjust the values to move off-screen
+        Oriond.Position = UDim2.new(1, 1000, 1, 1000) -- Adjust to make the UI invisible
     end
     isOffScreen = not isOffScreen
 end
 
 -- Connect the toggle button click event to the ToggleScreenGui function
 toggleButton.MouseButton1Click:Connect(ToggleScreenGui)
+
+-- Create the Toggle button
+local ToggleScreenGu = Instance.new("ScreenGui")
+ToggleScreenGu.Name = "Toggle"
+ToggleScreenGu.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+
+-- Create the ImageButton (Toggle)
+local Toggle = Instance.new("ImageButton")
+Toggle.Name = "Toggle"
+Toggle.Parent = ToggleScreenGu
+Toggle.BackgroundColor3 = Color3.fromRGB(0, 0, 0) -- Optional: Set background color if needed
+Toggle.Position = UDim2.new(0.5, 80, -0, 0) -- Adjust the position as needed
+Toggle.Size = UDim2.new(0, 40, 0, 40) -- Square size (change as needed)
+Toggle.Image = "rbxassetid://127457301130081" -- Replace with the actual image ID
+Toggle.Draggable = true -- Make the button draggable
+
+-- Make the corners rounded (Optional)
+local Corner = Instance.new("UICorner")
+Corner.Parent = Toggle
 
 local function MakeDraggable(DragPoint, Main)
     pcall(function()
