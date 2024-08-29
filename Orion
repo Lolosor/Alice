@@ -97,64 +97,6 @@ task.spawn(function()
 	end
 end)
 
--- This script should be placed in a LocalScript that has access to the Orion variable
-
--- Reference the Orion ScreenGui directly
--- Find or define the Orion GUI
--- Ensure Orion GUI exists
-local Oriond = game.CoreGui:FindFirstChild("Orion") or gethui():FindFirstChild("Orion")
-if not Oriond then
-    warn("Orion GUI not found")
-    return
-end
-
--- Create the ScreenGui
-local ToggleScreenGu = Instance.new("ScreenGui")
-ToggleScreenGu.Name = "Toggle"
-ToggleScreenGu.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
-
--- Create a full-screen invisible button to act as a click area
-local FullScreenButton = Instance.new("TextButton")
-FullScreenButton.Name = "FullScreenButton"
-FullScreenButton.Parent = ToggleScreenGu
-FullScreenButton.Size = UDim2.new(1, 0, 1, 0) -- Cover the entire screen
-FullScreenButton.BackgroundTransparency = 1 -- Make it invisible
-FullScreenButton.Text = "" -- No text
-
--- Create the ImageButton (Toggle)
-local Toggle = Instance.new("ImageButton")
-Toggle.Name = "Toggle"
-Toggle.Parent = ToggleScreenGu
-Toggle.BackgroundColor3 = Color3.fromRGB(0, 0, 0) -- Optional: Set background color if needed
-Toggle.Position = UDim2.new(0.5, 80, -0, 0) -- Adjust the position as needed
-Toggle.Size = UDim2.new(0, 40, 0, 40) -- Square size (change as needed)
-Toggle.Image = "rbxassetid://127457301130081" -- Replace with your image ID
-Toggle.Draggable = true -- Make the button draggable
-
--- Make the corners rounded (Optional)
-local Corner = Instance.new("UICorner")
-Corner.Parent = Toggle
-
-local isOffScreen = false -- Track the state
-
--- Function to move the GUI off-screen or back to its original position
-local function ToggleScreenGui()
-    if isOffScreen then
-        -- Move back to the original position
-        Oriond.Position = UDim2.new(0.5, -307, 0.5, -172) -- Original position (adjust these values if needed)
-    else
-        -- Move far away off-screen
-        Oriond.Position = UDim2.new(1, 1000, 1, 1000) -- Adjust the values to move off-screen
-    end
-    isOffScreen = not isOffScreen
-end
-
--- Connect the full-screen invisible button to toggle Orion's position
-FullScreenButton.MouseButton1Click:Connect(ToggleScreenGui)
-
--- Connect the toggle button to toggle Orion's position as well
-Toggle.MouseButton1Click:Connect(ToggleScreenGui)
-
 local function MakeDraggable(DragPoint, Main)
     pcall(function()
         local Dragging, DragInput, MousePos, FramePos = false
