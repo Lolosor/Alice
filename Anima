@@ -2642,6 +2642,50 @@ Tab:AddButton({
     playAnim2:Play()
 end)
 task.spawn(function()
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
+
+-- Clone the Ring MeshPart from ReplicatedStorage
+local ring = game.ReplicatedStorage.Resources.KJEffects.Ring:Clone()
+
+-- Set its properties
+ring.Anchored = true
+ring.CanCollide = false
+ring.Size = Vector3.new(6.5, 0.5, 6.5)
+
+-- Parent the cloned ring to the player's character
+ring.Parent = character
+
+-- Position the ring 8 studs in front of the player's HumanoidRootPart
+local offset = humanoidRootPart.CFrame.LookVector * 6
+ring.Position = humanoidRootPart.Position + offset
+
+-- Align the ring to face forward from the player's position
+ring.CFrame = CFrame.new(ring.Position, ring.Position + humanoidRootPart.CFrame.LookVector) * CFrame.Angles(math.rad(0), 0, 0)
+
+-- Function to grow and fade out the part over 0.3 seconds
+local function growAndFadeOut(part)
+    local startSize = ring.Size
+    local endSize = Vector3.new(9, 0.5, 9) -- Final size of the ring (larger than initial)
+    local duration = 0.07 -- Duration in seconds
+    local step = 0.02 -- Step size for the loop
+    local steps = duration / step
+
+    for i = 0, steps do
+        local alpha = i / steps
+        -- Calculate size and transparency
+        ring.Size = startSize:Lerp(endSize, alpha)
+        ring.Transparency = alpha
+        wait(step)
+    end
+    ring:Destroy()
+end
+
+-- Call the function to grow and fade out the ring
+growAndFadeOut(ring)
+end)
+task.spawn(function()
 local soundId = "10495352199"
 
 -- Create and configure the sound
@@ -2677,6 +2721,50 @@ Tab:AddButton({
 
     local playAnim2 = humanoid:LoadAnimation(anim2)
     playAnim2:Play()
+end)
+task.spawn(function()
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
+
+-- Clone the Ring MeshPart from ReplicatedStorage
+local ring = game.ReplicatedStorage.Resources.KJEffects.Ring:Clone()
+
+-- Set its properties
+ring.Anchored = true
+ring.CanCollide = false
+ring.Size = Vector3.new(6.5, 0.5, 6.5)
+
+-- Parent the cloned ring to the player's character
+ring.Parent = character
+
+-- Position the ring 8 studs in front of the player's HumanoidRootPart
+local offset = humanoidRootPart.CFrame.LookVector * 6
+ring.Position = humanoidRootPart.Position + offset
+
+-- Align the ring to face forward from the player's position
+ring.CFrame = CFrame.new(ring.Position, ring.Position + humanoidRootPart.CFrame.LookVector) * CFrame.Angles(math.rad(0), 0, 0)
+
+-- Function to grow and fade out the part over 0.3 seconds
+local function growAndFadeOut(part)
+    local startSize = ring.Size
+    local endSize = Vector3.new(9, 0.5, 9) -- Final size of the ring (larger than initial)
+    local duration = 0.07 -- Duration in seconds
+    local step = 0.02 -- Step size for the loop
+    local steps = duration / step
+
+    for i = 0, steps do
+        local alpha = i / steps
+        -- Calculate size and transparency
+        ring.Size = startSize:Lerp(endSize, alpha)
+        ring.Transparency = alpha
+        wait(step)
+    end
+    ring:Destroy()
+end
+
+-- Call the function to grow and fade out the ring
+growAndFadeOut(ring)
 end)
 task.spawn(function()
 local soundId = "rbxassetid://4847027421"
