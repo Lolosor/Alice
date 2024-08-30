@@ -2465,8 +2465,8 @@ Tab:AddButton({
 	Name = "Run (Dash to cancel)",
 	Callback = function()
       		local player = game.Players.LocalPlayer
-    repeat wait() until player.Character.Humanoid
-    local humanoid = player.Character.Humanoid
+    local character = player.Character or player.CharacterAdded:Wait()
+    local humanoid = character:WaitForChild("Humanoid")
     local character = player.Character or player.CharacterAdded:Wait()
     local UserInputService = game:GetService("UserInputService")
 
