@@ -7819,8 +7819,8 @@ end
 executeVFX()
 end)
 task.spawn(function()
-local player = game.Players.LocalPlayer
-repeat wait() until player.Character.Humanoid
+local character = player.Character or player.CharacterAdded:Wait()
+local humanoid = character:WaitForChild("Humanoid")
 local humanoid = player.Character.Humanoid
 local character = game.Players.LocalPlayer.Character or game.Players.LocalPlayer.CharacterAdded:Wait()
 local UserInputService = game:GetService("UserInputService")
