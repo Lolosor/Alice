@@ -2642,7 +2642,7 @@ Tab:AddButton({
     playAnim2:Play()
 end)
 task.spawn(function()
-wait(0.7)
+wait(0.5)
 local player = game.Players.LocalPlayer
 local character = player.Character or player.CharacterAdded:Wait()
 local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
@@ -2724,7 +2724,7 @@ Tab:AddButton({
     playAnim2:Play()
 end)
 task.spawn(function()
-wait(0.7)
+wait(0.5)
 local player = game.Players.LocalPlayer
 local character = player.Character or player.CharacterAdded:Wait()
 local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
