@@ -3,8 +3,11 @@ local RunService = game:GetService("RunService")
 
 local player = Players.LocalPlayer
 local camera = game.Workspace.CurrentCamera
+local character = player.Character or player.CharacterAdded:Wait()
+local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
 
--- Define cutscene points
+-- Define your cutscene points here
+-- Replace this table with your full cutscene script
 local cutscenePoints = {
     CFrame.new( 143.7686, 441.166107, 17.4488506, -0.810620725, -0.0184796825, -0.585279942, -0.0670083985, 0.995863736, 0.0613640398, 0.581725061, 0.0889616311, -0.808505952),
     CFrame.new( 143.987015, 441.167755, 17.8870773, -0.715422451, -0.0310652908, -0.698001325, -0.0722197369, 0.996948004, 0.0296520088, 0.694949806, 0.0716231689, -0.715482414),
@@ -321,25 +324,33 @@ local cutscenePoints = {
     CFrame.new( 215.764893, 441.803009, 160.38002, -0.547335029, -0.156875417, -0.82207942, -0.157356575, 0.984046459, -0.0830162391, 0.82198751, 0.0839219093, -0.563288391),
     CFrame.new( 216.760254, 436.053528, 161.57872, -0.795067191, -0.128450125, -0.592763722, -0.192533568, 0.980219603, 0.045832403, 0.575151324, 0.150566727, -0.804071307),
     CFrame.new( 216.760254, 436.053528, 161.57872, -0.795067191, -0.128450125, -0.592763722, -0.192533568, 0.980219603, 0.045832403, 0.575151324, 0.150566727, -0.804071307),
-    -- Add all other points here in the same way...
 }
 
-local cutsceneDuration = 10 -- Total time for the cutscene in seconds
-local interval = cutsceneDuration / (#cutscenePoints - 0.01) -- Time spent between each point
+-- Function to position the cutscene points relative to the player
+local function positionCutscenePoints()
+    local newCutscenePoints = {}
+    local lookVector = humanoidRootPart.CFrame.LookVector -- Direction the player is looking
+    local basePosition = humanoidRootPart.Position + (lookVector * 10) -- Distance in front of the player
 
-local function playCutscene()
-    for i = 1, #cutscenePoints - 1 do
-        local startTime = tick()
-        local startCFrame = cutscenePoints[i]
-        local endCFrame = cutscenePoints[i + 1]
-        
-        while tick() - startTime < interval do
-            local alpha = (tick() - startTime) / interval
-            camera.CFrame = startCFrame:Lerp(endCFrame, alpha)
-            RunService.RenderStepped:Wait()
-        end
+    for _, point in ipairs(cutscenePoints) do
+        -- Calculate the offset from the first point
+        local offset = point.Position - cutscenePoints[1].Position
+        -- Position the point relative to the player's current position and look direction
+        local newPosition = basePosition + offset
+        table.insert(newCutscenePoints, CFrame.new(newPosition, newPosition + lookVector))
+    end
+
+    return newCutscenePoints
+end
+
+-- Function to play the cutscene
+local function playCutscene(cutscenePoints)
+    for _, point in ipairs(cutscenePoints) do
+        camera.CFrame = point
+        RunService.RenderStepped:Wait() -- Adjust this time for how fast the cutscene should progress
     end
 end
 
--- Play the cutscene
-playCutscene()
+-- Example usage: Adjust cutscene points based on player view and play the cutscene
+local adjustedCutscenePoints = positionCutscenePoints()
+playCutscene(adjustedCutscenePoints)
