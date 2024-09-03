@@ -2687,7 +2687,8 @@ end
 growAndFadeOut(ring)
 end)
 task.spawn(function()
-local soundId = "10495352199"
+wait(0.5)
+local soundId = "rbxassetid://10495352199"
 
 -- Create and configure the sound
 local sound = Instance.new("Sound")
@@ -2768,6 +2769,7 @@ end
 -- Call the function to grow and fade out the ring
 growAndFadeOut(ring)
 end)
+wait(0.5)
 task.spawn(function()
 local soundId = "rbxassetid://4847027421"
 
@@ -3556,52 +3558,46 @@ local player = game.Players.LocalPlayer
 local character = player.Character or player.CharacterAdded:Wait()
 local torso = character:WaitForChild("Torso")
 
--- Create a new part
-local circlePart = Instance.new("Part")
-circlePart.Size = Vector3.new(5, 5, 0.3) -- Base size for the circle part
-circlePart.Color = Color3.fromRGB(255, 255, 255) -- Pure white for maximum brightness
-circlePart.Material = Enum.Material.Neon -- Neon material for brightness
-circlePart.Anchored = true
-circlePart.CanCollide = false
-circlePart.Transparency = 0
-circlePart.Reflectance = 0 -- Increase reflectance for added brightness
+-- Clone the Ring MeshPart from ReplicatedStorage
+local ring = game.ReplicatedStorage.Resources.KJEffects.Ring:Clone()
 
--- Create a mesh to form a large, thin ring (bracelet effect)
-local mesh = Instance.new("SpecialMesh")
-mesh.MeshType = Enum.MeshType.FileMesh
-mesh.MeshId = "rbxassetid://3270017" -- Use Roblox's built-in Torus (ring) mesh
+-- Set its properties
+ring.Anchored = true
+ring.CanCollide = false
+ring.Size = Vector3.new(6.5, 0.5, 6.5)
 
--- Set initial size of the mesh
-mesh.Scale = Vector3.new(5, 5, 0) -- Initial size and thickness of the ring (small)
-mesh.Parent = circlePart
+-- Parent the cloned ring to the player's character
+ring.Parent = character
 
--- Position the part around the torso
-circlePart.CFrame = torso.CFrame * CFrame.new(0, 0, 0) -- Centered on torso
-circlePart.Orientation = Vector3.new(0, torso.Orientation.Y, 0) -- Match torso's facing direction
+-- Position the ring upright between the head and the legs
+local head = character:WaitForChild("Head")
+local leg = torso.Position - Vector3.new(0, torso.Size.Y / 2, 0)
+ring.Position = (head.Position + leg) / 2
 
--- Parent to workspace
-circlePart.Parent = workspace
+-- Align the ring's orientation to face forward like the character
+-- Rotate the ring to be upright and facing the character's forward direction
+ring.CFrame = CFrame.new(ring.Position, ring.Position + torso.CFrame.LookVector) * CFrame.Angles(math.rad(90), 0, 0)
 
 -- Function to grow and fade out the part over 0.3 seconds
 local function growAndFadeOut(part)
-    local startSize = mesh.Scale
-    local endSize = Vector3.new(9, 9, 0.1) -- Final size of the ring (larger than initial)
-    local duration = 0.14 -- Duration in seconds
+    local startSize = ring.Size
+    local endSize = Vector3.new(9, 0.5, 9) -- Final size of the ring (larger than initial)
+    local duration = 0.07 -- Duration in seconds
     local step = 0.02 -- Step size for the loop
     local steps = duration / step
 
     for i = 0, steps do
         local alpha = i / steps
         -- Calculate size and transparency
-        mesh.Scale = startSize:Lerp(endSize, alpha)
-        part.Transparency = alpha
+        ring.Size = startSize:Lerp(endSize, alpha)
+        ring.Transparency = alpha
         wait(step)
     end
-    part:Destroy()
+    ring:Destroy()
 end
 
--- Call the grow and fade-out function
-growAndFadeOut(circlePart)
+-- Call the function to grow and fade out the ring
+growAndFadeOut(ring)
 end)
 task.spawn(function()
       		local player = game.Players.LocalPlayer
@@ -3722,52 +3718,46 @@ local player = game.Players.LocalPlayer
 local character = player.Character or player.CharacterAdded:Wait()
 local torso = character:WaitForChild("Torso")
 
--- Create a new part
-local circlePart = Instance.new("Part")
-circlePart.Size = Vector3.new(5, 5, 0.3) -- Base size for the circle part
-circlePart.Color = Color3.fromRGB(255, 255, 255) -- Pure white for maximum brightness
-circlePart.Material = Enum.Material.Neon -- Neon material for brightness
-circlePart.Anchored = true
-circlePart.CanCollide = false
-circlePart.Transparency = 0
-circlePart.Reflectance = 0 -- Increase reflectance for added brightness
+-- Clone the Ring MeshPart from ReplicatedStorage
+local ring = game.ReplicatedStorage.Resources.KJEffects.Ring:Clone()
 
--- Create a mesh to form a large, thin ring (bracelet effect)
-local mesh = Instance.new("SpecialMesh")
-mesh.MeshType = Enum.MeshType.FileMesh
-mesh.MeshId = "rbxassetid://3270017" -- Use Roblox's built-in Torus (ring) mesh
+-- Set its properties
+ring.Anchored = true
+ring.CanCollide = false
+ring.Size = Vector3.new(6.5, 0.5, 6.5)
 
--- Set initial size of the mesh
-mesh.Scale = Vector3.new(5, 5, 0) -- Initial size and thickness of the ring (small)
-mesh.Parent = circlePart
+-- Parent the cloned ring to the player's character
+ring.Parent = character
 
--- Position the part around the torso
-circlePart.CFrame = torso.CFrame * CFrame.new(0, 0, 0) -- Centered on torso
-circlePart.Orientation = Vector3.new(0, torso.Orientation.Y, 0) -- Match torso's facing direction
+-- Position the ring upright between the head and the legs
+local head = character:WaitForChild("Head")
+local leg = torso.Position - Vector3.new(0, torso.Size.Y / 2, 0)
+ring.Position = (head.Position + leg) / 2
 
--- Parent to workspace
-circlePart.Parent = workspace
+-- Align the ring's orientation to face forward like the character
+-- Rotate the ring to be upright and facing the character's forward direction
+ring.CFrame = CFrame.new(ring.Position, ring.Position + torso.CFrame.LookVector) * CFrame.Angles(math.rad(90), 0, 0)
 
 -- Function to grow and fade out the part over 0.3 seconds
 local function growAndFadeOut(part)
-    local startSize = mesh.Scale
-    local endSize = Vector3.new(9, 9, 0.1) -- Final size of the ring (larger than initial)
-    local duration = 0.14 -- Duration in seconds
+    local startSize = ring.Size
+    local endSize = Vector3.new(9, 0.5, 9) -- Final size of the ring (larger than initial)
+    local duration = 0.07 -- Duration in seconds
     local step = 0.02 -- Step size for the loop
     local steps = duration / step
 
     for i = 0, steps do
         local alpha = i / steps
         -- Calculate size and transparency
-        mesh.Scale = startSize:Lerp(endSize, alpha)
-        part.Transparency = alpha
+        ring.Size = startSize:Lerp(endSize, alpha)
+        ring.Transparency = alpha
         wait(step)
     end
-    part:Destroy()
+    ring:Destroy()
 end
 
--- Call the grow and fade-out function
-growAndFadeOut(circlePart)
+-- Call the function to grow and fade out the ring
+growAndFadeOut(ring)
 end)
 task.spawn(function()
       		local player = game.Players.LocalPlayer
