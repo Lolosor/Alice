@@ -30,29 +30,37 @@ Section:NewButton("Alice Animations", "By allah_isthebest/Alice", function()
 end)
 local Tab = Window:NewTab("Misc")
 local Section = Tab:NewSection("Misc")
+local isWalkSpeedEnabled = false -- Toggle state (off by default)
+
+-- Create the textbox for walk speed
 Section:NewTextBox("WalkSpeed", "Enter the speed you want", function(value)
     local player = game.Players.LocalPlayer
-local character = player.Character or player.CharacterAdded:Wait()
-local humanoid = character:WaitForChild("Humanoid")
+    local character = player.Character or player.CharacterAdded:Wait()
+    local humanoid = character:WaitForChild("Humanoid")
 
--- Function to continuously enforce WalkSpeed
-local function enforceWalkSpeed()
-    while true do
-        -- Ensure the Humanoid is valid
-        if humanoid then
-            humanoid.WalkSpeed = value
+    -- Function to continuously enforce WalkSpeed if toggle is enabled
+    local function enforceWalkSpeed()
+        while true do
+            -- Ensure the Humanoid is valid and toggle is on
+            if humanoid and isWalkSpeedEnabled then
+                humanoid.WalkSpeed = value
+            end
+            wait(0.1) -- Adjust the frequency as needed
         end
-        wait(0.1) -- Adjust the frequency as needed
     end
-end
 
--- Connect to the CharacterAdded event to handle respawns
-player.CharacterAdded:Connect(function(char)
-    humanoid = char:WaitForChild("Humanoid")
+    -- Connect to the CharacterAdded event to handle respawns
+    player.CharacterAdded:Connect(function(char)
+        humanoid = char:WaitForChild("Humanoid")
+    end)
+
+    -- Start the enforcement loop
+    enforceWalkSpeed()
 end)
 
--- Start the enforcement loop
-enforceWalkSpeed()
+-- Create the toggle to enable/disable walk speed modification
+Section:NewToggle("Enable WalkSpeed", "Toggle WalkSpeed enforcement", function(state)
+    isWalkSpeedEnabled = state -- Update toggle state based on user input
 end)
 Section:NewTextBox("JumpPower", "Enter the jump power you want", function(value)
     -- Convert the value from string to number
