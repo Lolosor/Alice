@@ -164,7 +164,7 @@ PARENT = nil
 if get_hidden_gui or gethui then
 	local hiddenUI = get_hidden_gui or gethui
 	local Main = Instance.new("ScreenGui")
-	Main.Name = randomString()
+	Main.Name = Infinite
 	Main.Parent = hiddenUI()
 	PARENT = Main
 elseif (not is_sirhurt_closure) and (syn and syn.protect_gui) then
@@ -2771,7 +2771,7 @@ reference = (function()
 	table.insert(scroll,main.Content.List)
 	table.insert(shade1,main.Content)
 	table.insert(shade2,main.TopBar)
-	main.Name = Infinite
+	main.Name = randomString()
 	main.TopBar.Close.MouseButton1Click:Connect(function()
 		main:TweenPosition(UDim2.new(0.5,-250,0,-500), "InOut", "Quart", 0.5, true, nil)
 	end)
