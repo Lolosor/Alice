@@ -2475,6 +2475,58 @@ Tab:AddButton({
 
     local playAnim2 = humanoid:LoadAnimation(anim2)
     playAnim2:Play()
+task.spawn(function()
+local player = game.Players.LocalPlayer
+repeat wait() until player.Character and player.Character:FindFirstChild("Humanoid")
+
+local character = player.Character or player.CharacterAdded:Wait()
+local humanoid = character:WaitForChild("Humanoid")
+
+-- The looping animation ID that should be stopped
+local loopingAnimationId = "rbxassetid://10470389827"
+
+-- List of specific animation IDs that will trigger stopping the looping animation
+local triggeringAnimationIds = {
+    "rbxassetid://10479335397",
+    "rbxassetid://10480793962",
+    "rbxassetid://10480796021",
+    "rbxassetid://10491993682"
+}
+
+-- Function to stop the looping animation
+local function stopLoopingAnimation()
+    -- Iterate through all playing animation tracks
+    for _, track in pairs(humanoid:GetPlayingAnimationTracks()) do
+        -- Check if the track's AnimationId is the looping one
+        if track.Animation.AnimationId == loopingAnimationId then
+            track:Stop()
+            print("Stopped looping animation:", loopingAnimationId)
+        end
+    end
+end
+
+-- Function to check for the triggering animations and stop the looping animation
+local function checkAndStopLoopingAnimation()
+    -- Iterate through all playing animation tracks
+    for _, track in pairs(humanoid:GetPlayingAnimationTracks()) do
+        -- Check if the track's AnimationId is in the triggering list
+        for _, id in pairs(triggeringAnimationIds) do
+            if track.Animation.AnimationId == id then
+                stopLoopingAnimation()
+                return -- Exit after stopping the looping animation
+            end
+        end
+    end
+end
+
+-- Monitor for changes in animations
+humanoid.AnimationPlayed:Connect(function(animationTrack)
+    checkAndStopLoopingAnimation()
+end)
+
+-- Initial check in case the triggering animation is already playing
+checkAndStopLoopingAnimation()
+end)
   	end    
 })
 Tab:AddButton({
