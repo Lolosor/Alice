@@ -26,7 +26,7 @@ end)
 local Tab = Window:NewTab("Animations")
 local Section = Tab:NewSection("Animations")
 Section:NewButton("Alice Animations", "By allah_isthebest/Alice", function()
-
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Lolosor/Alice/main/Anima"))()
 end)
 local Tab = Window:NewTab("Misc")
 local Section = Tab:NewSection("Misc")
