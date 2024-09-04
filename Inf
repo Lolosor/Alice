@@ -1,4 +1,4 @@
-if IY_LOADED and not _G.IY_DEBUG == true then
+if _G.IY_LOADED and not _G.IY_DEBUG == true then
     -- error("Infinite Yield is already running!", 0)
     return
 end
@@ -8,6 +8,21 @@ pcall(function() getgenv().IY_LOADED = true end)
 local cloneref = cloneref or function(o) return o end
 COREGUI = cloneref(game:GetService("CoreGui"))
 Players = cloneref(game:GetService("Players"))
+
+-- Remove the check to ensure the script can run multiple times
+-- if IY_LOADED and not _G.IY_DEBUG == true then
+--     -- error("Infinite Yield is already running!", 0)
+--     return
+-- end
+
+-- Check if game.CoreGui.Inf is enabled
+local infGui = game.CoreGui:FindFirstChild("Inf")
+if infGui and infGui.Enabled then
+    return -- If it's enabled, do not execute the script
+end
+
+-- Continue with the rest of the script execution
+-- Your original code continues here...
 
 if not game:IsLoaded() then
     local notLoaded = Instance.new("Message")
