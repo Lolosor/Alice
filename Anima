@@ -2598,19 +2598,19 @@ Tab:AddButton({
   	end    
 })
 Tab:AddButton({
-	Name = "Punch 1(victim)",
+	Name = "Punch 1 (Victim)",
 	Callback = function()
       		
   	end    
 })
 Tab:AddButton({
-	Name = "Punch 2(victim)",
+	Name = "Punch 2 (Victim)",
 	Callback = function()
       		
   	end    
 })
 Tab:AddButton({
-	Name = "Punch 3(victim)",
+	Name = "Punch 3 (Victim)",
 	Callback = function()
       		
   	end    
