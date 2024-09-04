@@ -2446,7 +2446,7 @@ local Tab = Window:MakeTab({
     PreumiumOnly = false
 })
 Tab:AddButton({
-	Name = "Idle",
+	Name = "Idle (Dash to cancel)",
 	Callback = function()
       		local player = game.Players.LocalPlayer
     repeat wait() until player.Character.Humanoid
