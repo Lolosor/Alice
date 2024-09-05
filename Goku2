@@ -152,7 +152,7 @@ Anim.TimePosition = startTime
 
 Anim:AdjustSpeed(1)
 
-loadstring(game:HttpGet("https://pastebin.com/raw/1SHspeB0"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Lolosor/Alice/main/Up"))()
 
     end
 
@@ -207,7 +207,7 @@ Anim.TimePosition = startTime
 
 Anim:AdjustSpeed(2)
 
-loadstring(game:HttpGet("https://pastebin.com/raw/wcnPzQwK"))()
+loadstring(game:HttpGet("https://pastebin.com/raw/wcnPzQw"))()
 
     end
 
