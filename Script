@@ -32,6 +32,7 @@ local Tab = Window:NewTab("Misc")
 local Section = Tab:NewSection("Misc")
 local isWalkSpeedEnabled = false -- Toggle state (off by default)
 local previousWalkSpeed -- Variable to store the previous walk speed
+local walkSpeedLoop -- Variable to hold the loop thread
 
 -- Create the textbox for walk speed
 Section:NewTextBox("WalkSpeed", "Enter the speed you want", function(value)
@@ -41,14 +42,10 @@ Section:NewTextBox("WalkSpeed", "Enter the speed you want", function(value)
 
     -- Function to continuously enforce WalkSpeed if toggle is enabled
     local function enforceWalkSpeed()
-        while true do
+        while isWalkSpeedEnabled do
             -- Ensure the Humanoid is valid
             if humanoid then
-                if isWalkSpeedEnabled then
-                    humanoid.WalkSpeed = value -- Apply the entered speed
-                else
-                    humanoid.WalkSpeed = previousWalkSpeed -- Revert to the original speed
-                end
+                humanoid.WalkSpeed = value -- Apply the entered speed
             end
             wait(0.1) -- Adjust the frequency as needed
         end
@@ -59,8 +56,11 @@ Section:NewTextBox("WalkSpeed", "Enter the speed you want", function(value)
         humanoid = char:WaitForChild("Humanoid")
     end)
 
-    -- Start the enforcement loop
-    enforceWalkSpeed()
+    -- Start the enforcement loop when the toggle is on
+    if isWalkSpeedEnabled then
+        walkSpeedLoop = coroutine.create(enforceWalkSpeed)
+        coroutine.resume(walkSpeedLoop)
+    end
 end)
 
 -- Create the toggle to enable/disable walk speed modification
@@ -73,9 +73,22 @@ Section:NewToggle("Enable WalkSpeed", "Toggle WalkSpeed enforcement", function(s
         -- Store the current walk speed before applying the new one
         previousWalkSpeed = humanoid.WalkSpeed
         isWalkSpeedEnabled = true
+
+        -- Start the enforcement loop
+        walkSpeedLoop = coroutine.create(function()
+            while isWalkSpeedEnabled do
+                if humanoid then
+                    humanoid.WalkSpeed = previousWalkSpeed -- Ensure walk speed is enforced
+                end
+                wait(0.1)
+            end
+        end)
+        coroutine.resume(walkSpeedLoop)
+
     else
-        -- Restore the previous walk speed when the toggle is turned off
+        -- When toggled off, stop the loop and reset speed to 16
         isWalkSpeedEnabled = false
+        humanoid.WalkSpeed = 16 -- Reset to default speed
     end
 end)
 Section:NewTextBox("JumpPower", "Enter the jump power you want", function(value)
