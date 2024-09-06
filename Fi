@@ -1,0 +1,142 @@
+-- Load external scripts
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Lolosor/Alice/main/Inf2"))()
+-- Custom GUI code
+local Players = game:GetService("Players")
+local player = Players.LocalPlayer
+
+-- Create a ScreenGui for the player's PlayerGui
+local screenGui = Instance.new("ScreenGui")
+screenGui.Parent = player:WaitForChild("PlayerGui")
+
+-- Create the TextLabel
+local textLabel = Instance.new("TextLabel")
+textLabel.Parent = screenGui
+textLabel.Size = UDim2.new(0, 200, 0, 50)  -- Width and height of the label
+textLabel.Position = UDim2.new(0.5, 0, 0, 30)  -- Centered at the top (adjust Y position if needed)
+textLabel.AnchorPoint = Vector2.new(0.5, 0)  -- Anchor point to center horizontally
+textLabel.BackgroundTransparency = 1  -- Make background invisible
+textLabel.Text = "Make sure to use cmd fixcam in infinity yield to fix camera"  -- Set the text
+textLabel.TextColor3 = Color3.new(1, 1, 1)  -- Set the text color to white
+textLabel.Font = Enum.Font.SourceSans  -- Choose your preferred font
+textLabel.TextSize = 24  -- Set text size
+
+-- Define the player
+local player = game.Players.LocalPlayer
+
+-- Adjust Settings (assuming 'Communicate' is valid)
+local args = {
+    [1] = {
+        ["setting"] = "S_ShiftLock",
+        ["Goal"] = "Adjust Setting",
+        ["set"] = true
+    }
+}
+
+-- Check if the 'Communicate' method exists
+local character = player.Character or player.CharacterAdded:Wait()
+if character:FindFirstChild("Communicate") then
+    character.Communicate:FireServer(unpack(args))
+else
+    warn("Communicate method not found")
+end
+
+local camera = game.Workspace.CurrentCamera
+local userInputService = game:GetService("UserInputService")
+local runService = game:GetService("RunService")
+
+local touchStart = nil
+local touchSensitivity = 0.015 -- Adjust this value for touch sensitivity
+local screenWidth = camera.ViewportSize.X -- Width of the screen
+
+local touchMovedConnection
+local touchEndedConnection
+
+-- Function to set up first-person view
+local function setupFirstPersonView()
+    local character = player.Character or player.CharacterAdded:Wait()
+    local head = character:FindFirstChild("Head")
+
+    if head then
+        -- Position the camera inside the head
+        camera.CameraSubject = character:FindFirstChild("HumanoidRootPart")
+        camera.CameraType = Enum.CameraType.Custom
+        camera.CFrame = head.CFrame
+    end
+end
+
+-- Function to update the camera and remove GUI if needed
+local function updateCamera()
+    local character = player.Character or player.CharacterAdded:Wait()
+    local head = character:FindFirstChild("Head")
+
+    if head then
+        -- Update camera position to follow the head
+        camera.CFrame = head.CFrame
+    end
+
+    -- Check if the camera's subject is a Humanoid
+    if camera.CameraSubject and camera.CameraSubject:IsA("Humanoid") then
+        -- Find and remove the TurnCharacter GUI if it exists
+        local playerGui = player:FindFirstChild("PlayerGui")
+        if playerGui then
+            local turnCharacterGui = playerGui:FindFirstChild("TurnCharacter")
+            if turnCharacterGui then
+                turnCharacterGui:Destroy()
+                print("TurnCharacter GUI removed")
+            end
+        end
+
+        -- Disconnect touch input handlers
+        if touchMovedConnection then
+            touchMovedConnection:Disconnect()
+            touchMovedConnection = nil
+        end
+
+        if touchEndedConnection then
+            touchEndedConnection:Disconnect()
+            touchEndedConnection = nil
+        end
+    end
+end
+
+-- Handle touch input for rotating the camera
+local function onTouchInput(input)
+    if input.UserInputType == Enum.UserInputType.Touch then
+        if input.Position.X > screenWidth / 2 then -- Right side of the screen
+            if not touchStart then
+                touchStart = input.Position
+            else
+                local delta = input.Position - touchStart
+                touchStart = input.Position
+
+                -- Rotate the character based on swipe input
+                local rotation = CFrame.Angles(0, -delta.X * touchSensitivity, 0)
+                local character = player.Character or player.CharacterAdded:Wait()
+                local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
+                humanoidRootPart.CFrame = humanoidRootPart.CFrame * rotation
+            end
+        end
+    end
+end
+
+-- Handle touch input end
+local function onTouchEnd(input)
+    if input.UserInputType == Enum.UserInputType.Touch then
+        touchStart = nil
+    end
+end
+
+-- Initial setup
+setupFirstPersonView()
+
+-- Update the camera every frame
+runService.RenderStepped:Connect(function()
+    updateCamera()
+end)
+
+-- Connect touch input handlers
+touchMovedConnection = userInputService.TouchMoved:Connect(onTouchInput)
+touchEndedConnection = userInputService.TouchEnded:Connect(onTouchEnd)
+
+wait(5)
+screenGui:Destroy()
