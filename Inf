@@ -8359,7 +8359,7 @@ addcmd('fixcam',{'restorecam'},function(args, speaker)
 	wait(.1)
 	repeat wait() until speaker.Character ~= nil
 	workspace.CurrentCamera.CameraSubject = speaker.Character:FindFirstChildWhichIsA('Humanoid')
-	workspace.CurrentCamera.CameraType = "Custom"
+	workspace.CurrentCamera.CameraType = "Track"
 	speaker.CameraMinZoomDistance = 0.5
 	speaker.CameraMaxZoomDistance = 400
 	speaker.CameraMode = "Classic"
