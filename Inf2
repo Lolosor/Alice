@@ -1,0 +1,65 @@
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Lolosor/Alice/main/Inf"))()
+
+local infinite = game.CoreGui:FindFirstChild("Inf")
+
+local playerGui = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+local existingGui = playerGui:FindFirstChild("ToggleGuii")
+
+-- Function to create the GUI
+local function createGui()
+    local ToggleScreenGui = Instance.new("ScreenGui")
+    ToggleScreenGui.Name = "ToggleGuii"
+    ToggleScreenGui.ResetOnSpawn = false
+    ToggleScreenGui.Parent = playerGui
+
+    -- Create the ImageButton (Toggle)
+    local Toggle = Instance.new("ImageButton")
+    Toggle.Name = "Toggles"
+    Toggle.Parent = ToggleScreenGui
+    Toggle.BackgroundColor3 = Color3.fromRGB(0, 0, 0) -- Optional: Set background color if needed
+    Toggle.Position = UDim2.new(0.5, 100, 0, 0) -- Adjust the position as needed
+    Toggle.Size = UDim2.new(0, 40, 0, 40) -- Square size (change as needed)
+    Toggle.Image = "rbxassetid://100034317985655" -- Check this asset ID for accuracy
+    Toggle.Draggable = true -- Make the button draggable
+
+    -- Make the corners rounded (Optional)
+    local Corner = Instance.new("UICorner")
+    Corner.Parent = Toggle
+
+    -- Create the close button
+    local x = Instance.new("TextButton")
+    x.Text = "X"
+    x.Name = "x"
+    x.Parent = ToggleScreenGui -- Parent to ToggleScreenGui so it doesn't move with Toggle
+    x.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+    x.Position = UDim2.new(0.5, 330, 0.1, 0) -- Adjust this position as needed to place it near the Toggle
+    x.Size = UDim2.new(0, 20, 0, 20)
+    x.TextScaled = true
+    x.Draggable = false -- Set to false if you don't want the x button to be draggable
+
+    -- Connect the close button to destroy the GUI
+    x.MouseButton1Click:Connect(function()
+        ToggleScreenGui:Destroy()
+        if infinite then
+            infinite:Destroy()
+        end
+    end)
+
+    if infinite then
+        Toggle.MouseButton1Click:Connect(function()
+            infinite.Enabled = not infinite.Enabled
+        end)
+    end
+end
+
+-- Check if the GUI already exists
+if existingGui then
+    if not existingGui.Enabled then
+        -- Destroy existing GUI and create a new one if the existing GUI is not visible
+        existingGui:Destroy()
+        createGui()
+    end
+else
+    -- Create the GUI if it doesn't exist
+    createGui()
+end
