@@ -127,8 +127,16 @@ Section:NewTextBox("JumpPower", "Enter the jump power you want", function(value)
         newJumpPower = tonumber(newValue)
     end)
 end)
+Section:NewTextBox("FOV", "Field Of View", function()
+
+end)
+Section:NewToggle("Enable FOV", "", function()
+
+end)
+Section:NewButton("First Person View", "", function()
+    
 Section:NewButton("Infinite Yield", "OP FE admin commands", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Lolosor/Alice/main/Inf2"))()
 end)
 Section:NewButton("Dex Explorer V3", "See what's inside the game", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Babyhamsta/RBLX_Scripts/main/Universal/BypassedDarkDexV3.lua", true))()
