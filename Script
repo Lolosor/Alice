@@ -230,11 +230,57 @@ Section:NewToggle("Enable JumpPower", "Toggle JumpPower enforcement", function(s
         humanoid.UseJumpPower = true
     end
 end)
-Section:NewTextBox("FOV", "Field Of View", function()
-
+-- Load the Kavo UI Library
+local success, Library = pcall(function()
+    return loadstring(game:HttpGet("https://raw.githubusercontent.com/Lolosor/Alice/main/Cave"))()
 end)
-Section:NewToggle("Enable FOV", "", function()
 
+if not success then
+    warn("Failed to load the Kavo UI Library. Check the URL.")
+    return
+end
+
+-- Create a window using Kavo UI
+local Window = Library.CreateLib("FOV Settings", "BloodTheme")
+
+local Player = game.Players.LocalPlayer
+local Camera = workspace.CurrentCamera
+
+-- Create a section for FOV settings
+local Tab = Window:NewTab("FOV Settings")
+local Section = Tab:NewSection("FOV Controls")
+
+local customFOV = 70 -- default FOV value
+local isToggleOn = false -- default toggle state (off)
+
+-- Textbox for custom FOV
+Section:NewTextBox("FOV (0-120)", "Enter the FOV value", function(txt)
+    local inputFOV = tonumber(txt)
+    if inputFOV then
+        customFOV = inputFOV -- Update the FOV value based on input
+        if isToggleOn then
+            Camera.FieldOfView = customFOV
+        end
+    else
+        warn("Invalid FOV value entered")
+    end
+end)
+
+-- Toggle to switch between default (70) and custom FOV
+Section:NewToggle("Enable FOV", "Toggle FOV", function(state)
+    isToggleOn = state
+    if isToggleOn then
+        Camera.FieldOfView = customFOV
+    else
+        Camera.FieldOfView = 70 -- Reset to default FOV (70) when toggle is off
+    end
+end)
+
+-- Reset to default FOV when the player leaves the game
+game.Players.PlayerRemoving:Connect(function(player)
+    if player == Player then
+        Camera.FieldOfView = 70 -- Reset FOV to default
+    end
 end)
 local localPlayer = game.Players.LocalPlayer
 local camera = game.Workspace.CurrentCamera
