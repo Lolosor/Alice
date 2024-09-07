@@ -236,12 +236,146 @@ end)
 Section:NewToggle("Enable FOV", "", function()
 
 end)
-Section:NewDropdown("Selected Player", "", {"Option 1", "Option 2", "Option 3"}, function(currentOption)
-    
+local localPlayer = game.Players.LocalPlayer
+local camera = game.Workspace.CurrentCamera
+
+-- Function to calculate distance between two positions
+local function getDistance(pos1, pos2)
+    return (pos1 - pos2).Magnitude
+end
+
+-- Function to get player's display name with username
+local function getPlayerDisplayName(player)
+    return player.DisplayName .. " (" .. player.Name .. ")"
+end
+
+-- Function to find the nearest player to the local player
+local function getNearestPlayer()
+    local nearestPlayer = nil
+    local nearestDistance = math.huge
+
+    for _, player in ipairs(game.Players:GetPlayers()) do
+        if player ~= localPlayer and game.Workspace.Live:FindFirstChild(player.Name) then
+            local playerChar = game.Workspace.Live[player.Name]
+            if playerChar:FindFirstChild("HumanoidRootPart") then
+                local distance = getDistance(localPlayer.Character.HumanoidRootPart.Position, playerChar.HumanoidRootPart.Position)
+                if distance < nearestDistance then
+                    nearestDistance = distance
+                    nearestPlayer = player
+                end
+            end
+        end
+    end
+
+    return nearestPlayer
+end
+
+-- Get the Weakest Dummy
+local function getWeakestDummy()
+    return game.Workspace.Live:FindFirstChild("Weakest Dummy")
+end
+
+-- Check for Crab Boss
+local function getCrabBoss()
+    return game.Workspace.Live:FindFirstChild("Crab Boss")
+end
+
+local dropdown = Section:NewDropdown("Players", "Select a player", {}, function(selected)
+    -- Handle selection
+    if selected == "You" then
+        -- Set the camera to follow the local player's Humanoid
+        if localPlayer.Character and localPlayer.Character:FindFirstChild("Humanoid") then
+            camera.CameraSubject = localPlayer.Character.Humanoid
+        end
+    elseif selected == "Weakest Dummy" then
+        -- Parent the camera to Weakest Dummy's Head
+        local weakestDummy = getWeakestDummy()
+        if weakestDummy and weakestDummy:FindFirstChild("Head") then
+            camera.CameraSubject = weakestDummy.Head
+        end
+    elseif selected:match("Crab Boss: Found") then
+        -- Parent the camera to Crab Boss's Head
+        local crabBoss = getCrabBoss()
+        if crabBoss and crabBoss:FindFirstChild("Head") then
+            camera.CameraSubject = crabBoss.Head
+        end
+    else
+        -- Parent the camera to the selected player's Head in Workspace.Live
+        local targetName = selected:match(".*%((.*)%)") -- Extract username from "display_name (@username)"
+        local target = game.Workspace.Live:FindFirstChild(targetName)
+        if target and target:FindFirstChild("Head") then
+            camera.CameraSubject = target.Head
+        end
+    end
 end)
-Section:NewToggle("View Selected Player", "", function(state)
-    
+
+-- Function to update dropdown list
+local function updateDropdownList()
+    local playerNames = {"You"}
+
+    -- Add Nearest Player in the middle with updated label
+    local nearestPlayer = getNearestPlayer()
+    local nearestLabel = "Nearest Player: "
+    if nearestPlayer then
+        nearestLabel = nearestLabel .. getPlayerDisplayName(nearestPlayer)
+    else
+        nearestLabel = nearestLabel .. "No One"
+    end
+    table.insert(playerNames, nearestLabel)
+
+    -- Add Weakest Dummy to the list if it exists
+    local weakestDummy = getWeakestDummy()
+    if weakestDummy then
+        table.insert(playerNames, "Weakest Dummy")
+    end
+
+    -- Add Crab Boss status
+    local crabBoss = getCrabBoss()
+    local crabBossStatus = "Crab Boss: Not Found"
+    if crabBoss then
+        crabBossStatus = "Crab Boss: Found"
+    end
+    table.insert(playerNames, crabBossStatus)
+
+    -- Add all players (except the local player) to the list
+    local otherPlayers = {}
+    for _, player in ipairs(game.Players:GetPlayers()) do
+        if player ~= localPlayer then
+            table.insert(otherPlayers, getPlayerDisplayName(player))
+        end
+    end
+
+    -- Append other players after "Weakest Dummy" and "Crab Boss" status
+    if weakestDummy then
+        for _, playerName in ipairs(otherPlayers) do
+            table.insert(playerNames, playerName)
+        end
+    else
+        -- If Weakest Dummy does not exist, just add other players at the end
+        for _, playerName in ipairs(otherPlayers) do
+            table.insert(playerNames, playerName)
+        end
+    end
+
+    -- Refresh the dropdown with updated list
+    dropdown:Refresh(playerNames)
+end
+
+-- Handle player leaving
+game.Players.PlayerRemoving:Connect(function(player)
+    updateDropdownList() -- Update the dropdown list when a player leaves
 end)
+
+-- Infinite loop to update dropdown list
+spawn(function()
+    while true do
+        updateDropdownList() -- Update the dropdown list
+        wait(1) -- Adjustable time interval for refreshing (set to 1 second here)
+    end
+end)
+
+-- Initial update to populate the dropdown list
+updateDropdownList()
 Section:NewButton("Infinite Yield", "OP FE admin commands", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Lolosor/Alice/main/Inf2"))()
 end)
