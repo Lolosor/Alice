@@ -1251,7 +1251,147 @@ local camera = workspace.CurrentCamera
 camera.CameraSubject = humanoidRootPart
 end)
 Section:NewButton("Right Arm View", "", function()
-    
+    local Players = game:GetService("Players")
+local Workspace = game:GetService("Workspace")
+local RunService = game:GetService("RunService")
+
+local player = Players.LocalPlayer
+local camera = Workspace.CurrentCamera
+local targetName = "Weakest Dummy"
+local targetCharacter
+local tpButton
+local resetButton
+local isViewingRightArm = false  -- Flag to indicate if the camera is viewing the right arm
+local detectionStarted = false  -- Flag to indicate if detection has started
+
+-- Function to find and set up the target character
+local function findNewTarget()
+    targetCharacter = Workspace.Live:FindFirstChild(targetName)
+    if targetCharacter then
+        local humanoid = targetCharacter:FindFirstChildOfClass("Humanoid")
+        if humanoid then
+            humanoid.Died:Connect(function()
+                targetCharacter = nil  -- Reset target when it dies
+            end)
+        end
+    end
+end
+
+-- Function to update the camera position and handle button visibility
+local function updateCamera()
+    -- If we are not viewing the right arm yet, set the camera to view the right arm
+    if not isViewingRightArm and targetCharacter and targetCharacter:FindFirstChild("Right Arm") then
+        local rightArm = targetCharacter:FindFirstChild("Right Arm")
+        local rightArmPosition = rightArm.Position
+        local rightArmLookVector = rightArm.CFrame.LookVector
+        camera.CFrame = CFrame.new(rightArmPosition, rightArmPosition + rightArmLookVector)
+        isViewingRightArm = true
+        wait(1)  -- Wait for 1 second before starting detection
+        detectionStarted = true  -- Start detection
+    elseif detectionStarted then
+        -- If detection has started, check the camera's subject
+        if camera.CameraSubject and camera.CameraSubject:IsA("Humanoid") then
+            if tpButton then
+                tpButton:Destroy()
+                tpButton = nil
+                print("Tp Button destroyed because the camera's subject is a Humanoid")
+            end
+            if resetButton then
+                resetButton:Destroy()
+                resetButton = nil
+                print("Reset Camera Button destroyed because the camera's subject is a Humanoid")
+            end
+            return
+        end
+    end
+
+    -- Update the camera view if it's not set to view the right arm
+    if targetCharacter and targetCharacter:FindFirstChild("Right Arm") and isViewingRightArm then
+        local rightArm = targetCharacter:FindFirstChild("Right Arm")
+        local rightArmPosition = rightArm.Position
+        local rightArmLookVector = rightArm.CFrame.LookVector
+        camera.CFrame = CFrame.new(rightArmPosition, rightArmPosition + rightArmLookVector)
+    else
+        findNewTarget()  -- Try to find a new target if the current one is missing
+    end
+end
+
+-- Function to teleport the player to a position in front of the target and make them look at the target
+local function teleportToTarget()
+    if targetCharacter and targetCharacter:FindFirstChild("Right Arm") then
+        local rightArm = targetCharacter:FindFirstChild("Right Arm")
+        local direction = rightArm.CFrame.LookVector
+        local teleportPosition = rightArm.Position + direction * 5  -- 5 studs in front of the right arm
+
+        -- Teleport the player to the position and orient them to look at the target
+        local character = player.Character
+        if character then
+            local humanoidRootPart = character:FindFirstChild("HumanoidRootPart")
+            if humanoidRootPart then
+                local newCFrame = CFrame.new(teleportPosition, rightArm.Position)
+                humanoidRootPart.CFrame = newCFrame
+            end
+        end
+    end
+end
+
+-- Function to reset the camera to view the player's character's right arm and change the camera subject
+local function resetCamera()
+    local character = player.Character
+    if character and character:FindFirstChild("Right Arm") then
+        local rightArm = character:FindFirstChild("Right Arm")
+        local rightArmPosition = rightArm.Position
+        local humanoid = character:FindFirstChildOfClass("Humanoid")
+        
+        -- Set camera to player's right arm and change camera subject to Humanoid
+        camera.CFrame = CFrame.new(rightArmPosition, rightArmPosition + rightArm.CFrame.LookVector)
+        camera.CameraSubject = humanoid
+    end
+end
+
+-- Create the GUI
+local screenGui = Instance.new("ScreenGui")
+screenGui.Parent = player:WaitForChild("PlayerGui")
+
+-- Create Tp to Weakest Dummy button
+tpButton = Instance.new("TextButton")
+tpButton.Parent = screenGui
+tpButton.Size = UDim2.new(0, 200, 0, 50)
+tpButton.Position = UDim2.new(0, 10, 0.5, -25)  -- Center-left position
+tpButton.Text = "Tp to Weakest Dummy"
+tpButton.TextColor3 = Color3.new(1, 1, 1)
+tpButton.BackgroundColor3 = Color3.new(0, 0, 0)
+tpButton.Font = Enum.Font.SourceSans
+tpButton.TextSize = 24
+tpButton.Draggable = true
+
+tpButton.MouseButton1Click:Connect(teleportToTarget)
+
+-- Create Reset Camera button
+resetButton = Instance.new("TextButton")
+resetButton.Parent = screenGui
+resetButton.Size = UDim2.new(0, 200, 0, 50)
+resetButton.Position = UDim2.new(0, 10, 0.5, -80)  -- Above the Tp button
+resetButton.Text = "Reset Camera"
+resetButton.TextColor3 = Color3.new(1, 1, 1)
+resetButton.BackgroundColor3 = Color3.new(0, 0, 0)
+resetButton.Font = Enum.Font.SourceSans
+resetButton.TextSize = 24
+resetButton.Draggable = true
+
+resetButton.MouseButton1Click:Connect(resetCamera)
+
+-- Initial target setup
+findNewTarget()
+
+-- Update the camera every frame
+RunService.RenderStepped:Connect(updateCamera)
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
+local camera = workspace.CurrentCamera
+
+camera.CameraSubject = humanoidRootPart
 end)
 Section:NewButton("Left Arm View", "", function()
     
