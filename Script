@@ -230,25 +230,8 @@ Section:NewToggle("Enable JumpPower", "Toggle JumpPower enforcement", function(s
         humanoid.UseJumpPower = true
     end
 end)
--- Load the Kavo UI Library
-local success, Library = pcall(function()
-    return loadstring(game:HttpGet("https://raw.githubusercontent.com/Lolosor/Alice/main/Cave"))()
-end)
-
-if not success then
-    warn("Failed to load the Kavo UI Library. Check the URL.")
-    return
-end
-
--- Create a window using Kavo UI
-local Window = Library.CreateLib("FOV Settings", "BloodTheme")
-
 local Player = game.Players.LocalPlayer
 local Camera = workspace.CurrentCamera
-
--- Create a section for FOV settings
-local Tab = Window:NewTab("FOV Settings")
-local Section = Tab:NewSection("FOV Controls")
 
 local customFOV = 70 -- default FOV value
 local isToggleOn = false -- default toggle state (off)
