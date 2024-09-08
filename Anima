@@ -7626,6 +7626,25 @@ Tab:AddButton({
               
       end
 })
+local Section = Tab:AddSection({
+	Name = "Weakest Dummy"
+})
+Tab:AddButton({
+    Name = "Counter",
+    Callback = function()
+              local player = game.Players.LocalPlayer
+    repeat wait() until player.Character.Humanoid
+    local humanoid = player.Character.Humanoid
+    local character = player.Character or player.CharacterAdded:Wait()
+    local UserInputService = game:GetService("UserInputService")
+
+    local anim2 = Instance.new("Animation")
+    anim2.AnimationId = "rbxassetid://18440406788"
+
+    local playAnim2 = humanoid:LoadAnimation(anim2)
+    playAnim2:Play()
+      end
+})
 local Tab = Window:MakeTab({
 	Name = "Ult Animations",
 	Icon = "rbxassetid://4483345998",
