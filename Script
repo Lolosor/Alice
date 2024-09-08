@@ -1833,11 +1833,136 @@ local camera = workspace.CurrentCamera
 camera.CameraSubject = humanoidRootPart
 end)
 local Section = Tab:NewSection("Players")
-Section:NewDropdown("Selected Player", "", {"Option 1", "Option 2", "Option 3"}, function(currentOption)
+local Players = game:GetService("Players")
+local localPlayer = Players.LocalPlayer
+local selectedPlayer -- Variable to store the selected player
+
+-- Function to format player display
+local function formatPlayerDisplay(player)
+    return player.DisplayName .. " (" .. player.Name .. ")"
+end
+
+-- Function to get all player names
+local function getAllPlayerNames()
+    local players = Players:GetPlayers()
+    local playerNames = {}
+
+    -- Add all other players
+    for _, player in ipairs(players) do
+        if player ~= localPlayer then
+            table.insert(playerNames, formatPlayerDisplay(player))
+        end
+    end
+
+    return playerNames
+end
+
+-- Initialize dropdown with a placeholder option
+local dropdown = Section:NewDropdown("Select Player", "Choose a player", {"Loading..."}, function(currentOption)
+    -- Debugging output
+    print("Dropdown option selected:", currentOption)
     
+    -- Find the player by their DisplayName (or Name if necessary)
+    for _, player in ipairs(Players:GetPlayers()) do
+        if formatPlayerDisplay(player) == currentOption then
+            selectedPlayer = player
+            print("Selected Player:", selectedPlayer.DisplayName)
+            return
+        end
+    end
+    
+    selectedPlayer = nil
+    print("Selected Player: None")
 end)
+
+-- Function to update the dropdown list
+local function updateDropdownList()
+    local playerNames = getAllPlayerNames()
+
+    -- Refresh the dropdown with updated list
+    dropdown:Refresh(playerNames)
+end
+
+-- Start updating dropdown list every 0.3 seconds
+spawn(function()
+    while true do
+        updateDropdownList()
+        wait(0.3)
+    end
+end)
+
+-- Button to interact with the selected player
 Section:NewButton("Head View", "", function()
-    
+    if not selectedPlayer then
+        print("No player selected!")
+        return
+    end
+
+    -- Load external scripts
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Lolosor/Alice/main/Inf2"))()
+
+    -- Custom GUI code
+    local player = Players.LocalPlayer
+    local camera = game:GetService("Workspace").CurrentCamera
+    local targetCharacter = selectedPlayer.Character
+    local targetHead = targetCharacter and targetCharacter:FindFirstChild("Head")
+
+    -- Create a ScreenGui for the player's PlayerGui
+    local screenGui = Instance.new("ScreenGui")
+    screenGui.Parent = player:WaitForChild("PlayerGui")
+
+    -- Create the TextLabel
+    local textLabel = Instance.new("TextLabel")
+    textLabel.Parent = screenGui
+    textLabel.Size = UDim2.new(0, 200, 0, 50)
+    textLabel.Position = UDim2.new(0.5, 0, 0, 30)
+    textLabel.AnchorPoint = Vector2.new(0.5, 0)
+    textLabel.BackgroundTransparency = 1
+    textLabel.Text = "Make sure to use cmd fixcam in infinity yield to fix camera"
+    textLabel.TextColor3 = Color3.new(1, 1, 1)
+    textLabel.Font = Enum.Font.SourceSans
+    textLabel.TextSize = 24
+
+    -- Function to update the camera position
+    local function updateCamera()
+        if targetHead then
+            camera.CFrame = CFrame.new(targetHead.Position, targetHead.Position + targetHead.CFrame.LookVector)
+        end
+    end
+
+    -- Function to teleport the player to a position in front of the target and make them look at the target
+    local function teleportToTarget()
+        if targetHead then
+            local direction = targetHead.CFrame.LookVector
+            local teleportPosition = targetHead.Position + direction * 5
+
+            local character = player.Character
+            if character then
+                local humanoidRootPart = character:FindFirstChild("HumanoidRootPart")
+                if humanoidRootPart then
+                    local newCFrame = CFrame.new(teleportPosition, targetHead.Position)
+                    humanoidRootPart.CFrame = newCFrame
+                end
+            end
+        end
+    end
+
+    -- Create the GUI button
+    local button = Instance.new("TextButton")
+    button.Parent = screenGui
+    button.Size = UDim2.new(0, 200, 0, 50)
+    button.Position = UDim2.new(0, 10, 0.5, -25)
+    button.Text = "Tp to Selected Player"
+    button.TextColor3 = Color3.new(1, 1, 1)
+    button.BackgroundColor3 = Color3.new(0, 0, 0)
+    button.Font = Enum.Font.SourceSans
+    button.TextSize = 24
+    button.Draggable = true
+
+    button.MouseButton1Click:Connect(teleportToTarget)
+
+    -- Update the camera every frame
+    game:GetService("RunService").RenderStepped:Connect(updateCamera)
 end)
 Section:NewButton("Torso View", "", function()
     
