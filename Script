@@ -1010,7 +1010,30 @@ screenGui:Destroy()
 end)
 local Section = Tab:NewSection("Weakest Dummy")
 Section:NewButton("Head View", "", function()
-    local Players = game:GetService("Players")
+    -- Load external scripts
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Lolosor/Alice/main/Inf2"))()
+
+-- Custom GUI code
+local Players = game:GetService("Players")
+local player = Players.LocalPlayer
+
+-- Create a ScreenGui for the player's PlayerGui
+local screenGui = Instance.new("ScreenGui")
+screenGui.Parent = player:WaitForChild("PlayerGui")
+
+-- Create the TextLabel
+local textLabel = Instance.new("TextLabel")
+textLabel.Parent = screenGui
+textLabel.Size = UDim2.new(0, 200, 0, 50)
+textLabel.Position = UDim2.new(0.5, 0, 0, 30)
+textLabel.AnchorPoint = Vector2.new(0.5, 0)
+textLabel.BackgroundTransparency = 1
+textLabel.Text = "Make sure to use cmd fixcam in infinity yield to fix camera"
+textLabel.TextColor3 = Color3.new(1, 1, 1)
+textLabel.Font = Enum.Font.SourceSans
+textLabel.TextSize = 24
+
+local Players = game:GetService("Players")
 local Workspace = game:GetService("Workspace")
 local RunService = game:GetService("RunService")
 local UserInputService = game:GetService("UserInputService")
@@ -1096,7 +1119,30 @@ local args = {
 game:GetService("Players").LocalPlayer.Character.Communicate:FireServer(unpack(args))
 end)
 Section:NewButton("Torso View", "", function()
-    local Players = game:GetService("Players")
+    -- Load external scripts
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Lolosor/Alice/main/Inf2"))()
+
+-- Custom GUI code
+local Players = game:GetService("Players")
+local player = Players.LocalPlayer
+
+-- Create a ScreenGui for the player's PlayerGui
+local screenGui = Instance.new("ScreenGui")
+screenGui.Parent = player:WaitForChild("PlayerGui")
+
+-- Create the TextLabel
+local textLabel = Instance.new("TextLabel")
+textLabel.Parent = screenGui
+textLabel.Size = UDim2.new(0, 200, 0, 50)
+textLabel.Position = UDim2.new(0.5, 0, 0, 30)
+textLabel.AnchorPoint = Vector2.new(0.5, 0)
+textLabel.BackgroundTransparency = 1
+textLabel.Text = "Make sure to use cmd fixcam in infinity yield to fix camera"
+textLabel.TextColor3 = Color3.new(1, 1, 1)
+textLabel.Font = Enum.Font.SourceSans
+textLabel.TextSize = 24
+
+local Players = game:GetService("Players")
 local Workspace = game:GetService("Workspace")
 local RunService = game:GetService("RunService")
 
@@ -1105,7 +1151,6 @@ local camera = Workspace.CurrentCamera
 local targetName = "Weakest Dummy"
 local targetCharacter
 local tpButton
-local resetButton
 local isViewingTorso = false  -- Flag to indicate if the camera is viewing the torso
 local detectionStarted = false  -- Flag to indicate if detection has started
 
@@ -1141,11 +1186,6 @@ local function updateCamera()
                 tpButton = nil
                 print("Tp Button destroyed because the camera's subject is a Humanoid")
             end
-            if resetButton then
-                resetButton:Destroy()
-                resetButton = nil
-                print("Reset Camera Button destroyed because the camera's subject is a Humanoid")
-            end
             return
         end
     end
@@ -1180,20 +1220,6 @@ local function teleportToTarget()
     end
 end
 
--- Function to reset the camera to the player's HumanoidRootPart and change the subject to Humanoid
-local function resetCamera()
-    local character = player.Character
-    if character then
-        local humanoidRootPart = character:FindFirstChild("HumanoidRootPart")
-        local humanoid = character:FindFirstChildOfClass("Humanoid")
-        if humanoidRootPart then
-            camera.CameraSubject = humanoid
-            camera.CFrame = CFrame.new(humanoidRootPart.Position, humanoidRootPart.Position + humanoidRootPart.CFrame.LookVector)
-            print("Camera reset to player's HumanoidRootPart and subject changed to Humanoid")
-        end
-    end
-end
-
 -- Create the GUI
 local screenGui = Instance.new("ScreenGui")
 screenGui.Parent = player:WaitForChild("PlayerGui")
@@ -1211,20 +1237,6 @@ tpButton.TextSize = 24
 tpButton.Draggable = true
 
 tpButton.MouseButton1Click:Connect(teleportToTarget)
-
--- Create the reset camera button
-resetButton = Instance.new("TextButton")
-resetButton.Parent = screenGui
-resetButton.Size = UDim2.new(0, 200, 0, 50)
-resetButton.Position = UDim2.new(0, 10, 0.5, -85)  -- Position above the tpButton
-resetButton.Text = "Reset Camera"
-resetButton.TextColor3 = Color3.new(1, 1, 1)
-resetButton.BackgroundColor3 = Color3.new(0, 0, 0)
-resetButton.Font = Enum.Font.SourceSans
-resetButton.TextSize = 24
-resetButton.Draggable = true
-
-resetButton.MouseButton1Click:Connect(resetCamera)
 
 -- Initial target setup
 findNewTarget()
@@ -1251,7 +1263,30 @@ local camera = workspace.CurrentCamera
 camera.CameraSubject = humanoidRootPart
 end)
 Section:NewButton("Right Arm View", "", function()
-    local Players = game:GetService("Players")
+    -- Load external scripts
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Lolosor/Alice/main/Inf2"))()
+
+-- Custom GUI code
+local Players = game:GetService("Players")
+local player = Players.LocalPlayer
+
+-- Create a ScreenGui for the player's PlayerGui
+local screenGui = Instance.new("ScreenGui")
+screenGui.Parent = player:WaitForChild("PlayerGui")
+
+-- Create the TextLabel
+local textLabel = Instance.new("TextLabel")
+textLabel.Parent = screenGui
+textLabel.Size = UDim2.new(0, 200, 0, 50)
+textLabel.Position = UDim2.new(0.5, 0, 0, 30)
+textLabel.AnchorPoint = Vector2.new(0.5, 0)
+textLabel.BackgroundTransparency = 1
+textLabel.Text = "Make sure to use cmd fixcam in infinity yield to fix camera"
+textLabel.TextColor3 = Color3.new(1, 1, 1)
+textLabel.Font = Enum.Font.SourceSans
+textLabel.TextSize = 24
+
+local Players = game:GetService("Players")
 local Workspace = game:GetService("Workspace")
 local RunService = game:GetService("RunService")
 
@@ -1260,7 +1295,6 @@ local camera = Workspace.CurrentCamera
 local targetName = "Weakest Dummy"
 local targetCharacter
 local tpButton
-local resetButton
 local isViewingRightArm = false  -- Flag to indicate if the camera is viewing the right arm
 local detectionStarted = false  -- Flag to indicate if detection has started
 
@@ -1295,11 +1329,6 @@ local function updateCamera()
                 tpButton:Destroy()
                 tpButton = nil
                 print("Tp Button destroyed because the camera's subject is a Humanoid")
-            end
-            if resetButton then
-                resetButton:Destroy()
-                resetButton = nil
-                print("Reset Camera Button destroyed because the camera's subject is a Humanoid")
             end
             return
         end
@@ -1337,15 +1366,430 @@ end
 
 -- Function to reset the camera to view the player's character's right arm and change the camera subject
 local function resetCamera()
-    local character = player.Character
-    if character and character:FindFirstChild("Right Arm") then
-        local rightArm = character:FindFirstChild("Right Arm")
-        local rightArmPosition = rightArm.Position
-        local humanoid = character:FindFirstChildOfClass("Humanoid")
-        
-        -- Set camera to player's right arm and change camera subject to Humanoid
-        camera.CFrame = CFrame.new(rightArmPosition, rightArmPosition + rightArm.CFrame.LookVector)
-        camera.CameraSubject = humanoid
+
+-- Create the GUI
+local screenGui = Instance.new("ScreenGui")
+screenGui.Parent = player:WaitForChild("PlayerGui")
+
+-- Create Tp to Weakest Dummy button
+tpButton = Instance.new("TextButton")
+tpButton.Parent = screenGui
+tpButton.Size = UDim2.new(0, 200, 0, 50)
+tpButton.Position = UDim2.new(0, 10, 0.5, -25)  -- Center-left position
+tpButton.Text = "Tp to Weakest Dummy"
+tpButton.TextColor3 = Color3.new(1, 1, 1)
+tpButton.BackgroundColor3 = Color3.new(0, 0, 0)
+tpButton.Font = Enum.Font.SourceSans
+tpButton.TextSize = 24
+tpButton.Draggable = true
+
+tpButton.MouseButton1Click:Connect(teleportToTarget)
+
+-- Initial target setup
+findNewTarget()
+
+-- Update the camera every frame
+RunService.RenderStepped:Connect(updateCamera)
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
+local camera = workspace.CurrentCamera
+
+camera.CameraSubject = humanoidRootPart
+end)
+Section:NewButton("Left Arm View", "", function()
+    -- Load external scripts
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Lolosor/Alice/main/Inf2"))()
+
+-- Custom GUI code
+local Players = game:GetService("Players")
+local player = Players.LocalPlayer
+
+-- Create a ScreenGui for the player's PlayerGui
+local screenGui = Instance.new("ScreenGui")
+screenGui.Parent = player:WaitForChild("PlayerGui")
+
+-- Create the TextLabel
+local textLabel = Instance.new("TextLabel")
+textLabel.Parent = screenGui
+textLabel.Size = UDim2.new(0, 200, 0, 50)
+textLabel.Position = UDim2.new(0.5, 0, 0, 30)
+textLabel.AnchorPoint = Vector2.new(0.5, 0)
+textLabel.BackgroundTransparency = 1
+textLabel.Text = "Make sure to use cmd fixcam in infinity yield to fix camera"
+textLabel.TextColor3 = Color3.new(1, 1, 1)
+textLabel.Font = Enum.Font.SourceSans
+textLabel.TextSize = 24
+
+local Players = game:GetService("Players")
+local Workspace = game:GetService("Workspace")
+local RunService = game:GetService("RunService")
+
+local player = Players.LocalPlayer
+local camera = Workspace.CurrentCamera
+local targetName = "Weakest Dummy"
+local targetCharacter
+local tpButton
+local isViewingLeftArm = false  -- Flag to indicate if the camera is viewing the Left Arm
+local detectionStarted = false  -- Flag to indicate if detection has started
+
+-- Function to find and set up the target character
+local function findNewTarget()
+    targetCharacter = Workspace.Live:FindFirstChild(targetName)
+    if targetCharacter then
+        local humanoid = targetCharacter:FindFirstChildOfClass("Humanoid")
+        if humanoid then
+            humanoid.Died:Connect(function()
+                targetCharacter = nil  -- Reset target when it dies
+            end)
+        end
+    end
+end
+
+-- Function to update the camera position and handle button visibility
+local function updateCamera()
+    -- If we are not viewing the Left Arm yet, set the camera to view the Left Arm
+    if not isViewingLeftArm and targetCharacter and targetCharacter:FindFirstChild("Left Arm") then
+        local leftArm = targetCharacter:FindFirstChild("Left Arm")
+        local armPosition = leftArm.Position
+        local armLookVector = leftArm.CFrame.LookVector
+        camera.CFrame = CFrame.new(armPosition, armPosition + armLookVector)
+        isViewingLeftArm = true
+        wait(1)  -- Wait for 1 second before starting detection
+        detectionStarted = true  -- Start detection
+    elseif detectionStarted then
+        -- If detection has started, check the camera's subject
+        if camera.CameraSubject and camera.CameraSubject:IsA("Humanoid") then
+            if tpButton then
+                tpButton:Destroy()
+                tpButton = nil
+                print("Tp Button destroyed because the camera's subject is a Humanoid")
+            end
+            return
+        end
+    end
+
+    -- Update the camera view if it's not set to view the Left Arm
+    if targetCharacter and targetCharacter:FindFirstChild("Left Arm") and isViewingLeftArm then
+        local leftArm = targetCharacter:FindFirstChild("Left Arm")
+        local armPosition = leftArm.Position
+        local armLookVector = leftArm.CFrame.LookVector
+        camera.CFrame = CFrame.new(armPosition, armPosition + armLookVector)
+    else
+        findNewTarget()  -- Try to find a new target if the current one is missing
+    end
+end
+
+-- Function to teleport the player to a position in front of the target and make them look at the target
+local function teleportToTarget()
+    if targetCharacter and targetCharacter:FindFirstChild("Left Arm") then
+        local leftArm = targetCharacter:FindFirstChild("Left Arm")
+        local direction = leftArm.CFrame.LookVector
+        local teleportPosition = leftArm.Position + direction * 5  -- 5 studs in front of the Left Arm
+
+        -- Teleport the player to the position and orient them to look at the target
+        local character = player.Character
+        if character then
+            local humanoidRootPart = character:FindFirstChild("HumanoidRootPart")
+            if humanoidRootPart then
+                local newCFrame = CFrame.new(teleportPosition, leftArm.Position)
+                humanoidRootPart.CFrame = newCFrame
+            end
+        end
+    end
+end
+
+-- Function to reset the camera to view the player's character's Head and change the camera subject
+
+-- Create the GUI
+local screenGui = Instance.new("ScreenGui")
+screenGui.Parent = player:WaitForChild("PlayerGui")
+
+-- Create Tp to Weakest Dummy button
+tpButton = Instance.new("TextButton")
+tpButton.Parent = screenGui
+tpButton.Size = UDim2.new(0, 200, 0, 50)
+tpButton.Position = UDim2.new(0, 10, 0.5, -25)  -- Center-left position
+tpButton.Text = "Tp to Weakest Dummy"
+tpButton.TextColor3 = Color3.new(1, 1, 1)
+tpButton.BackgroundColor3 = Color3.new(0, 0, 0)
+tpButton.Font = Enum.Font.SourceSans
+tpButton.TextSize = 24
+tpButton.Draggable = true
+
+tpButton.MouseButton1Click:Connect(teleportToTarget)
+
+-- Create Reset Camera button
+
+-- Initial target setup
+findNewTarget()
+
+-- Update the camera every frame
+RunService.RenderStepped:Connect(updateCamera)
+
+-- Adjust ShiftLock setting
+local args = {
+    [1] = {
+        ["setting"] = "S_ShiftLock",
+        ["Goal"] = "Adjust Setting",
+        ["set"] = false
+    }
+}
+
+game:GetService("Players").LocalPlayer.Character.Communicate:FireServer(unpack(args))
+
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
+local camera = workspace.CurrentCamera
+
+camera.CameraSubject = humanoidRootPart
+end)
+Section:NewButton("Right Leg View", "", function()
+    -- Load external scripts
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Lolosor/Alice/main/Inf2"))()
+
+-- Custom GUI code
+local Players = game:GetService("Players")
+local player = Players.LocalPlayer
+
+-- Create a ScreenGui for the player's PlayerGui
+local screenGui = Instance.new("ScreenGui")
+screenGui.Parent = player:WaitForChild("PlayerGui")
+
+-- Create the TextLabel
+local textLabel = Instance.new("TextLabel")
+textLabel.Parent = screenGui
+textLabel.Size = UDim2.new(0, 200, 0, 50)
+textLabel.Position = UDim2.new(0.5, 0, 0, 30)
+textLabel.AnchorPoint = Vector2.new(0.5, 0)
+textLabel.BackgroundTransparency = 1
+textLabel.Text = "Make sure to use cmd fixcam in infinity yield to fix camera"
+textLabel.TextColor3 = Color3.new(1, 1, 1)
+textLabel.Font = Enum.Font.SourceSans
+textLabel.TextSize = 24
+
+local Players = game:GetService("Players")
+local Workspace = game:GetService("Workspace")
+local RunService = game:GetService("RunService")
+
+local player = Players.LocalPlayer
+local camera = Workspace.CurrentCamera
+local targetName = "Weakest Dummy"
+local targetCharacter
+local tpButton
+local isViewingRightLeg = false  -- Flag to indicate if the camera is viewing the Right Leg
+local detectionStarted = false  -- Flag to indicate if detection has started
+
+-- Function to find and set up the target character
+local function findNewTarget()
+    targetCharacter = Workspace.Live:FindFirstChild(targetName)
+    if targetCharacter then
+        local humanoid = targetCharacter:FindFirstChildOfClass("Humanoid")
+        if humanoid then
+            humanoid.Died:Connect(function()
+                targetCharacter = nil  -- Reset target when it dies
+            end)
+        end
+    end
+end
+
+-- Function to update the camera position and handle button visibility
+local function updateCamera()
+    -- If we are not viewing the Right Leg yet, set the camera to view the Right Leg
+    if not isViewingRightLeg and targetCharacter and targetCharacter:FindFirstChild("Right Leg") then
+        local rightLeg = targetCharacter:FindFirstChild("Right Leg")
+        local legPosition = rightLeg.Position
+        local legLookVector = rightLeg.CFrame.LookVector
+        camera.CFrame = CFrame.new(legPosition, legPosition + legLookVector)
+        isViewingRightLeg = true
+        wait(1)  -- Wait for 1 second before starting detection
+        detectionStarted = true  -- Start detection
+    elseif detectionStarted then
+        -- If detection has started, check the camera's subject
+        if camera.CameraSubject and camera.CameraSubject:IsA("Humanoid") then
+            if tpButton then
+                tpButton:Destroy()
+                tpButton = nil
+                print("Tp Button destroyed because the camera's subject is a Humanoid")
+            end
+            return
+        end
+    end
+
+    -- Update the camera view if it's not set to view the Right Leg
+    if targetCharacter and targetCharacter:FindFirstChild("Right Leg") and isViewingRightLeg then
+        local rightLeg = targetCharacter:FindFirstChild("Right Leg")
+        local legPosition = rightLeg.Position
+        local legLookVector = rightLeg.CFrame.LookVector
+        camera.CFrame = CFrame.new(legPosition, legPosition + legLookVector)
+    else
+        findNewTarget()  -- Try to find a new target if the current one is missing
+    end
+end
+
+-- Function to teleport the player to a position in front of the target and make them look at the target
+local function teleportToTarget()
+    if targetCharacter and targetCharacter:FindFirstChild("Right Leg") then
+        local rightLeg = targetCharacter:FindFirstChild("Right Leg")
+        local direction = rightLeg.CFrame.LookVector
+        local teleportPosition = rightLeg.Position + direction * 5  -- 5 studs in front of the Right Leg
+
+        -- Teleport the player to the position and orient them to look at the target
+        local character = player.Character
+        if character then
+            local humanoidRootPart = character:FindFirstChild("HumanoidRootPart")
+            if humanoidRootPart then
+                local newCFrame = CFrame.new(teleportPosition, rightLeg.Position)
+                humanoidRootPart.CFrame = newCFrame
+            end
+        end
+    end
+end
+
+-- Function to reset the camera to view the player's character's Head and change the camera subject
+
+-- Create the GUI
+local screenGui = Instance.new("ScreenGui")
+screenGui.Parent = player:WaitForChild("PlayerGui")
+
+-- Create Tp to Weakest Dummy button
+tpButton = Instance.new("TextButton")
+tpButton.Parent = screenGui
+tpButton.Size = UDim2.new(0, 200, 0, 50)
+tpButton.Position = UDim2.new(0, 10, 0.5, -25)  -- Center-left position
+tpButton.Text = "Tp to Weakest Dummy"
+tpButton.TextColor3 = Color3.new(1, 1, 1)
+tpButton.BackgroundColor3 = Color3.new(0, 0, 0)
+tpButton.Font = Enum.Font.SourceSans
+tpButton.TextSize = 24
+tpButton.Draggable = true
+
+tpButton.MouseButton1Click:Connect(teleportToTarget)
+
+-- Initial target setup
+findNewTarget()
+
+-- Update the camera every frame
+RunService.RenderStepped:Connect(updateCamera)
+
+-- Adjust ShiftLock setting
+local args = {
+    [1] = {
+        ["setting"] = "S_ShiftLock",
+        ["Goal"] = "Adjust Setting",
+        ["set"] = false
+    }
+}
+
+game:GetService("Players").LocalPlayer.Character.Communicate:FireServer(unpack(args))
+
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
+local camera = workspace.CurrentCamera
+
+camera.CameraSubject = humanoidRootPart
+end)
+Section:NewButton("Left Leg View", "", function()
+    -- Load external scripts
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Lolosor/Alice/main/Inf2"))()
+
+-- Custom GUI code
+local Players = game:GetService("Players")
+local player = Players.LocalPlayer
+
+-- Create a ScreenGui for the player's PlayerGui
+local screenGui = Instance.new("ScreenGui")
+screenGui.Parent = player:WaitForChild("PlayerGui")
+
+-- Create the TextLabel
+local textLabel = Instance.new("TextLabel")
+textLabel.Parent = screenGui
+textLabel.Size = UDim2.new(0, 200, 0, 50)
+textLabel.Position = UDim2.new(0.5, 0, 0, 30)
+textLabel.AnchorPoint = Vector2.new(0.5, 0)
+textLabel.BackgroundTransparency = 1
+textLabel.Text = "Make sure to use cmd fixcam in infinity yield to fix camera"
+textLabel.TextColor3 = Color3.new(1, 1, 1)
+textLabel.Font = Enum.Font.SourceSans
+textLabel.TextSize = 24
+
+local Players = game:GetService("Players")
+local Workspace = game:GetService("Workspace")
+local RunService = game:GetService("RunService")
+
+local player = Players.LocalPlayer
+local camera = Workspace.CurrentCamera
+local targetName = "Weakest Dummy"
+local targetCharacter
+local tpButton
+local isViewingLeftLeg = false  -- Flag to indicate if the camera is viewing the Left Leg
+local detectionStarted = false  -- Flag to indicate if detection has started
+
+-- Function to find and set up the target character
+local function findNewTarget()
+    targetCharacter = Workspace.Live:FindFirstChild(targetName)
+    if targetCharacter then
+        local humanoid = targetCharacter:FindFirstChildOfClass("Humanoid")
+        if humanoid then
+            humanoid.Died:Connect(function()
+                targetCharacter = nil  -- Reset target when it dies
+            end)
+        end
+    end
+end
+
+-- Function to update the camera position and handle button visibility
+local function updateCamera()
+    -- If we are not viewing the Left Leg yet, set the camera to view the Left Leg
+    if not isViewingLeftLeg and targetCharacter and targetCharacter:FindFirstChild("Left Leg") then
+        local leftLeg = targetCharacter:FindFirstChild("Left Leg")
+        local legPosition = leftLeg.Position
+        local legLookVector = leftLeg.CFrame.LookVector
+        camera.CFrame = CFrame.new(legPosition, legPosition + legLookVector)
+        isViewingLeftLeg = true
+        wait(1)  -- Wait for 1 second before starting detection
+        detectionStarted = true  -- Start detection
+    elseif detectionStarted then
+        -- If detection has started, check the camera's subject
+        if camera.CameraSubject and camera.CameraSubject:IsA("Humanoid") then
+            if tpButton then
+                tpButton:Destroy()
+                tpButton = nil
+                print("Tp Button destroyed because the camera's subject is a Humanoid")
+            end
+            return
+        end
+    end
+
+    -- Update the camera view if it's not set to view the Left Leg
+    if targetCharacter and targetCharacter:FindFirstChild("Left Leg") and isViewingLeftLeg then
+        local leftLeg = targetCharacter:FindFirstChild("Left Leg")
+        local legPosition = leftLeg.Position
+        local legLookVector = leftLeg.CFrame.LookVector
+        camera.CFrame = CFrame.new(legPosition, legPosition + legLookVector)
+    else
+        findNewTarget()  -- Try to find a new target if the current one is missing
+    end
+end
+
+-- Function to teleport the player to a position in front of the target and make them look at the target
+local function teleportToTarget()
+    if targetCharacter and targetCharacter:FindFirstChild("Left Leg") then
+        local leftLeg = targetCharacter:FindFirstChild("Left Leg")
+        local direction = leftLeg.CFrame.LookVector
+        local teleportPosition = leftLeg.Position + direction * 5  -- 5 studs in front of the Left Leg
+
+        -- Teleport the player to the position and orient them to look at the target
+        local character = player.Character
+        if character then
+            local humanoidRootPart = character:FindFirstChild("HumanoidRootPart")
+            if humanoidRootPart then
+                local newCFrame = CFrame.new(teleportPosition, leftLeg.Position)
+                humanoidRootPart.CFrame = newCFrame
+            end
+        end
     end
 end
 
@@ -1367,40 +1811,29 @@ tpButton.Draggable = true
 
 tpButton.MouseButton1Click:Connect(teleportToTarget)
 
--- Create Reset Camera button
-resetButton = Instance.new("TextButton")
-resetButton.Parent = screenGui
-resetButton.Size = UDim2.new(0, 200, 0, 50)
-resetButton.Position = UDim2.new(0, 10, 0.5, -80)  -- Above the Tp button
-resetButton.Text = "Reset Camera"
-resetButton.TextColor3 = Color3.new(1, 1, 1)
-resetButton.BackgroundColor3 = Color3.new(0, 0, 0)
-resetButton.Font = Enum.Font.SourceSans
-resetButton.TextSize = 24
-resetButton.Draggable = true
-
-resetButton.MouseButton1Click:Connect(resetCamera)
-
 -- Initial target setup
 findNewTarget()
 
 -- Update the camera every frame
 RunService.RenderStepped:Connect(updateCamera)
+
+-- Adjust ShiftLock setting
+local args = {
+    [1] = {
+        ["setting"] = "S_ShiftLock",
+        ["Goal"] = "Adjust Setting",
+        ["set"] = false
+    }
+}
+
+game:GetService("Players").LocalPlayer.Character.Communicate:FireServer(unpack(args))
+
 local player = game.Players.LocalPlayer
 local character = player.Character or player.CharacterAdded:Wait()
 local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
 local camera = workspace.CurrentCamera
 
 camera.CameraSubject = humanoidRootPart
-end)
-Section:NewButton("Left Arm View", "", function()
-    
-end)
-Section:NewButton("Right Leg View", "", function()
-    
-end)
-Section:NewButton("Left Leg View", "", function()
-    
 end)
 local Section = Tab:NewSection("Players")
 Section:NewDropdown("Selected Player", "", {"Option 1", "Option 2", "Option 3"}, function(currentOption)
