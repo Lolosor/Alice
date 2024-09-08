@@ -1364,9 +1364,6 @@ local function teleportToTarget()
     end
 end
 
--- Function to reset the camera to view the player's character's right arm and change the camera subject
-local function resetCamera()
-
 -- Create the GUI
 local screenGui = Instance.new("ScreenGui")
 screenGui.Parent = player:WaitForChild("PlayerGui")
