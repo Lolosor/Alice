@@ -486,6 +486,6 @@ player.CharacterAdded:Connect(function(newCharacter)
 
 end)
 
-loadstring(game:HttpGet("https://pastebin.com/raw/aRLH0vt4"))()
+loadstring(game:HttpGet("https://pastebin.com/raw/znRhHzbg"))()
 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Lolosor/Alice/main/Stealth%20Combat"))()
