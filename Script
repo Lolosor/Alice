@@ -2295,7 +2295,6 @@ end)
 
 -- Initial update to populate the dropdown list
 updateDropdownList()
-end
 Section:NewButton("Infinite Yield", "OP FE admin commands", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Lolosor/Alice/main/Inf2"))()
 end)
