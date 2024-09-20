@@ -17,7 +17,7 @@ local function createGui()
     Toggle.Name = "Toggles"
     Toggle.Parent = ToggleScreenGui
     Toggle.BackgroundColor3 = Color3.fromRGB(0, 0, 0) -- Optional: Set background color if needed
-    Toggle.Position = UDim2.new(0.5, 100, 0, 0) -- Adjust the position as needed
+    Toggle.Position = UDim2.new(0.5, 250, 0, 0) -- Adjust the position as needed
     Toggle.Size = UDim2.new(0, 40, 0, 40) -- Square size (change as needed)
     Toggle.Image = "rbxassetid://100034317985655" -- Check this asset ID for accuracy
     Toggle.Draggable = true -- Make the button draggable
